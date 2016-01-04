@@ -33,8 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,10 +55,66 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="EntityModel\Books.cs">
+      <DependentUpon>ModelLib.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\History.cs">
+      <DependentUpon>ModelLib.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\ModelLib.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLib.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\ModelLib.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLib.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\ModelLib.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLib.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\Rented.cs">
+      <DependentUpon>ModelLib.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\Role.cs">
+      <DependentUpon>ModelLib.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\Type.cs">
+      <DependentUpon>ModelLib.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\User.cs">
+      <DependentUpon>ModelLib.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="EntityModel\ModelLib.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelLib.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityModel\ModelLib.edmx.diagram">
+      <DependentUpon>ModelLib.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EntityModel\ModelLib.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelLib.edmx</DependentUpon>
+      <LastGenOutput>ModelLib.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityModel\ModelLib.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelLib.edmx</DependentUpon>
+      <LastGenOutput>ModelLib.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

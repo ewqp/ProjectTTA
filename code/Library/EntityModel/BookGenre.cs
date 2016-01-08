@@ -12,18 +12,18 @@ namespace Library.EntityModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class BookGenre
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public BookGenre()
         {
-            this.User = new HashSet<User>();
+            this.Book = new HashSet<Book>();
         }
     
-        public int IdRole { get; set; }
-        public string Role1 { get; set; }
+        public int IdGenre { get; set; }
+        public string Genre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<Book> Book { get; set; }
     }
 }

@@ -15,11 +15,11 @@ namespace Library.EntityModel
     public partial class History
     {
         public int IdHistory { get; set; }
-        public int IdBooks { get; set; }
-        public int IdUser { get; set; }
         public short Returned { get; set; }
+        public int IdUser { get; set; }
+        public int IdBook { get; set; }
     
-        public virtual Books Books { get; set; }
+        public virtual Book Book { get; set; }
         public virtual User User { get; set; }
     }
 }

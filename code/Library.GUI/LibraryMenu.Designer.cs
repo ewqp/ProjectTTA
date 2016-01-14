@@ -42,12 +42,12 @@
             this.btnAddAuthor = new System.Windows.Forms.Button();
             this.groupBoxBooks = new System.Windows.Forms.GroupBox();
             this.groupBoxLibraryOperation = new System.Windows.Forms.GroupBox();
+            this.btnShowHist = new System.Windows.Forms.Button();
             this.btnBookReturn = new System.Windows.Forms.Button();
             this.btnBookRent = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblHello = new System.Windows.Forms.Label();
-            this.btnShowHist = new System.Windows.Forms.Button();
             this.groupBoxDBOperation.SuspendLayout();
             this.groupBoxUser.SuspendLayout();
             this.groupBoxGenre.SuspendLayout();
@@ -225,6 +225,16 @@
             this.groupBoxLibraryOperation.TabStop = false;
             this.groupBoxLibraryOperation.Text = "Library Operations";
             // 
+            // btnShowHist
+            // 
+            this.btnShowHist.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnShowHist.Location = new System.Drawing.Point(3, 105);
+            this.btnShowHist.Name = "btnShowHist";
+            this.btnShowHist.Size = new System.Drawing.Size(519, 47);
+            this.btnShowHist.TabIndex = 2;
+            this.btnShowHist.Text = "Show History";
+            this.btnShowHist.UseVisualStyleBackColor = true;
+            // 
             // btnBookReturn
             // 
             this.btnBookReturn.Dock = System.Windows.Forms.DockStyle.Top;
@@ -275,16 +285,6 @@
             this.lblHello.Size = new System.Drawing.Size(47, 15);
             this.lblHello.TabIndex = 3;
             this.lblHello.Text = "label1";
-            // 
-            // btnShowHist
-            // 
-            this.btnShowHist.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnShowHist.Location = new System.Drawing.Point(3, 105);
-            this.btnShowHist.Name = "btnShowHist";
-            this.btnShowHist.Size = new System.Drawing.Size(519, 47);
-            this.btnShowHist.TabIndex = 2;
-            this.btnShowHist.Text = "Show History";
-            this.btnShowHist.UseVisualStyleBackColor = true;
             // 
             // LibraryMenu
             // 

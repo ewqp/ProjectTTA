@@ -53,7 +53,6 @@ namespace Library.GUI
                                         || b.Surname.Contains(comboBoxAuthor.Text)).ToList();
                 comboBoxAuthor.DataSource = list.Count > 0 && !string.IsNullOrEmpty(comboBoxAuthor.Text)
                                         ? list : _authorList;
-
             }
         }
 

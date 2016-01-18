@@ -16,7 +16,7 @@ namespace Library.GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LibraryMenu());
+            Application.Run(new EditBook());
         }
     }
 }

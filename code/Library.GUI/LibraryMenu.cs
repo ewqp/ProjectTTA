@@ -18,10 +18,10 @@ namespace Library.GUI
             new LogIn().ShowDialog();
             InitializeComponent();
 
-            if (UserInfo.UserRole == "Administrator")
+            if (UserInfoStatic.UserRole == "Administrator")
                 groupBoxDBOperation.Visible = true;
             
-            lblHello.Text = string.Format("Hello {0} {1}", UserInfo.Name, UserInfo.Surname);
+            lblHello.Text = string.Format("Hello {0} {1}", UserInfoStatic.Name, UserInfoStatic.Surname);
         }
 
         private void btnAddBook_Click(object sender, EventArgs e)
@@ -36,17 +36,17 @@ namespace Library.GUI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {            
-            UserInfo.Name = "";
-            UserInfo.Surname = "";
-            UserInfo.UserRole = "";
+            UserInfoStatic.Name = "";
+            UserInfoStatic.Surname = "";
+            UserInfoStatic.UserRole = "";
             new LogIn().ShowDialog();
 
-            if (UserInfo.UserRole == "Administrator")
+            if (UserInfoStatic.UserRole == "Administrator")
                 groupBoxDBOperation.Visible = true;
             else
                 groupBoxDBOperation.Visible = false;
 
-            lblHello.Text = string.Format("Hello {0} {1}", UserInfo.Name, UserInfo.Surname);
+            lblHello.Text = string.Format("Hello {0} {1}", UserInfoStatic.Name, UserInfoStatic.Surname);
         }
     }
 }

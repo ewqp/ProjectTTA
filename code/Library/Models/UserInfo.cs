@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Library.Models
 {
-    static public class UserInfo
+    public class UserInfo : EntityModel.User
     {
-        static public string Name { get; set; }
-        static public string Surname { get; set; }
-        static public string UserRole { get; set; }
+        private string name;
+        public string FullUserName { get { name = string.Format("{0} {1}", Name, Surname); return name; } set { name = value; } }
+        public string UserRole { get; set; }
     }
 }

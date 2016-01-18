@@ -57,7 +57,7 @@
           <Property Name="IdUserRole" Type="int" Nullable="false" />
           <Property Name="UserPassword" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="UserRole">
+        <EntityType Name="UserRoles">
           <Key>
             <PropertyRef Name="IdUserRole" />
           </Key>
@@ -136,11 +136,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
         <Association Name="FK__User__IdUserRole__22AA2996">
           <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+=======
+        <Association Name="FK__User__IdUserRole__48CFD27E">
+          <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="1" />
+>>>>>>> ea1a3df9634a82ce7c2443737962338877472836
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="UserRole">
+            <Principal Role="UserRoles">
               <PropertyRef Name="IdUserRole" />
             </Principal>
             <Dependent Role="User">
@@ -155,8 +160,13 @@
           <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rented" EntityType="Self.Rented" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+<<<<<<< HEAD
           <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Book__IdAuthor__1CF15040" Association="Self.FK__Book__IdAuthor__1CF15040">
+=======
+          <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Book__IdAuthor__4CA06362" Association="Self.FK__Book__IdAuthor__4CA06362">
+>>>>>>> ea1a3df9634a82ce7c2443737962338877472836
             <End Role="Author" EntitySet="Author" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
@@ -180,8 +190,13 @@
             <End Role="User" EntitySet="User" />
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
+<<<<<<< HEAD
           <AssociationSet Name="FK__User__IdUserRole__22AA2996" Association="Self.FK__User__IdUserRole__22AA2996">
             <End Role="UserRole" EntitySet="UserRole" />
+=======
+          <AssociationSet Name="FK__User__IdUserRole__48CFD27E" Association="Self.FK__User__IdUserRole__48CFD27E">
+            <End Role="UserRoles" EntitySet="UserRoles" />
+>>>>>>> ea1a3df9634a82ce7c2443737962338877472836
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
@@ -196,7 +211,7 @@
           <EntitySet Name="History" EntityType="Model.History" />
           <EntitySet Name="Rented" EntityType="Model.Rented" />
           <EntitySet Name="User" EntityType="Model.User" />
-          <EntitySet Name="UserRole" EntityType="Model.UserRole" />
+          <EntitySet Name="UserRoles" EntityType="Model.UserRoles" />
           <AssociationSet Name="FK__Book__IdAuthor__4CA06362" Association="Model.FK__Book__IdAuthor__4CA06362">
             <End Role="Author" EntitySet="Author" />
             <End Role="Book" EntitySet="Book" />
@@ -222,7 +237,7 @@
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
           <AssociationSet Name="FK__User__IdUserRole__48CFD27E" Association="Model.FK__User__IdUserRole__48CFD27E">
-            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="UserRoles" EntitySet="UserRoles" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
@@ -289,15 +304,15 @@
           <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="History" Relationship="Model.FK__History__IdUser__3D5E1FD2" FromRole="User" ToRole="History" />
           <NavigationProperty Name="Rented" Relationship="Model.FK__Rented__IdUser__440B1D61" FromRole="User" ToRole="Rented" />
-          <NavigationProperty Name="UserRole" Relationship="Model.FK__User__IdUserRole__48CFD27E" FromRole="User" ToRole="UserRole" />
+          <NavigationProperty Name="UserRoles" Relationship="Model.FK__User__IdUserRole__48CFD27E" FromRole="User" ToRole="UserRoles" />
         </EntityType>
-        <EntityType Name="UserRole">
+        <EntityType Name="UserRoles">
           <Key>
             <PropertyRef Name="IdUserRole" />
           </Key>
           <Property Name="IdUserRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserRole1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="User" Relationship="Model.FK__User__IdUserRole__48CFD27E" FromRole="UserRole" ToRole="User" />
+          <Property Name="UserRole" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="Model.FK__User__IdUserRole__48CFD27E" FromRole="UserRoles" ToRole="User" />
         </EntityType>
         <Association Name="FK__Book__IdAuthor__4CA06362">
           <End Type="Model.Author" Role="Author" Multiplicity="1" />
@@ -372,10 +387,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__User__IdUserRole__48CFD27E">
-          <End Type="Model.UserRole" Role="UserRole" Multiplicity="1" />
+          <End Type="Model.UserRoles" Role="UserRoles" Multiplicity="1" />
           <End Type="Model.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="UserRole">
+            <Principal Role="UserRoles">
               <PropertyRef Name="IdUserRole" />
             </Principal>
             <Dependent Role="User">
@@ -447,10 +462,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserRole">
-            <EntityTypeMapping TypeName="Model.UserRole">
-              <MappingFragment StoreEntitySet="UserRole">
-                <ScalarProperty Name="UserRole1" ColumnName="UserRole" />
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="Model.UserRoles">
+              <MappingFragment StoreEntitySet="UserRoles">
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
                 <ScalarProperty Name="IdUserRole" ColumnName="IdUserRole" />
               </MappingFragment>
             </EntityTypeMapping>

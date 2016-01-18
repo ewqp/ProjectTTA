@@ -12,16 +12,16 @@ namespace Library.EntityModel
     using System;
     using System.Collections.Generic;
     
-    public partial class UserRole
+    public partial class UserRoles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserRole()
+        public UserRoles()
         {
             this.User = new HashSet<User>();
         }
     
         public int IdUserRole { get; set; }
-        public string UserRole1 { get; set; }
+        public string UserRole { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> User { get; set; }

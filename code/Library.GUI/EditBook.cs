@@ -46,13 +46,13 @@ namespace Library.GUI
             dataGridSearchBook.AutoGenerateColumns = false; //wylaczenie auto generowania
             dataGridSearchBook.DataSource = _booksList; //ustawienie datasource
             dataGridSearchBook.Columns["Title"].DataPropertyName = "Title";
-            dataGridSearchBook.Columns["Author"].DataPropertyName = "Fullname";
+            dataGridSearchBook.Columns["Author"].DataPropertyName = "FullName";
             dataGridSearchBook.Columns["Genre"].DataPropertyName = "Genre";
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            List<BookInfo> list = _booksList.Where(b => b.Title.Contains(textBoxSearch.Text)).ToList();
+            List<BookInfo> list = _booksList.Where(b => b.Title.Contains(textBoxSearch.Text) || b.FullName.Contains(textBoxSearch.Text)).ToList();
 
             dataGridSearchBook.DataSource = list;
         }
@@ -77,16 +77,22 @@ namespace Library.GUI
         }
 
         private void btnUpdateBook_Click(object sender, EventArgs e)
-        {             
+        {
             int idBook = ((Models.BookInfo)dataGridSearchBook.CurrentRow.DataBoundItem).IdBook;
             string title = textBoxTitle.Text;
-            int idAuthor = Convert.ToInt32(comboBoxAuthor.SelectedValue); 
-            int idGenre = Convert.ToInt32(comboBoxBookGenre.SelectedValue); 
+            int idAuthor = Convert.ToInt32(comboBoxAuthor.SelectedValue);
+            int idGenre = Convert.ToInt32(comboBoxBookGenre.SelectedValue);
 
-            string bookUpdated =_dbBook.UpdateBook(idBook, title, idAuthor, idGenre);
+            int bookmarkRowIndex = dataGridSearchBook.CurrentCell.RowIndex;
+            int bookmarkColumnIndex = dataGridSearchBook.CurrentCell.ColumnIndex;            
+
+            string bookUpdated = _dbBook.UpdateBook(idBook, title, idAuthor, idGenre);
 
             _booksList = _dbBook.GetAllBooksInfo();
             dataGridSearchBook.DataSource = _booksList;
+
+            dataGridSearchBook.CurrentCell = dataGridSearchBook.Rows[bookmarkRowIndex].Cells[bookmarkColumnIndex];
+    
         }
 
         private void buttonDeleteBook_Click(object sender, EventArgs e)
@@ -103,5 +109,6 @@ namespace Library.GUI
         {
             this.Close();
         }
+
     }
 }

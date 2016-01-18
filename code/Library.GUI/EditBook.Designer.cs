@@ -149,7 +149,7 @@
             this.dataGridSearchBook.Location = new System.Drawing.Point(431, 0);
             this.dataGridSearchBook.Name = "dataGridSearchBook";
             this.dataGridSearchBook.Size = new System.Drawing.Size(427, 345);
-            this.dataGridSearchBook.TabIndex = 20;
+            this.dataGridSearchBook.TabIndex = 20;            
             this.dataGridSearchBook.SelectionChanged += new System.EventHandler(this.dataGridSearchBook_SelectionChanged);
             // 
             // Title

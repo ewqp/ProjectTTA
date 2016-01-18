@@ -65,7 +65,7 @@
     <Compile Include="EntityModel\BookGenre.cs">
       <DependentUpon>ModelLib.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityModel\UserRole.cs">
+    <Compile Include="EntityModel\UserRoles.cs">
       <DependentUpon>ModelLib.tt</DependentUpon>
     </Compile>
     <Compile Include="Logics\Account.cs" />
@@ -102,6 +102,7 @@
     <Compile Include="Models\BookInfo.cs" />
     <Compile Include="Models\UserAllInfo.cs" />
     <Compile Include="Models\UserInfo.cs" />
+    <Compile Include="Models\UserInfoStatic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

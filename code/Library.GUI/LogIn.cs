@@ -37,7 +37,7 @@ namespace Library.GUI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(UserInfo.Name))
+            if (string.IsNullOrEmpty(UserInfoStatic.Name))
                 if (DialogResult.Cancel == MessageBox.Show("You have to enter email and password! Otherwise application shuts down.", "Warning", MessageBoxButtons.OKCancel))
                     Application.Exit();            
         }

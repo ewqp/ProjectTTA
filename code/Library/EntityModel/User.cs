@@ -32,6 +32,6 @@ namespace Library.EntityModel
         public virtual ICollection<History> History { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rented> Rented { get; set; }
-        public virtual UserRole UserRole { get; set; }
+        public virtual UserRoles UserRoles { get; set; }
     }
 }

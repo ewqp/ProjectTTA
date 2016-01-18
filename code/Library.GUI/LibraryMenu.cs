@@ -48,5 +48,15 @@ namespace Library.GUI
 
             lblHello.Text = string.Format("Hello {0} {1}", UserInfo.Name, UserInfo.Surname);
         }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            new AddUser().ShowDialog();
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+            new EditUser().ShowDialog();
+        }
     }
 }

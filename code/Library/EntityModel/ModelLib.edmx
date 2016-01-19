@@ -64,7 +64,7 @@
           <Property Name="IdUserRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserRole" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Book__IdAuthor__4CA06362">
+        <Association Name="FK__Book__IdAuthor__1CF15040">
           <End Role="Author" Type="Self.Author" Multiplicity="1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
@@ -76,7 +76,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Book__IdGenre__5070F446">
+        <Association Name="FK__Book__IdGenre__1DE57479">
           <End Role="BookGenre" Type="Self.BookGenre" Multiplicity="1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
@@ -88,7 +88,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__History__IdBook__44FF419A">
+        <Association Name="FK__History__IdBook__1ED998B2">
           <End Role="Book" Type="Self.Book" Multiplicity="1" />
           <End Role="History" Type="Self.History" Multiplicity="*" />
           <ReferentialConstraint>
@@ -100,7 +100,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__History__IdUser__3D5E1FD2">
+        <Association Name="FK__History__IdUser__1FCDBCEB">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="History" Type="Self.History" Multiplicity="*" />
           <ReferentialConstraint>
@@ -112,7 +112,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rented__IdBook__45F365D3">
+        <Association Name="FK__Rented__IdBook__20C1E124">
           <End Role="Book" Type="Self.Book" Multiplicity="1" />
           <End Role="Rented" Type="Self.Rented" Multiplicity="*" />
           <ReferentialConstraint>
@@ -124,7 +124,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rented__IdUser__440B1D61">
+        <Association Name="FK__Rented__IdUser__21B6055D">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Rented" Type="Self.Rented" Multiplicity="*" />
           <ReferentialConstraint>
@@ -136,8 +136,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
+        <Association Name="FK__User__IdUserRole__22AA2996">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+=======
         <Association Name="FK__User__IdUserRole__48CFD27E">
           <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="1" />
+>>>>>>> ea1a3df9634a82ce7c2443737962338877472836
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserRoles">
@@ -155,33 +160,43 @@
           <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rented" EntityType="Self.Rented" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+<<<<<<< HEAD
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Book__IdAuthor__1CF15040" Association="Self.FK__Book__IdAuthor__1CF15040">
+=======
           <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Book__IdAuthor__4CA06362" Association="Self.FK__Book__IdAuthor__4CA06362">
+>>>>>>> ea1a3df9634a82ce7c2443737962338877472836
             <End Role="Author" EntitySet="Author" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
-          <AssociationSet Name="FK__Book__IdGenre__5070F446" Association="Self.FK__Book__IdGenre__5070F446">
+          <AssociationSet Name="FK__Book__IdGenre__1DE57479" Association="Self.FK__Book__IdGenre__1DE57479">
             <End Role="BookGenre" EntitySet="BookGenre" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
-          <AssociationSet Name="FK__History__IdBook__44FF419A" Association="Self.FK__History__IdBook__44FF419A">
+          <AssociationSet Name="FK__History__IdBook__1ED998B2" Association="Self.FK__History__IdBook__1ED998B2">
             <End Role="Book" EntitySet="Book" />
             <End Role="History" EntitySet="History" />
           </AssociationSet>
-          <AssociationSet Name="FK__History__IdUser__3D5E1FD2" Association="Self.FK__History__IdUser__3D5E1FD2">
+          <AssociationSet Name="FK__History__IdUser__1FCDBCEB" Association="Self.FK__History__IdUser__1FCDBCEB">
             <End Role="User" EntitySet="User" />
             <End Role="History" EntitySet="History" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rented__IdBook__45F365D3" Association="Self.FK__Rented__IdBook__45F365D3">
+          <AssociationSet Name="FK__Rented__IdBook__20C1E124" Association="Self.FK__Rented__IdBook__20C1E124">
             <End Role="Book" EntitySet="Book" />
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rented__IdUser__440B1D61" Association="Self.FK__Rented__IdUser__440B1D61">
+          <AssociationSet Name="FK__Rented__IdUser__21B6055D" Association="Self.FK__Rented__IdUser__21B6055D">
             <End Role="User" EntitySet="User" />
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
+<<<<<<< HEAD
+          <AssociationSet Name="FK__User__IdUserRole__22AA2996" Association="Self.FK__User__IdUserRole__22AA2996">
+            <End Role="UserRole" EntitySet="UserRole" />
+=======
           <AssociationSet Name="FK__User__IdUserRole__48CFD27E" Association="Self.FK__User__IdUserRole__48CFD27E">
             <End Role="UserRoles" EntitySet="UserRoles" />
+>>>>>>> ea1a3df9634a82ce7c2443737962338877472836
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>

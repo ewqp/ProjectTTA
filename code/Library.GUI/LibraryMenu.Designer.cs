@@ -119,6 +119,7 @@
             this.btnEditUser.TabIndex = 1;
             this.btnEditUser.Text = "Edit or delete DB users";
             this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // btnAddUser
             // 
@@ -130,6 +131,7 @@
             this.btnAddUser.TabIndex = 0;
             this.btnAddUser.Text = "Add DB users";
             this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // groupBoxGenre
             // 

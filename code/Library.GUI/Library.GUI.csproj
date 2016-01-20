@@ -55,11 +55,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAuthor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAuthor.Designer.cs">
+      <DependentUpon>AddAuthor.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddBook.Designer.cs">
       <DependentUpon>AddBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddGenre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGenre.Designer.cs">
+      <DependentUpon>AddGenre.cs</DependentUpon>
     </Compile>
     <Compile Include="AddUser.cs">
       <SubType>Form</SubType>
@@ -67,11 +79,23 @@
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditAuthor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAuthor.Designer.cs">
+      <DependentUpon>EditAuthor.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditBook.Designer.cs">
       <DependentUpon>EditBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditGenre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditGenre.Designer.cs">
+      <DependentUpon>EditGenre.cs</DependentUpon>
     </Compile>
     <Compile Include="EditUser.cs">
       <SubType>Form</SubType>
@@ -114,11 +138,20 @@
     <EmbeddedResource Include="AddBook.resx">
       <DependentUpon>AddBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddGenre.resx">
+      <DependentUpon>AddGenre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditAuthor.resx">
+      <DependentUpon>EditAuthor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditBook.resx">
       <DependentUpon>EditBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditGenre.resx">
+      <DependentUpon>EditGenre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditUser.resx">
       <DependentUpon>EditUser.cs</DependentUpon>

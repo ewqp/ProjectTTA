@@ -7,11 +7,32 @@ using Library.Logics;
 using Library.EntityModel;
 
 namespace Library.Logics
-{   
+{
     public class DBAuthor
     {
+        public string AddAuthor(string name, string surname)
+        {
+            try
+            {
+                using (var con = new EntitiesLib())
+                {
+                    var newAuthor = new Author();
+                    newAuthor.Name = name;
+                    newAuthor.Surname = surname;
+
+                    con.Author.Add(newAuthor);
+                    con.SaveChanges();
+                    return "Author added succesfully.";
+                }
+            }
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
+        }
+
         /// <summary>
-        /// List of all book authors in Database.
+        /// List of all authors in Database.
         /// </summary>
         public List<Models.AuthorInfo> GetAllAuthors()
         {
@@ -25,12 +46,12 @@ namespace Library.Logics
                     bookAuthors = con.Author.ToList();
                 }
 
-                foreach(var author in bookAuthors)
+                foreach (var author in bookAuthors)
                 {
                     booksInfo.Add(new Models.AuthorInfo
                     {
-                        AuthorName = author.AuthorName,
-                        AuthorSurname = author.AuthorSurname,
+                        Name = author.Name,
+                        Surname = author.Surname,
                         IdAuthor = author.IdAuthor
                     });
                 }
@@ -41,6 +62,43 @@ namespace Library.Logics
 
             }
             return booksInfo;
-        }        
+        }
+
+        public string UpdateAuthor(int idAuthor, string name, string surname)
+        {
+            try
+            {
+                using (var con = new EntitiesLib())
+                {
+                    var author = con.Author.FirstOrDefault(b => b.IdAuthor == idAuthor);
+                    author.Name = name;
+                    author.Surname = surname;
+                    con.SaveChanges();
+                    return "Author updated succesfully.";
+                }
+            }
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
+        }
+
+        public string DeleteAuthor(int idAuthor)
+        {
+            try
+            {
+                using (var con = new EntitiesLib())
+                {
+                    var author = con.Author.FirstOrDefault(b => b.IdAuthor == idAuthor);
+                    con.Author.Remove(author);
+                    con.SaveChanges();
+                    return "Author deleted succesfully.";
+                }
+            }
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
+        }
     }
 }

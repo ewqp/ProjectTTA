@@ -53,7 +53,6 @@
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(248, 20);
             this.textBoxTitle.TabIndex = 1;
-            this.textBoxTitle.TextChanged += new System.EventHandler(this.textBoxTitle_TextChanged);
             // 
             // labelAuthor
             // 

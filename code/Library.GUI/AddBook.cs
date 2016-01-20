@@ -28,7 +28,7 @@ namespace Library.GUI
 
             comboBoxAuthor.DataSource = _dbAuthor.GetAllAuthors();
             comboBoxAuthor.ValueMember = "IdAuthor";
-            comboBoxAuthor.DisplayMember = "FullName";
+            comboBoxAuthor.DisplayMember = "FullAuthorName";
 
             comboBoxBookGenre.DataSource = _dbGenre.GetAllBookGenres();
             comboBoxBookGenre.ValueMember = "IdGenre";
@@ -38,19 +38,14 @@ namespace Library.GUI
         private void buttonSaveBook_Click(object sender, EventArgs e)
         {
             string result = _dbBook.AddBook(textBoxTitle.Text, Convert.ToInt32(comboBoxAuthor.SelectedValue), Convert.ToInt32(comboBoxAuthor.SelectedValue));
-        }
-
-        private void textBoxTitle_TextChanged(object sender, EventArgs e)
-        {
-
+            
         }
 
         private void comboBoxAuthor_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                var list = _authorList.Where(b => b.Name.Contains(comboBoxAuthor.Text)
-                                        || b.Surname.Contains(comboBoxAuthor.Text)).ToList();
+                var list = _authorList.Where(b => b.FullAuthorName.Contains(comboBoxAuthor.Text)).ToList();
                 comboBoxAuthor.DataSource = list.Count > 0 && !string.IsNullOrEmpty(comboBoxAuthor.Text)
                                         ? list : _authorList;
             }

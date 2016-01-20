@@ -17,14 +17,23 @@ namespace Library.GUI
         private DBBook _dbBook = new DBBook();
         private DBAuthor _dbAuthor = new DBAuthor();
         private DBGenre _dbGenre = new DBGenre();
-        private DBUser _dbUser = new DBUser();
+        private DBRented _dbRented = new DBRented();
+        private DBHistory _dbHistory = new DBHistory();
+        private DBAccount _dbAccount = new DBAccount();
         private List<BookInfo> _booksList;
-        private List<UserInfo> _usersList;
+        private List<RentInfo> _entriesList;
+        private List<HistoryInfo> _logsList;
+        private List<AccountInfo> _accountsList;
+
         public RentBooks()
         {
             InitializeComponent();
             _booksList = _dbBook.GetAllBooksInfo();
-            _usersList = _dbUser.GetAllUsersInfo();
+            _entriesList = _dbRented.GetAllEntriesInfo();
+            //if (_entriesList.Any(e => e.Error != null))
+              //  labelPrzyklad.text = _entriesList.FirstOrDefault(e => e.Error != null));
+            _logsList = _dbHistory.GetAllHistoryLogsInfo();
+            _accountsList = _dbAccount.GetAllAccountsInfo();
             SetDataGrid();
         }
         /// <summary>
@@ -32,30 +41,90 @@ namespace Library.GUI
         /// </summary>
         private void SetDataGrid()
         {
-            dataGridUsers.AutoGenerateColumns = false; //wylaczenie auto generowania
-            dataGridUsers.DataSource = _usersList; //ustawienie datasource
-            dataGridUsers.Columns["userFullName"].DataPropertyName = "FullUserName";
-            dataGridUsers.Columns["userEmail"].DataPropertyName = "Email";
+            dataGridAccounts.AutoGenerateColumns = false; //wylaczenie auto generowania
+            dataGridAccounts.DataSource = _accountsList; //ustawienie datasource
+            dataGridAccounts.Columns["accountName"].DataPropertyName = "FullAccountName";
+            dataGridAccounts.Columns["accountEmail"].DataPropertyName = "AccountEmail";
 
             dataGridRent.AutoGenerateColumns = false; //wylaczenie auto generowania
             dataGridRent.DataSource = _booksList; //ustawienie datasource
             dataGridRent.Columns["Title"].DataPropertyName = "Title";
-            dataGridRent.Columns["Author"].DataPropertyName = "FullName";
+            dataGridRent.Columns["Author"].DataPropertyName = "FullAuthorName";
             dataGridRent.Columns["Genre"].DataPropertyName = "Genre";
         }
 
-        private void textBoxUser_TextChanged(object sender, EventArgs e)
+        private void textBoxAccount_TextChanged(object sender, EventArgs e)
         {
-            List<UserInfo> listU = _usersList.Where(u => u.Surname.Contains(textBoxUser.Text)).ToList();
-
-            dataGridUsers.DataSource = listU;
+            List<AccountInfo> listA = _accountsList.Where(a => a.FullAccountName.Contains(textBoxAccount.Text)).ToList();
+                
+            dataGridAccounts.DataSource = listA;
         }
 
         private void txtBoxBook_TextChanged(object sender, EventArgs e)
         {
-            List<BookInfo> listB = _booksList.Where(b => b.Title.Contains(txtBoxBook.Text)).ToList();
+            List<BookInfo> listB = _booksList.Where(b => b.Title.Contains(txtBoxBook.Text) || b.AuthorSurname.Contains(txtBoxBook.Text)).ToList();
 
             dataGridRent.DataSource = listB;
         }
+
+        private void dataGridAccounts_Click(object sender, EventArgs e)
+        {
+            dataGridAccounts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in dataGridAccounts.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+            }
+        }
+
+        private void dataGridRent_Click(object sender, EventArgs e)
+        {
+            dataGridRent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in dataGridRent.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int idAccount = ((AccountInfo)dataGridAccounts.CurrentRow.DataBoundItem).IdAccount;            
+            int idBook = ((BookInfo)dataGridRent.CurrentRow.DataBoundItem).IdBook;
+            int idAuthor = ((BookInfo)dataGridRent.CurrentRow.DataBoundItem).IdAuthor;
+            DateTime rentDate = DateTime.Now;
+
+            int bookmarkRowIndexA = dataGridAccounts.CurrentCell.RowIndex;
+            int bookmarkColumnIndexA = dataGridAccounts.CurrentCell.ColumnIndex;
+            int bookmarkRowIndexB = dataGridRent.CurrentCell.RowIndex;
+            int bookmarkColumnIndexB = dataGridRent.CurrentCell.ColumnIndex;
+
+            string entryAdded = _dbRented.AddRentEntry(idAccount, idBook, idAuthor, rentDate);
+            string logAdded = _dbHistory.AddHistoryEntry(idAccount, idBook, idAuthor, rentDate, 0);
+
+            dataGridAccounts.DataSource = _dbAccount.GetAllAccountsInfo();
+            _booksList = _dbBook.GetAllBooksInfo();
+            dataGridRent.DataSource = _booksList;
+            
+            dataGridAccounts.CurrentCell = dataGridAccounts.Rows[bookmarkRowIndexA].Cells[bookmarkColumnIndexA];
+            dataGridRent.CurrentCell = dataGridRent.Rows[bookmarkRowIndexB].Cells[bookmarkColumnIndexB];
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
     }
 }

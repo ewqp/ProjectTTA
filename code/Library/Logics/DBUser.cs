@@ -10,6 +10,84 @@ namespace Library.Logics
 {
     public class DBUser
     {
+        /// <summary>
+        /// Adding new user
+        /// </summary>
+        public string AddUser(string name, string surname, string email, int idUserRole, string userPassword)
+        {
+            try
+            {
+                using (var con = new EntitiesLib())
+                {
+                    var newUser = new User();
+                    newUser.UserName = name;
+                    newUser.UserSurname = surname;
+                    newUser.UserEmail = email;
+                    newUser.IdUserRole = idUserRole;
+                    newUser.UserPassword = userPassword;
+
+                    if (idUserRole == 0)
+                        return "Role does not exist!";
+                    con.User.Add(newUser);
+                    con.SaveChanges();
+                    return "User added succesfully.";
+                }
+            }
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
+        }
+
+        /// <summary>
+        /// Edit user in User
+        /// </summary>
+        public string UpdateUser(int idUser, string name, string surname, string email, int idRole, string password)
+        {
+            try
+            {
+                using (var con = new EntitiesLib())
+                {
+                    var user = con.User.FirstOrDefault(u => u.IdUser == idUser);
+                    user.UserName = name;
+                    user.UserSurname = surname;
+                    user.UserEmail = email;                    
+                    user.IdUserRole = idRole;
+                    user.UserPassword = password;
+                    con.SaveChanges();
+                    return "User updated succesfully.";
+                }
+            }
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
+        }
+
+        /// <summary>
+        /// Delete user from User
+        /// </summary>
+        public string DeleteUser(int idUser)
+        {
+            try
+            {
+                using (var con = new EntitiesLib())
+                {
+                    var User = con.User.FirstOrDefault(u => u.IdUser == idUser);
+                    con.User.Remove(User);
+                    con.SaveChanges();
+                    return "User deleted succesfully.";
+                }
+            }
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
+        }
+
+        /// <summary>
+        /// Verifies user data
+        /// </summary>
         public string TakeUserData(string email, string password)
         {
             try
@@ -17,12 +95,12 @@ namespace Library.Logics
                 using (var con = new EntitiesLib())
                 {
                     var user = new User();
-                    user = con.User.FirstOrDefault(u => u.Email == email && u.UserPassword == password);
+                    user = con.User.FirstOrDefault(u => u.UserEmail == email && u.UserPassword == password);
 
                     if (user == null)
                         return "Email or password incorrect.";
-                    UserInfoStatic.Name = user.Name;
-                    UserInfoStatic.Surname = user.Surname;
+                    UserInfoStatic.UserName = user.UserName;
+                    UserInfoStatic.UserSurname = user.UserSurname;
                     UserInfoStatic.UserRole = con.UserRoles.FirstOrDefault(r => r.IdUserRole == user.IdUserRole).UserRole;
                     return "Success";
                 }
@@ -37,9 +115,9 @@ namespace Library.Logics
         /// <summary>
         /// List of all System users.
         /// </summary>
-        public List<EntityModel.User> GetAllUsers()
+        public List<User> GetAllUsers()
         {
-            var allUsers = new List<EntityModel.User>();
+            var allUsers = new List<User>();
 
             try
             {
@@ -59,27 +137,27 @@ namespace Library.Logics
         /// <summary>
         /// List of all System users (boosted).
         /// </summary>
-        public List<Models.UserInfo> GetAllUsersInfo()
+        public List<UserInfo> GetAllUsersInfo()
         {
-            var allUsersInfo = new List<Models.UserInfo>();
+            var allUsersInfo = new List<UserInfo>();
 
             try
             {
                 using (var con = new EntitiesLib())
                 {
-                    List<EntityModel.User> allUsers = con.User.ToList();
+                    List<User> allUsers = con.User.ToList();
 
                     if (allUsers.Count == 0)
                         return allUsersInfo;
 
-                    for (int i = 0; i <= allUsers.Count; i++)
+                    for (int i = 0; i < allUsers.Count; i++)
                     {
-                        Models.UserInfo userInfo = new Models.UserInfo();
+                        UserInfo userInfo = new UserInfo();
 
                         userInfo.IdUser = allUsers[i].IdUser;
-                        userInfo.Name = allUsers[i].Name;
-                        userInfo.Surname = allUsers[i].Surname;
-                        userInfo.Email = allUsers[i].Email;
+                        userInfo.UserName = allUsers[i].UserName;
+                        userInfo.UserSurname = allUsers[i].UserSurname;
+                        userInfo.UserEmail = allUsers[i].UserEmail;
                         userInfo.IdUserRole = allUsers[i].IdUserRole;
                         userInfo.UserPassword = allUsers[i].UserPassword;
                         userInfo.UserRole = con.UserRoles.FirstOrDefault(r => r.IdUserRole == userInfo.IdUserRole).UserRole;                        

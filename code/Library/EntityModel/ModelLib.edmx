@@ -5,13 +5,22 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="IdAccount" />
+          </Key>
+          <Property Name="IdAccount" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AccountSurname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AccountEmail" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Author">
           <Key>
             <PropertyRef Name="IdAuthor" />
           </Key>
           <Property Name="IdAuthor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuthorName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuthorSurname" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
@@ -35,25 +44,29 @@
           </Key>
           <Property Name="IdHistory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Returned" Type="smallint" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
           <Property Name="IdBook" Type="int" Nullable="false" />
+          <Property Name="ActionDate" Type="datetime" Nullable="false" />
+          <Property Name="IdAuthor" Type="int" Nullable="false" />
+          <Property Name="IdAccount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Rented">
           <Key>
             <PropertyRef Name="IdRented" />
           </Key>
           <Property Name="IdRented" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
           <Property Name="IdBook" Type="int" Nullable="false" />
+          <Property Name="IdAuthor" Type="int" Nullable="false" />
+          <Property Name="RentDate" Type="datetime" Nullable="false" />
+          <Property Name="IdAccount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="IdUser" />
           </Key>
           <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserSurname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdUserRole" Type="int" Nullable="false" />
           <Property Name="UserPassword" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -88,6 +101,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__History__IdAccou__6754599E">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="History" Type="Self.History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="IdAccount" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="IdAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__History__IdAutho__5BE2A6F2">
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="History" Type="Self.History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="IdAuthor" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="IdAuthor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__History__IdBook__44FF419A">
           <End Role="Book" Type="Self.Book" Multiplicity="1" />
           <End Role="History" Type="Self.History" Multiplicity="*" />
@@ -100,19 +137,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__History__IdUser__3D5E1FD2">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="History" Type="Self.History" Multiplicity="*" />
+        <Association Name="FK__Rented__IdAccoun__66603565">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Rented" Type="Self.Rented" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="IdUser" />
+            <Principal Role="Account">
+              <PropertyRef Name="IdAccount" />
             </Principal>
-            <Dependent Role="History">
-              <PropertyRef Name="IdUser" />
+            <Dependent Role="Rented">
+              <PropertyRef Name="IdAccount" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rented__IdBook__45F365D3">
+        <Association Name="FK__Rented__IdAuthor__6383C8BA">
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Rented" Type="Self.Rented" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="IdAuthor" />
+            </Principal>
+            <Dependent Role="Rented">
+              <PropertyRef Name="IdAuthor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rented__IdBook__619B8048">
           <End Role="Book" Type="Self.Book" Multiplicity="1" />
           <End Role="Rented" Type="Self.Rented" Multiplicity="*" />
           <ReferentialConstraint>
@@ -121,18 +170,6 @@
             </Principal>
             <Dependent Role="Rented">
               <PropertyRef Name="IdBook" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Rented__IdUser__440B1D61">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Rented" Type="Self.Rented" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="IdUser" />
-            </Principal>
-            <Dependent Role="Rented">
-              <PropertyRef Name="IdUser" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -149,6 +186,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BookGenre" EntityType="Self.BookGenre" Schema="dbo" store:Type="Tables" />
@@ -164,20 +202,28 @@
             <End Role="BookGenre" EntitySet="BookGenre" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
+          <AssociationSet Name="FK__History__IdAccou__6754599E" Association="Self.FK__History__IdAccou__6754599E">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
+          <AssociationSet Name="FK__History__IdAutho__5BE2A6F2" Association="Self.FK__History__IdAutho__5BE2A6F2">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
           <AssociationSet Name="FK__History__IdBook__44FF419A" Association="Self.FK__History__IdBook__44FF419A">
             <End Role="Book" EntitySet="Book" />
             <End Role="History" EntitySet="History" />
           </AssociationSet>
-          <AssociationSet Name="FK__History__IdUser__3D5E1FD2" Association="Self.FK__History__IdUser__3D5E1FD2">
-            <End Role="User" EntitySet="User" />
-            <End Role="History" EntitySet="History" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Rented__IdBook__45F365D3" Association="Self.FK__Rented__IdBook__45F365D3">
-            <End Role="Book" EntitySet="Book" />
+          <AssociationSet Name="FK__Rented__IdAccoun__66603565" Association="Self.FK__Rented__IdAccoun__66603565">
+            <End Role="Account" EntitySet="Account" />
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rented__IdUser__440B1D61" Association="Self.FK__Rented__IdUser__440B1D61">
-            <End Role="User" EntitySet="User" />
+          <AssociationSet Name="FK__Rented__IdAuthor__6383C8BA" Association="Self.FK__Rented__IdAuthor__6383C8BA">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Rented" EntitySet="Rented" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rented__IdBook__619B8048" Association="Self.FK__Rented__IdBook__619B8048">
+            <End Role="Book" EntitySet="Book" />
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
           <AssociationSet Name="FK__User__IdUserRole__48CFD27E" Association="Self.FK__User__IdUserRole__48CFD27E">
@@ -190,6 +236,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="EntitiesLib" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="Model.Account" />
           <EntitySet Name="Author" EntityType="Model.Author" />
           <EntitySet Name="Book" EntityType="Model.Book" />
           <EntitySet Name="BookGenre" EntityType="Model.BookGenre" />
@@ -197,9 +244,25 @@
           <EntitySet Name="Rented" EntityType="Model.Rented" />
           <EntitySet Name="User" EntityType="Model.User" />
           <EntitySet Name="UserRoles" EntityType="Model.UserRoles" />
+          <AssociationSet Name="FK__History__IdAccou__6754599E" Association="Model.FK__History__IdAccou__6754599E">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rented__IdAccoun__66603565" Association="Model.FK__Rented__IdAccoun__66603565">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Rented" EntitySet="Rented" />
+          </AssociationSet>
           <AssociationSet Name="FK__Book__IdAuthor__4CA06362" Association="Model.FK__Book__IdAuthor__4CA06362">
             <End Role="Author" EntitySet="Author" />
             <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK__History__IdAutho__5BE2A6F2" Association="Model.FK__History__IdAutho__5BE2A6F2">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rented__IdAuthor__6383C8BA" Association="Model.FK__Rented__IdAuthor__6383C8BA">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
           <AssociationSet Name="FK__Book__IdGenre__5070F446" Association="Model.FK__Book__IdGenre__5070F446">
             <End Role="BookGenre" EntitySet="BookGenre" />
@@ -209,16 +272,8 @@
             <End Role="Book" EntitySet="Book" />
             <End Role="History" EntitySet="History" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rented__IdBook__45F365D3" Association="Model.FK__Rented__IdBook__45F365D3">
+          <AssociationSet Name="FK__Rented__IdBook__619B8048" Association="Model.FK__Rented__IdBook__619B8048">
             <End Role="Book" EntitySet="Book" />
-            <End Role="Rented" EntitySet="Rented" />
-          </AssociationSet>
-          <AssociationSet Name="FK__History__IdUser__3D5E1FD2" Association="Model.FK__History__IdUser__3D5E1FD2">
-            <End Role="User" EntitySet="User" />
-            <End Role="History" EntitySet="History" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Rented__IdUser__440B1D61" Association="Model.FK__Rented__IdUser__440B1D61">
-            <End Role="User" EntitySet="User" />
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
           <AssociationSet Name="FK__User__IdUserRole__48CFD27E" Association="Model.FK__User__IdUserRole__48CFD27E">
@@ -226,14 +281,27 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="IdAccount" />
+          </Key>
+          <Property Name="IdAccount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccountSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccountEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="History" Relationship="Model.FK__History__IdAccou__6754599E" FromRole="Account" ToRole="History" />
+          <NavigationProperty Name="Rented" Relationship="Model.FK__Rented__IdAccoun__66603565" FromRole="Account" ToRole="Rented" />
+        </EntityType>
         <EntityType Name="Author">
           <Key>
             <PropertyRef Name="IdAuthor" />
           </Key>
           <Property Name="IdAuthor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AuthorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AuthorSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Book" Relationship="Model.FK__Book__IdAuthor__4CA06362" FromRole="Author" ToRole="Book" />
+          <NavigationProperty Name="History" Relationship="Model.FK__History__IdAutho__5BE2A6F2" FromRole="Author" ToRole="History" />
+          <NavigationProperty Name="Rented" Relationship="Model.FK__Rented__IdAuthor__6383C8BA" FromRole="Author" ToRole="Rented" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
@@ -246,7 +314,7 @@
           <NavigationProperty Name="Author" Relationship="Model.FK__Book__IdAuthor__4CA06362" FromRole="Book" ToRole="Author" />
           <NavigationProperty Name="BookGenre" Relationship="Model.FK__Book__IdGenre__5070F446" FromRole="Book" ToRole="BookGenre" />
           <NavigationProperty Name="History" Relationship="Model.FK__History__IdBook__44FF419A" FromRole="Book" ToRole="History" />
-          <NavigationProperty Name="Rented" Relationship="Model.FK__Rented__IdBook__45F365D3" FromRole="Book" ToRole="Rented" />
+          <NavigationProperty Name="Rented" Relationship="Model.FK__Rented__IdBook__619B8048" FromRole="Book" ToRole="Rented" />
         </EntityType>
         <EntityType Name="BookGenre">
           <Key>
@@ -262,33 +330,37 @@
           </Key>
           <Property Name="IdHistory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Returned" Type="Int16" Nullable="false" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
           <Property Name="IdBook" Type="Int32" Nullable="false" />
+          <Property Name="ActionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdAuthor" Type="Int32" Nullable="false" />
+          <Property Name="IdAccount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Model.FK__History__IdAccou__6754599E" FromRole="History" ToRole="Account" />
+          <NavigationProperty Name="Author" Relationship="Model.FK__History__IdAutho__5BE2A6F2" FromRole="History" ToRole="Author" />
           <NavigationProperty Name="Book" Relationship="Model.FK__History__IdBook__44FF419A" FromRole="History" ToRole="Book" />
-          <NavigationProperty Name="User" Relationship="Model.FK__History__IdUser__3D5E1FD2" FromRole="History" ToRole="User" />
         </EntityType>
         <EntityType Name="Rented">
           <Key>
             <PropertyRef Name="IdRented" />
           </Key>
           <Property Name="IdRented" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
           <Property Name="IdBook" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Book" Relationship="Model.FK__Rented__IdBook__45F365D3" FromRole="Rented" ToRole="Book" />
-          <NavigationProperty Name="User" Relationship="Model.FK__Rented__IdUser__440B1D61" FromRole="Rented" ToRole="User" />
+          <Property Name="IdAuthor" Type="Int32" Nullable="false" />
+          <Property Name="RentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdAccount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Model.FK__Rented__IdAccoun__66603565" FromRole="Rented" ToRole="Account" />
+          <NavigationProperty Name="Author" Relationship="Model.FK__Rented__IdAuthor__6383C8BA" FromRole="Rented" ToRole="Author" />
+          <NavigationProperty Name="Book" Relationship="Model.FK__Rented__IdBook__619B8048" FromRole="Rented" ToRole="Book" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="IdUser" />
           </Key>
           <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdUserRole" Type="Int32" Nullable="false" />
           <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="History" Relationship="Model.FK__History__IdUser__3D5E1FD2" FromRole="User" ToRole="History" />
-          <NavigationProperty Name="Rented" Relationship="Model.FK__Rented__IdUser__440B1D61" FromRole="User" ToRole="Rented" />
           <NavigationProperty Name="UserRoles" Relationship="Model.FK__User__IdUserRole__48CFD27E" FromRole="User" ToRole="UserRoles" />
         </EntityType>
         <EntityType Name="UserRoles">
@@ -299,6 +371,30 @@
           <Property Name="UserRole" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="User" Relationship="Model.FK__User__IdUserRole__48CFD27E" FromRole="UserRoles" ToRole="User" />
         </EntityType>
+        <Association Name="FK__History__IdAccou__6754599E">
+          <End Type="Model.Account" Role="Account" Multiplicity="1" />
+          <End Type="Model.History" Role="History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="IdAccount" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="IdAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rented__IdAccoun__66603565">
+          <End Type="Model.Account" Role="Account" Multiplicity="1" />
+          <End Type="Model.Rented" Role="Rented" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="IdAccount" />
+            </Principal>
+            <Dependent Role="Rented">
+              <PropertyRef Name="IdAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Book__IdAuthor__4CA06362">
           <End Type="Model.Author" Role="Author" Multiplicity="1" />
           <End Type="Model.Book" Role="Book" Multiplicity="*" />
@@ -307,6 +403,30 @@
               <PropertyRef Name="IdAuthor" />
             </Principal>
             <Dependent Role="Book">
+              <PropertyRef Name="IdAuthor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__History__IdAutho__5BE2A6F2">
+          <End Type="Model.Author" Role="Author" Multiplicity="1" />
+          <End Type="Model.History" Role="History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="IdAuthor" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="IdAuthor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rented__IdAuthor__6383C8BA">
+          <End Type="Model.Author" Role="Author" Multiplicity="1" />
+          <End Type="Model.Rented" Role="Rented" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="IdAuthor" />
+            </Principal>
+            <Dependent Role="Rented">
               <PropertyRef Name="IdAuthor" />
             </Dependent>
           </ReferentialConstraint>
@@ -335,7 +455,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rented__IdBook__45F365D3">
+        <Association Name="FK__Rented__IdBook__619B8048">
           <End Type="Model.Book" Role="Book" Multiplicity="1" />
           <End Type="Model.Rented" Role="Rented" Multiplicity="*" />
           <ReferentialConstraint>
@@ -344,30 +464,6 @@
             </Principal>
             <Dependent Role="Rented">
               <PropertyRef Name="IdBook" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__History__IdUser__3D5E1FD2">
-          <End Type="Model.User" Role="User" Multiplicity="1" />
-          <End Type="Model.History" Role="History" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="IdUser" />
-            </Principal>
-            <Dependent Role="History">
-              <PropertyRef Name="IdUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Rented__IdUser__440B1D61">
-          <End Type="Model.User" Role="User" Multiplicity="1" />
-          <End Type="Model.Rented" Role="Rented" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="IdUser" />
-            </Principal>
-            <Dependent Role="Rented">
-              <PropertyRef Name="IdUser" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -389,11 +485,21 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="EntitiesLib">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="Model.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="AccountEmail" ColumnName="AccountEmail" />
+                <ScalarProperty Name="AccountSurname" ColumnName="AccountSurname" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="IdAccount" ColumnName="IdAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Author">
             <EntityTypeMapping TypeName="Model.Author">
               <MappingFragment StoreEntitySet="Author">
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AuthorSurname" ColumnName="AuthorSurname" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
                 <ScalarProperty Name="IdAuthor" ColumnName="IdAuthor" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -419,8 +525,10 @@
           <EntitySetMapping Name="History">
             <EntityTypeMapping TypeName="Model.History">
               <MappingFragment StoreEntitySet="History">
+                <ScalarProperty Name="IdAccount" ColumnName="IdAccount" />
+                <ScalarProperty Name="IdAuthor" ColumnName="IdAuthor" />
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
                 <ScalarProperty Name="IdBook" ColumnName="IdBook" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="Returned" ColumnName="Returned" />
                 <ScalarProperty Name="IdHistory" ColumnName="IdHistory" />
               </MappingFragment>
@@ -429,8 +537,10 @@
           <EntitySetMapping Name="Rented">
             <EntityTypeMapping TypeName="Model.Rented">
               <MappingFragment StoreEntitySet="Rented">
+                <ScalarProperty Name="IdAccount" ColumnName="IdAccount" />
+                <ScalarProperty Name="RentDate" ColumnName="RentDate" />
+                <ScalarProperty Name="IdAuthor" ColumnName="IdAuthor" />
                 <ScalarProperty Name="IdBook" ColumnName="IdBook" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="IdRented" ColumnName="IdRented" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -440,9 +550,9 @@
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
                 <ScalarProperty Name="IdUserRole" ColumnName="IdUserRole" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
               </MappingFragment>
             </EntityTypeMapping>

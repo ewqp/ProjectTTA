@@ -25,6 +25,7 @@ namespace Library.EntityModel
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Account> Account { get; set; }
         public virtual DbSet<Author> Author { get; set; }
         public virtual DbSet<Book> Book { get; set; }
         public virtual DbSet<BookGenre> BookGenre { get; set; }

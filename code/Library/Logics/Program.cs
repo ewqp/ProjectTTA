@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library.Logics
 {
-    class Account
+    class Program
     {
         static void Main(string[] args)
         {

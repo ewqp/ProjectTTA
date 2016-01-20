@@ -11,7 +11,7 @@ namespace Library.Logics
     public class DBAuthor
     {
         /// <summary>
-        /// List of all authors in Database.
+        /// List of all book authors in Database.
         /// </summary>
         public List<Models.AuthorInfo> GetAllAuthors()
         {
@@ -29,8 +29,8 @@ namespace Library.Logics
                 {
                     booksInfo.Add(new Models.AuthorInfo
                     {
-                        Name = author.Name,
-                        Surname = author.Surname,
+                        AuthorName = author.AuthorName,
+                        AuthorSurname = author.AuthorSurname,
                         IdAuthor = author.IdAuthor
                     });
                 }

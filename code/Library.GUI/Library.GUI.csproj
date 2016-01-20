@@ -61,11 +61,23 @@
     <Compile Include="AddBook.Designer.cs">
       <DependentUpon>AddBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditBook.Designer.cs">
       <DependentUpon>EditBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUser.Designer.cs">
+      <DependentUpon>EditUser.cs</DependentUpon>
     </Compile>
     <Compile Include="LibraryMenu.cs">
       <SubType>Form</SubType>
@@ -87,11 +99,29 @@
     <Compile Include="RentBooks.Designer.cs">
       <DependentUpon>RentBooks.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReturnBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReturnBook.Designer.cs">
+      <DependentUpon>ReturnBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowHistory.Designer.cs">
+      <DependentUpon>ShowHistory.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddBook.resx">
       <DependentUpon>AddBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditBook.resx">
       <DependentUpon>EditBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUser.resx">
+      <DependentUpon>EditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LibraryMenu.resx">
       <DependentUpon>LibraryMenu.cs</DependentUpon>
@@ -110,6 +140,12 @@
     </Compile>
     <EmbeddedResource Include="RentBooks.resx">
       <DependentUpon>RentBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReturnBook.resx">
+      <DependentUpon>ReturnBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowHistory.resx">
+      <DependentUpon>ShowHistory.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />

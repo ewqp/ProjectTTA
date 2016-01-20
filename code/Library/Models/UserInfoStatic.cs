@@ -8,8 +8,8 @@ namespace Library.Models
 {
     static public class UserInfoStatic
     {
-        static public string Name { get; set; }
-        static public string Surname { get; set; }       
+        static public string UserName { get; set; }
+        static public string UserSurname { get; set; }       
         static public string UserRole { get; set; }        
     }
 }

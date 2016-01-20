@@ -14,24 +14,13 @@ namespace Library.EntityModel
     
     public partial class User
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            this.History = new HashSet<History>();
-            this.Rented = new HashSet<Rented>();
-        }
-    
         public int IdUser { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Email { get; set; }
+        public string UserName { get; set; }
+        public string UserSurname { get; set; }
+        public string UserEmail { get; set; }
         public int IdUserRole { get; set; }
         public string UserPassword { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<History> History { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rented> Rented { get; set; }
         public virtual UserRoles UserRoles { get; set; }
     }
 }

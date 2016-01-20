@@ -14,9 +14,9 @@ namespace Library.GUI
 {
     public partial class EditBook : Form
     {
-        private Library.Logics.DBBook _dbBook = new DBBook();
-        private Library.Logics.DBGenre _dbGenre = new DBGenre();
-        private Library.Logics.DBAuthor _dbAuthor = new DBAuthor();
+        private DBBook _dbBook = new DBBook();
+        private DBGenre _dbGenre = new DBGenre();
+        private DBAuthor _dbAuthor = new DBAuthor();
         private List<BookInfo> _booksList;
         private List<Models.AuthorInfo> _authorList;
         private List<EntityModel.BookGenre> _genreList;
@@ -31,7 +31,7 @@ namespace Library.GUI
 
             comboBoxAuthor.DataSource = _dbAuthor.GetAllAuthors();
             comboBoxAuthor.ValueMember = "IdAuthor";
-            comboBoxAuthor.DisplayMember = "FullName";
+            comboBoxAuthor.DisplayMember = "FullAuthorName";
 
             comboBoxBookGenre.DataSource = _dbGenre.GetAllBookGenres();
             comboBoxBookGenre.ValueMember = "IdGenre";
@@ -46,23 +46,23 @@ namespace Library.GUI
             dataGridSearchBook.AutoGenerateColumns = false; //wylaczenie auto generowania
             dataGridSearchBook.DataSource = _booksList; //ustawienie datasource
             dataGridSearchBook.Columns["Title"].DataPropertyName = "Title";
-            dataGridSearchBook.Columns["Author"].DataPropertyName = "FullName";
+            dataGridSearchBook.Columns["Author"].DataPropertyName = "FullAuthorName";
             dataGridSearchBook.Columns["Genre"].DataPropertyName = "Genre";
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            List<BookInfo> list = _booksList.Where(b => b.Title.Contains(textBoxSearch.Text) || b.FullName.Contains(textBoxSearch.Text)).ToList();
+            List<BookInfo> list = _booksList.Where(b => b.Title.Contains(textBoxSearch.Text) || b.FullAuthorName.Contains(textBoxSearch.Text)).ToList();
 
             dataGridSearchBook.DataSource = list;
         }
 
-        private void dataGridSearchBook_SelectionChanged(object sender, EventArgs e)
+        private void dataGridSearchBook_Click(object sender, EventArgs e)
         {
             dataGridSearchBook.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DataGridViewCell cell = null;
             foreach (DataGridViewCell selectedCell in dataGridSearchBook.SelectedCells)
-            { 
+            {
                 cell = selectedCell;
                 break;
             }
@@ -72,7 +72,6 @@ namespace Library.GUI
                 textBoxTitle.Text = row.Cells["Title"].Value.ToString();
                 comboBoxAuthor.Text = row.Cells["Author"].Value.ToString();
                 comboBoxBookGenre.Text = row.Cells["Genre"].Value.ToString();
-
             }
         }
 
@@ -91,8 +90,7 @@ namespace Library.GUI
             _booksList = _dbBook.GetAllBooksInfo();
             dataGridSearchBook.DataSource = _booksList;
 
-            dataGridSearchBook.CurrentCell = dataGridSearchBook.Rows[bookmarkRowIndex].Cells[bookmarkColumnIndex];
-    
+            dataGridSearchBook.CurrentCell = dataGridSearchBook.Rows[bookmarkRowIndex].Cells[bookmarkColumnIndex];    
         }
 
         private void buttonDeleteBook_Click(object sender, EventArgs e)
@@ -108,7 +106,6 @@ namespace Library.GUI
         private void buttonCancelSaveBook_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
+        }       
     }
 }

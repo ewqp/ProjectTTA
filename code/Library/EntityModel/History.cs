@@ -16,10 +16,13 @@ namespace Library.EntityModel
     {
         public int IdHistory { get; set; }
         public short Returned { get; set; }
-        public int IdUser { get; set; }
         public int IdBook { get; set; }
+        public System.DateTime ActionDate { get; set; }
+        public int IdAuthor { get; set; }
+        public int IdAccount { get; set; }
     
+        public virtual Account Account { get; set; }
+        public virtual Author Author { get; set; }
         public virtual Book Book { get; set; }
-        public virtual User User { get; set; }
     }
 }

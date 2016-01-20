@@ -12,22 +12,20 @@ namespace Library.EntityModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Author
+    public partial class Account
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Author()
+        public Account()
         {
-            this.Book = new HashSet<Book>();
             this.History = new HashSet<History>();
             this.Rented = new HashSet<Rented>();
         }
     
-        public int IdAuthor { get; set; }
-        public string AuthorName { get; set; }
-        public string AuthorSurname { get; set; }
+        public int IdAccount { get; set; }
+        public string AccountName { get; set; }
+        public string AccountSurname { get; set; }
+        public string AccountEmail { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Book> Book { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<History> History { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

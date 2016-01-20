@@ -31,6 +31,9 @@
             this.btnAddBook = new System.Windows.Forms.Button();
             this.btnEditBook = new System.Windows.Forms.Button();
             this.groupBoxDBOperation = new System.Windows.Forms.GroupBox();
+            this.groupBoxAccount = new System.Windows.Forms.GroupBox();
+            this.btnEditAccount = new System.Windows.Forms.Button();
+            this.btnAddAccount = new System.Windows.Forms.Button();
             this.groupBoxUser = new System.Windows.Forms.GroupBox();
             this.btnEditUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
@@ -49,6 +52,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblHello = new System.Windows.Forms.Label();
             this.groupBoxDBOperation.SuspendLayout();
+            this.groupBoxAccount.SuspendLayout();
             this.groupBoxUser.SuspendLayout();
             this.groupBoxGenre.SuspendLayout();
             this.groupBoxAuthor.SuspendLayout();
@@ -83,6 +87,7 @@
             // 
             // groupBoxDBOperation
             // 
+            this.groupBoxDBOperation.Controls.Add(this.groupBoxAccount);
             this.groupBoxDBOperation.Controls.Add(this.groupBoxUser);
             this.groupBoxDBOperation.Controls.Add(this.groupBoxGenre);
             this.groupBoxDBOperation.Controls.Add(this.groupBoxAuthor);
@@ -91,11 +96,45 @@
             this.groupBoxDBOperation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBoxDBOperation.Location = new System.Drawing.Point(0, 50);
             this.groupBoxDBOperation.Name = "groupBoxDBOperation";
-            this.groupBoxDBOperation.Size = new System.Drawing.Size(525, 130);
+            this.groupBoxDBOperation.Size = new System.Drawing.Size(658, 130);
             this.groupBoxDBOperation.TabIndex = 2;
             this.groupBoxDBOperation.TabStop = false;
             this.groupBoxDBOperation.Text = "DB Operations";
             this.groupBoxDBOperation.Visible = false;
+            // 
+            // groupBoxAccount
+            // 
+            this.groupBoxAccount.Controls.Add(this.btnEditAccount);
+            this.groupBoxAccount.Controls.Add(this.btnAddAccount);
+            this.groupBoxAccount.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBoxAccount.Location = new System.Drawing.Point(506, 18);
+            this.groupBoxAccount.Name = "groupBoxAccount";
+            this.groupBoxAccount.Size = new System.Drawing.Size(140, 109);
+            this.groupBoxAccount.TabIndex = 6;
+            this.groupBoxAccount.TabStop = false;
+            this.groupBoxAccount.Text = "Account";
+            // 
+            // btnEditAccount
+            // 
+            this.btnEditAccount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEditAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnEditAccount.Location = new System.Drawing.Point(3, 41);
+            this.btnEditAccount.Name = "btnEditAccount";
+            this.btnEditAccount.Size = new System.Drawing.Size(134, 23);
+            this.btnEditAccount.TabIndex = 1;
+            this.btnEditAccount.Text = "Edit or delete accounts";
+            this.btnEditAccount.UseVisualStyleBackColor = true;
+            // 
+            // btnAddAccount
+            // 
+            this.btnAddAccount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAddAccount.Location = new System.Drawing.Point(3, 18);
+            this.btnAddAccount.Name = "btnAddAccount";
+            this.btnAddAccount.Size = new System.Drawing.Size(134, 23);
+            this.btnAddAccount.TabIndex = 0;
+            this.btnAddAccount.Text = "Add accounts";
+            this.btnAddAccount.UseVisualStyleBackColor = true;
             // 
             // groupBoxUser
             // 
@@ -119,6 +158,7 @@
             this.btnEditUser.TabIndex = 1;
             this.btnEditUser.Text = "Edit or delete DB users";
             this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // btnAddUser
             // 
@@ -130,6 +170,7 @@
             this.btnAddUser.TabIndex = 0;
             this.btnAddUser.Text = "Add DB users";
             this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // groupBoxGenre
             // 
@@ -220,7 +261,7 @@
             this.groupBoxLibraryOperation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBoxLibraryOperation.Location = new System.Drawing.Point(0, 180);
             this.groupBoxLibraryOperation.Name = "groupBoxLibraryOperation";
-            this.groupBoxLibraryOperation.Size = new System.Drawing.Size(525, 178);
+            this.groupBoxLibraryOperation.Size = new System.Drawing.Size(658, 178);
             this.groupBoxLibraryOperation.TabIndex = 3;
             this.groupBoxLibraryOperation.TabStop = false;
             this.groupBoxLibraryOperation.Text = "Library Operations";
@@ -230,36 +271,40 @@
             this.btnShowHist.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnShowHist.Location = new System.Drawing.Point(3, 105);
             this.btnShowHist.Name = "btnShowHist";
-            this.btnShowHist.Size = new System.Drawing.Size(519, 47);
+            this.btnShowHist.Size = new System.Drawing.Size(652, 47);
             this.btnShowHist.TabIndex = 2;
             this.btnShowHist.Text = "Show History";
             this.btnShowHist.UseVisualStyleBackColor = true;
+            this.btnShowHist.Click += new System.EventHandler(this.btnShowHist_Click);
             // 
             // btnBookReturn
             // 
             this.btnBookReturn.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBookReturn.Location = new System.Drawing.Point(3, 62);
             this.btnBookReturn.Name = "btnBookReturn";
-            this.btnBookReturn.Size = new System.Drawing.Size(519, 43);
+            this.btnBookReturn.Size = new System.Drawing.Size(652, 43);
             this.btnBookReturn.TabIndex = 1;
             this.btnBookReturn.Text = "Return books";
             this.btnBookReturn.UseVisualStyleBackColor = true;
+            this.btnBookReturn.Click += new System.EventHandler(this.btnBookReturn_Click);
             // 
             // btnBookRent
             // 
             this.btnBookRent.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBookRent.Location = new System.Drawing.Point(3, 18);
             this.btnBookRent.Name = "btnBookRent";
-            this.btnBookRent.Size = new System.Drawing.Size(519, 44);
+            this.btnBookRent.Size = new System.Drawing.Size(652, 44);
             this.btnBookRent.TabIndex = 0;
             this.btnBookRent.Text = "Rent books";
             this.btnBookRent.UseVisualStyleBackColor = true;
+            this.btnBookRent.Click += new System.EventHandler(this.btnBookRent_Click);
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(447, 19);
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLogout.Location = new System.Drawing.Point(583, 0);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(75, 25);
+            this.btnLogout.Size = new System.Drawing.Size(75, 50);
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Log out";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -272,7 +317,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(525, 50);
+            this.panel1.Size = new System.Drawing.Size(658, 50);
             this.panel1.TabIndex = 3;
             // 
             // lblHello
@@ -280,7 +325,7 @@
             this.lblHello.AutoSize = true;
             this.lblHello.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblHello.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblHello.Location = new System.Drawing.Point(478, 0);
+            this.lblHello.Location = new System.Drawing.Point(536, 0);
             this.lblHello.Name = "lblHello";
             this.lblHello.Size = new System.Drawing.Size(47, 15);
             this.lblHello.TabIndex = 3;
@@ -290,13 +335,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 358);
+            this.ClientSize = new System.Drawing.Size(658, 358);
             this.Controls.Add(this.groupBoxLibraryOperation);
             this.Controls.Add(this.groupBoxDBOperation);
             this.Controls.Add(this.panel1);
             this.Name = "LibraryMenu";
             this.Text = "Menu of Library";
             this.groupBoxDBOperation.ResumeLayout(false);
+            this.groupBoxAccount.ResumeLayout(false);
             this.groupBoxUser.ResumeLayout(false);
             this.groupBoxGenre.ResumeLayout(false);
             this.groupBoxAuthor.ResumeLayout(false);
@@ -330,5 +376,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblHello;
         private System.Windows.Forms.Button btnShowHist;
+        private System.Windows.Forms.GroupBox groupBoxAccount;
+        private System.Windows.Forms.Button btnEditAccount;
+        private System.Windows.Forms.Button btnAddAccount;
     }
 }

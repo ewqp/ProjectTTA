@@ -21,7 +21,7 @@ namespace Library.GUI
             if (UserInfoStatic.UserRole == "Administrator")
                 groupBoxDBOperation.Visible = true;
             
-            lblHello.Text = string.Format("Hello {0} {1}", UserInfoStatic.Name, UserInfoStatic.Surname);
+            lblHello.Text = string.Format("Hello {0} {1}", UserInfoStatic.UserName, UserInfoStatic.UserSurname);
         }
 
         private void btnAddBook_Click(object sender, EventArgs e)
@@ -36,8 +36,8 @@ namespace Library.GUI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {            
-            UserInfoStatic.Name = "";
-            UserInfoStatic.Surname = "";
+            UserInfoStatic.UserName = "";
+            UserInfoStatic.UserSurname = "";
             UserInfoStatic.UserRole = "";
             new LogIn().ShowDialog();
 
@@ -46,7 +46,31 @@ namespace Library.GUI
             else
                 groupBoxDBOperation.Visible = false;
 
-            lblHello.Text = string.Format("Hello {0} {1}", UserInfoStatic.Name, UserInfoStatic.Surname);
+            lblHello.Text = string.Format("Hello {0} {1}", UserInfoStatic.UserName, UserInfoStatic.UserSurname);
+        }
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            new AddUser().ShowDialog();
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+            new EditUser().ShowDialog();
+        }
+
+        private void btnBookRent_Click(object sender, EventArgs e)
+        {
+            new RentBooks().ShowDialog();
+        }
+
+        private void btnShowHist_Click(object sender, EventArgs e)
+        {
+            new ShowHistory().ShowDialog();
+        }
+
+        private void btnBookReturn_Click(object sender, EventArgs e)
+        {
+            new ReturnBook().ShowDialog();
         }
     }
 }

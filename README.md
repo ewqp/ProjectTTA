@@ -10,6 +10,7 @@ Aplikacja dedykowana jest pracownikom bibliotek.
 1. Rent books - po wybraniu czytelnika oraz ksiazki, ksiazka zostaje wypozyczona.
 2. Return books - po wybraniu odpowiedniej pozycji sposrod wypozyczonych ksiazek mozemy ja zwrocic.
 3. Show history - tu znajduje sie historia wszystkich wypozyczen i zwrotow.
+#
 ### Panel Administratora
 Administrator systemu moze dodatkowo przeprowadzac operacje na obiektach bazy danych:
 1. Book - dodawanie, edycja i usuwanie ksiazek

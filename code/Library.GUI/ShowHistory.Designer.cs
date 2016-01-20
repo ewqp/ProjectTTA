@@ -30,13 +30,21 @@
         {
             this.groupBoxLog = new System.Windows.Forms.GroupBox();
             this.dataGridHistory = new System.Windows.Forms.DataGridView();
+<<<<<<< HEAD
+=======
+            this.lblSearchLog = new System.Windows.Forms.Label();
+            this.textBoxSearchLog = new System.Windows.Forms.TextBox();
+>>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
             this.accountSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.histDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+<<<<<<< HEAD
             this.lblSearchLog = new System.Windows.Forms.Label();
             this.textBoxSearchLog = new System.Windows.Forms.TextBox();
+=======
+>>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
             this.groupBoxLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHistory)).BeginInit();
             this.SuspendLayout();
@@ -68,27 +76,61 @@
             this.dataGridHistory.Size = new System.Drawing.Size(746, 251);
             this.dataGridHistory.TabIndex = 0;
             // 
+<<<<<<< HEAD
             // accountSurname
             // 
             this.accountSurname.Frozen = true;
+=======
+            // lblSearchLog
+            // 
+            this.lblSearchLog.AutoSize = true;
+            this.lblSearchLog.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblSearchLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblSearchLog.Location = new System.Drawing.Point(0, 271);
+            this.lblSearchLog.Name = "lblSearchLog";
+            this.lblSearchLog.Size = new System.Drawing.Size(96, 15);
+            this.lblSearchLog.TabIndex = 1;
+            this.lblSearchLog.Text = "Search for a log:";
+            // 
+            // textBoxSearchLog
+            // 
+            this.textBoxSearchLog.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxSearchLog.Location = new System.Drawing.Point(0, 286);
+            this.textBoxSearchLog.Name = "textBoxSearchLog";
+            this.textBoxSearchLog.Size = new System.Drawing.Size(752, 20);
+            this.textBoxSearchLog.TabIndex = 2;
+            this.textBoxSearchLog.TextChanged += new System.EventHandler(this.textBoxSearchLog_TextChanged);
+            // 
+            // accountSurname
+            // 
+>>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
             this.accountSurname.HeaderText = "Account";
             this.accountSurname.Name = "accountSurname";
             // 
             // bookTitle
             // 
+<<<<<<< HEAD
             this.bookTitle.Frozen = true;
+=======
+>>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
             this.bookTitle.HeaderText = "Title";
             this.bookTitle.Name = "bookTitle";
             // 
             // bookAuthor
             // 
+<<<<<<< HEAD
             this.bookAuthor.Frozen = true;
+=======
+>>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
             this.bookAuthor.HeaderText = "Author";
             this.bookAuthor.Name = "bookAuthor";
             // 
             // histDate
             // 
+<<<<<<< HEAD
             this.histDate.Frozen = true;
+=======
+>>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
             this.histDate.HeaderText = "Date";
             this.histDate.Name = "histDate";
             // 
@@ -96,6 +138,7 @@
             // 
             this.status.HeaderText = "Status";
             this.status.Name = "status";
+<<<<<<< HEAD
             this.status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // lblSearchLog
@@ -117,6 +160,8 @@
             this.textBoxSearchLog.Size = new System.Drawing.Size(752, 20);
             this.textBoxSearchLog.TabIndex = 2;
             this.textBoxSearchLog.TextChanged += new System.EventHandler(this.textBoxSearchLog_TextChanged);
+=======
+>>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
             // 
             // ShowHistory
             // 

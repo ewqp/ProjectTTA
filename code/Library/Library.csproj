@@ -99,16 +99,24 @@
     <Compile Include="Logics\DBAuthor.cs" />
     <Compile Include="Logics\DBBook.cs" />
     <Compile Include="Logics\DBGenre.cs" />
+<<<<<<< HEAD
     <Compile Include="Logics\DBHistory.cs" />
     <Compile Include="Logics\DBRented.cs" />
+=======
+    <Compile Include="Logics\DBRole.cs" />
+>>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
     <Compile Include="Logics\DBUser.cs" />
     <Compile Include="Logics\DBUserRoles.cs" />
     <Compile Include="Logics\Program.cs" />
     <Compile Include="Models\AccountInfo.cs" />
     <Compile Include="Models\AuthorInfo.cs" />
     <Compile Include="Models\BookInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\HistoryInfo.cs" />
     <Compile Include="Models\RentInfo.cs" />
+=======
+    <Compile Include="Models\UserAllInfo.cs" />
+>>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\UserInfoStatic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -21,6 +21,10 @@ namespace Library.Models
         public string AccountName { get; set; }
         public string AccountSurname { get; set; }
         public string FullAccountName { get { accountName = string.Format("{0} {1}", AccountName, AccountSurname); return accountName; } set { accountName = value; } }
+<<<<<<< HEAD
         public string Error { get; set; }
+=======
+
+>>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
     }
 }

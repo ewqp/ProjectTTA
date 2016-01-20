@@ -10,12 +10,9 @@ namespace Library.Logics
 {
     public class DBRented
     {
-<<<<<<< HEAD
         /// <summary>
         /// Adds an entry to the Rented
         /// </summary>
-=======
->>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
         public string AddRentEntry(int idAccount, int idBook, int idAuthor, DateTime rentDate)
         {
             var allRentInfo = new List<Models.RentInfo>();
@@ -29,10 +26,6 @@ namespace Library.Logics
                     newRentEntry.IdBook = idBook;
                     newRentEntry.IdAuthor = idAuthor;
                     newRentEntry.RentDate = rentDate;
-<<<<<<< HEAD
-=======
-                    //newRentEntry.IdUser = idUser;
->>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
 
                     con.Rented.Add(newRentEntry);
                     con.SaveChanges();
@@ -45,12 +38,9 @@ namespace Library.Logics
             }
         }
 
-<<<<<<< HEAD
         /// <summary>
         /// Deletes an entry from table Rented
         /// </summary>
-=======
->>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
         public string DeleteRentEntry(int idRented)
         {
             try
@@ -69,12 +59,9 @@ namespace Library.Logics
             }
         }
 
-<<<<<<< HEAD
         /// <summary>
         /// List of rented books
         /// </summary>
-=======
->>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
         public List<Rented> GetAllEntries()
         {
             var allEntries = new List<Rented>();
@@ -93,13 +80,10 @@ namespace Library.Logics
             }
             return allEntries;
         }
-
-<<<<<<< HEAD
+        
         /// <summary>
         /// Lisf of rented books (boosted)
         /// </summary>
-=======
->>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
         public List<Models.RentInfo> GetAllEntriesInfo()
         {
             var allRentsInfo = new List<Models.RentInfo>();
@@ -124,11 +108,6 @@ namespace Library.Logics
                         rentInfo.IdAccount = allEntries[i].IdAccount;
                         rentInfo.Title = con.Book.FirstOrDefault(b => b.IdBook == rentInfo.IdBook).Title;
                         rentInfo.AuthorSurname = con.Author.FirstOrDefault(s => s.IdAuthor == rentInfo.IdAuthor).AuthorSurname;
-<<<<<<< HEAD
-=======
-                        //logInfo.UserName = con.User.FirstOrDefault(u => u.IdUser == logInfo.IdUser).UserName;
-                        //logInfo.UserSurname = con.User.FirstOrDefault(t => t.IdUser == logInfo.IdUser).UserSurname;
->>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
                         rentInfo.AccountName = con.Account.FirstOrDefault(w => w.IdAccount == rentInfo.IdAccount).AccountName;
                         rentInfo.AccountSurname = con.Account.FirstOrDefault(z => z.IdAccount == rentInfo.IdAccount).AccountSurname;
 
@@ -138,11 +117,7 @@ namespace Library.Logics
             }
             catch (Exception ex)
             {
-<<<<<<< HEAD
                 allRentsInfo.Add(new Models.RentInfo { Error = ex.Message });
-=======
-
->>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
             }
             return allRentsInfo;
         }

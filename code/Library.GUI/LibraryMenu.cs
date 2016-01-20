@@ -72,15 +72,5 @@ namespace Library.GUI
         {
             new ReturnBook().ShowDialog();
         }
-
-        private void btnAddUser_Click(object sender, EventArgs e)
-        {
-            new AddUser().ShowDialog();
-        }
-
-        private void btnEditUser_Click(object sender, EventArgs e)
-        {
-            new EditUser().ShowDialog();
-        }
     }
 }

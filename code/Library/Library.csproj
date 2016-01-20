@@ -68,10 +68,6 @@
     <Compile Include="EntityModel\BookGenre.cs">
       <DependentUpon>ModelLib.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityModel\UserRoles.cs">
-      <DependentUpon>ModelLib.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Logics\DBAccount.cs" />
     <Compile Include="EntityModel\History.cs">
       <DependentUpon>ModelLib.tt</DependentUpon>
     </Compile>
@@ -96,27 +92,23 @@
     <Compile Include="EntityModel\User.cs">
       <DependentUpon>ModelLib.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityModel\UserRoles.cs">
+      <DependentUpon>ModelLib.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logics\DBAccount.cs" />
     <Compile Include="Logics\DBAuthor.cs" />
     <Compile Include="Logics\DBBook.cs" />
     <Compile Include="Logics\DBGenre.cs" />
-<<<<<<< HEAD
     <Compile Include="Logics\DBHistory.cs" />
     <Compile Include="Logics\DBRented.cs" />
-=======
-    <Compile Include="Logics\DBRole.cs" />
->>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
     <Compile Include="Logics\DBUser.cs" />
     <Compile Include="Logics\DBUserRoles.cs" />
     <Compile Include="Logics\Program.cs" />
     <Compile Include="Models\AccountInfo.cs" />
     <Compile Include="Models\AuthorInfo.cs" />
     <Compile Include="Models\BookInfo.cs" />
-<<<<<<< HEAD
     <Compile Include="Models\HistoryInfo.cs" />
     <Compile Include="Models\RentInfo.cs" />
-=======
-    <Compile Include="Models\UserAllInfo.cs" />
->>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\UserInfoStatic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +125,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="EntityModel\ModelLib.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelLib.edmx</DependentUpon>
@@ -143,12 +141,6 @@
       <DependentUpon>ModelLib.edmx</DependentUpon>
       <LastGenOutput>ModelLib.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

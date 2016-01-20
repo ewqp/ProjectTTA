@@ -10,12 +10,10 @@ namespace Library.Logics
 {
     public class DBAccount
     {
-<<<<<<< HEAD
+
         /// <summary>
         /// List of all client's accounts
         /// </summary>
-=======
->>>>>>> 00be6419b2a0a1d0d5fbe433ffa85092e6ae6d87
         public List<Account> GetAllAccounts()
         {
             var allAccounts = new List<Account>();

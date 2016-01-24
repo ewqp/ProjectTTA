@@ -37,7 +37,7 @@ namespace Library.GUI
             dataGridViewUser.DataSource = _usersList; //ustawienie datasource
             dataGridViewUser.Columns["UserName"].DataPropertyName = "UserName";
             dataGridViewUser.Columns["UserSurname"].DataPropertyName = "UserSurname";
-            dataGridViewUser.Columns["UserEmail"].DataPropertyName = "Email";
+            dataGridViewUser.Columns["UserEmail"].DataPropertyName = "UserEmail";
             dataGridViewUser.Columns["UserRoles"].DataPropertyName = "UserRole";
             dataGridViewUser.Columns["UserPass"].DataPropertyName = "UserPassword";
         }

@@ -45,7 +45,7 @@ namespace Library.GUI
 
         private void textBoxSearchAuthor_TextChanged(object sender, EventArgs e)
         {
-            List<Models.AuthorInfo> list = _authorList.Where(b => b.FullName.Contains(textBoxSearchAuthor.Text)).ToList();
+            List<Models.AuthorInfo> list = _authorList.Where(b => b.FullAuthorName.Contains(textBoxSearchAuthor.Text)).ToList();
 
             dataGridSearchAuthor.DataSource = list;
         }

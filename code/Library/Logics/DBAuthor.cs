@@ -17,8 +17,8 @@ namespace Library.Logics
                 using (var con = new EntitiesLib())
                 {
                     var newAuthor = new Author();
-                    newAuthor.Name = name;
-                    newAuthor.Surname = surname;
+                    newAuthor.AuthorName = name;
+                    newAuthor.AuthorSurname = surname;
 
                     con.Author.Add(newAuthor);
                     con.SaveChanges();
@@ -50,8 +50,8 @@ namespace Library.Logics
                 {
                     booksInfo.Add(new Models.AuthorInfo
                     {
-                        Name = author.Name,
-                        Surname = author.Surname,
+                        Name = author.AuthorName,
+                        Surname = author.AuthorSurname,
                         IdAuthor = author.IdAuthor
                     });
                 }
@@ -71,8 +71,8 @@ namespace Library.Logics
                 using (var con = new EntitiesLib())
                 {
                     var author = con.Author.FirstOrDefault(b => b.IdAuthor == idAuthor);
-                    author.Name = name;
-                    author.Surname = surname;
+                    author.AuthorName = name;
+                    author.AuthorSurname = surname;
                     con.SaveChanges();
                     return "Author updated succesfully.";
                 }

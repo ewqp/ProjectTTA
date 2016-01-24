@@ -5,23 +5,23 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5179d302cad544008dbcefed54ce9b3f" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.Account" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Author" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Book" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.BookGenre" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.History" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Rented" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.UserRoles" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
-        <AssociationConnector Association="Model.FK__History__IdAccou__6754599E" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Rented__IdAccoun__66603565" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Book__IdAuthor__4CA06362" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__History__IdAutho__5BE2A6F2" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Rented__IdAuthor__6383C8BA" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Book__IdGenre__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__History__IdBook__44FF419A" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Rented__IdBook__619B8048" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__User__IdUserRole__48CFD27E" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.Account" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Author" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Model.Book" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="Model.BookGenre" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="Model.History" Width="1.5" PointX="8.25" PointY="4.5" />
+        <EntityTypeShape EntityType="Model.Rented" Width="1.5" PointX="5.25" PointY="4.5" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="3" PointY="8.625" />
+        <EntityTypeShape EntityType="Model.UserRoles" Width="1.5" PointX="0.75" PointY="9" />
+        <AssociationConnector Association="Model.FK__History__IdAccou__20C1E124" />
+        <AssociationConnector Association="Model.FK__Rented__IdAccoun__239E4DCF" />
+        <AssociationConnector Association="Model.FK__Book__IdAuthor__1ED998B2" />
+        <AssociationConnector Association="Model.FK__History__IdAutho__21B6055D" />
+        <AssociationConnector Association="Model.FK__Rented__IdAuthor__24927208" />
+        <AssociationConnector Association="Model.FK__Book__IdGenre__1FCDBCEB" />
+        <AssociationConnector Association="Model.FK__History__IdBook__22AA2996" />
+        <AssociationConnector Association="Model.FK__Rented__IdBook__25869641" />
+        <AssociationConnector Association="Model.FK__User__IdUserRole__267ABA7A" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

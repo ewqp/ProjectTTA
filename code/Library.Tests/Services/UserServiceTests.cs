@@ -131,7 +131,7 @@ namespace Library.Tests.Services
                 .MustHaveHappened();
         }
         [Test]
-        public void UpdateBudget_Should_Persist_Budget_In_Repository()
+        public void UpdateUser_Should_Persist_User_In_Repository()
         {
             var user = new User();
 

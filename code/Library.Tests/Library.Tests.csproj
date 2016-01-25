@@ -71,6 +71,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Services\AuthorServiceTests.cs" />
+    <Compile Include="Services\BookGenreServiceTests.cs" />
     <Compile Include="Services\UserServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>

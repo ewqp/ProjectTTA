@@ -123,11 +123,15 @@
     <Compile Include="Model\UserRoles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthorService.cs" />
+    <Compile Include="Services\BookGenreService.cs" />
     <Compile Include="Services\IAuthorService.cs" />
+    <Compile Include="Services\IBookGenreService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Storage\AuthorRepository.cs" />
+    <Compile Include="Storage\BookGenreRepository.cs" />
     <Compile Include="Storage\IAuthorRepository.cs" />
+    <Compile Include="Storage\IBookGenreRepository.cs" />
     <Compile Include="Storage\IRepository.cs" />
     <Compile Include="Storage\IUserRepository.cs" />
     <Compile Include="Storage\Repository.cs" />

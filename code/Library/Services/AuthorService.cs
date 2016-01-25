@@ -21,7 +21,7 @@ namespace Library.Services
         {
             if (author.AuthorName == null || author.AuthorSurname == null)
             {
-                throw new ArgumentException("The user has to have all informations.");
+                throw new ArgumentException("The author has to have all informations.");
             }
 
             var authorDb = _authorsRepository.Persist(author);

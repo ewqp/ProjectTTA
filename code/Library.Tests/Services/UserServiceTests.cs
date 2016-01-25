@@ -130,6 +130,16 @@ namespace Library.Tests.Services
             A.CallTo(() => _usersRepository.Remove(A<User>._))
                 .MustHaveHappened();
         }
+        [Test]
+        public void UpdateBudget_Should_Persist_Budget_In_Repository()
+        {
+            var user = new User();
+
+            _sut.Update(user);
+
+            A.CallTo(() => _usersRepository.Persist(user))
+                .MustHaveHappened();
+        }
 
 
     }

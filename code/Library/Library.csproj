@@ -111,7 +111,23 @@
     <Compile Include="Models\RentInfo.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\UserInfoStatic.cs" />
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Author.cs" />
+    <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\BookGenre.cs" />
+    <Compile Include="Model\History.cs" />
+    <Compile Include="Model\IEntity.cs" />
+    <Compile Include="Model\ModelBase.cs" />
+    <Compile Include="Model\Rented.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UserRoles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Storage\IRepository.cs" />
+    <Compile Include="Storage\IUserRepository.cs" />
+    <Compile Include="Storage\Repository.cs" />
+    <Compile Include="Storage\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -142,6 +158,7 @@
       <LastGenOutput>ModelLib.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -8,6 +8,7 @@ namespace Library.Model
 {
     public class Book : ModelBase
     {
+        public int IdBook { get; set; }
         public string Title { get; set; }
         public int IdAuthor { get; set; }
         public int IdGenre { get; set; }

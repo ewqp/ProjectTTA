@@ -7,28 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Sql;
-using System.Data.SqlClient;
 using Library.Logics;
 using Library.EntityModel;
 
 namespace Library.GUI
 {
-    public partial class AddAuthor : Form
+    public partial class AddAccount : Form
     {
-        private DBAuthor _dbAuthor = new DBAuthor();
-
-        public AddAuthor()
+        private DBAccount _dbAccount = new DBAccount();        
+        public AddAccount()
         {
             InitializeComponent();
         }
 
-        private void buttonSaveAuthor_Click(object sender, EventArgs e)
+        private void btnSaveAcc_Click(object sender, EventArgs e)
         {
-            string result = _dbAuthor.AddAuthor(textBoxAuthorName.Text, textBoxAuthorSurname.Text);
+            string result = _dbAccount.AddAccount(txtBoxAccName.Text, txtBoxAccSur.Text, txtBoxAccEmail.Text);
         }
 
-        private void buttonCancelAuthor_Click(object sender, EventArgs e)
+        private void btnCancelAcc_Click(object sender, EventArgs e)
         {
             this.Close();
         }

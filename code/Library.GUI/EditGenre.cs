@@ -15,7 +15,7 @@ namespace Library.GUI
     public partial class EditGenre : Form
     {
 
-        private Library.Logics.DBGenre _dbGenre = new DBGenre();
+        private DBGenre _dbGenre = new DBGenre();
         private List<EntityModel.BookGenre> _genreList;
 
         public EditGenre()
@@ -30,23 +30,23 @@ namespace Library.GUI
         /// </summary>
         private void SetDataGrid()
         {
-            dataGridSearchGenre.AutoGenerateColumns = false; //wylaczenie auto generowania
-            dataGridSearchGenre.DataSource = _genreList; //ustawienie datasource
-            dataGridSearchGenre.Columns["Genre"].DataPropertyName = "Genre";
+            dataGridGenres.AutoGenerateColumns = false; //wylaczenie auto generowania
+            dataGridGenres.DataSource = _genreList; //ustawienie datasource
+            dataGridGenres.Columns["genre"].DataPropertyName = "Genre";
         }
 
         private void textBoxSearchGenre_TextChanged(object sender, EventArgs e)
         {
             List<EntityModel.BookGenre> list = _genreList.Where(b => b.Genre.Contains(textBoxSearchGenre.Text)).ToList();
 
-            dataGridSearchGenre.DataSource = list;
+            dataGridGenres.DataSource = list;
         }
 
-        private void dataGridSearchGenre_SelectionChanged(object sender, EventArgs e)
+        private void dataGridGenres_Click(object sender, EventArgs e)
         {
-            dataGridSearchGenre.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridGenres.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DataGridViewCell cell = null;
-            foreach (DataGridViewCell selectedCell in dataGridSearchGenre.SelectedCells)
+            foreach (DataGridViewCell selectedCell in dataGridGenres.SelectedCells)
             {
                 cell = selectedCell;
                 break;
@@ -54,20 +54,25 @@ namespace Library.GUI
             if (cell != null)
             {
                 DataGridViewRow row = cell.OwningRow;
-                textBoxGenreName.Text = row.Cells["Genre"].Value.ToString();
+                textBoxGenreName.Text = row.Cells["genre"].Value.ToString();
 
             }
         }
 
         private void buttonUpdateGenre_Click(object sender, EventArgs e)
         {
-            int idGenre = ((EntityModel.BookGenre)dataGridSearchGenre.CurrentRow.DataBoundItem).IdGenre;
+            int idGenre = ((EntityModel.BookGenre)dataGridGenres.CurrentRow.DataBoundItem).IdGenre;
             string genre = textBoxGenreName.Text;
+
+            int bookmarkRowIndex = dataGridGenres.CurrentCell.RowIndex;
+            int bookmarkColumnIndex = dataGridGenres.CurrentCell.ColumnIndex;
 
             string genreUpdated = _dbGenre.UpdateBookGenre(idGenre, genre);
 
             _genreList = _dbGenre.GetAllBookGenres();
-            dataGridSearchGenre.DataSource = _genreList;
+            dataGridGenres.DataSource = _genreList;
+
+            dataGridGenres.CurrentCell = dataGridGenres.Rows[bookmarkRowIndex].Cells[bookmarkColumnIndex];
         }
 
         private void buttonCancelGenre_Click(object sender, EventArgs e)

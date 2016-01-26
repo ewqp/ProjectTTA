@@ -32,7 +32,7 @@ namespace Library.Logics
         /// <summary>
         /// List of all book genres in DB.
         /// </summary>
-        public List<EntityModel.BookGenre> GetAllBookGenres()
+        public List<BookGenre> GetAllBookGenres()
         {
             var bookTypes = new List<EntityModel.BookGenre>();
 

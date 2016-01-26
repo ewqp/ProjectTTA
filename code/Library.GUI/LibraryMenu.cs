@@ -72,5 +72,35 @@ namespace Library.GUI
         {
             new ReturnBook().ShowDialog();
         }
+
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+            new AddAccount().ShowDialog();
+        }
+
+        private void btnEditAccount_Click(object sender, EventArgs e)
+        {
+            new EditAccount().ShowDialog();
+        }
+
+        private void btnAddGenre_Click(object sender, EventArgs e)
+        {
+            new AddGenre().ShowDialog();
+        }
+
+        private void btnEditGenre_Click(object sender, EventArgs e)
+        {
+            new EditGenre().ShowDialog();
+        }
+
+        private void btnAddAuthor_Click(object sender, EventArgs e)
+        {
+            new AddAuthor().ShowDialog();
+        }
+
+        private void btnEditAuthor_Click(object sender, EventArgs e)
+        {
+            new EditAuthor().ShowDialog();
+        }
     }
 }

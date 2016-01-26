@@ -119,6 +119,7 @@
     <Compile Include="Services\AuthorService.cs" />
     <Compile Include="Services\BookGenreService.cs" />
     <Compile Include="Services\BookService.cs" />
+    <Compile Include="Services\IAccountServices.cs" />
     <Compile Include="Services\IAuthorService.cs" />
     <Compile Include="Services\IBookGenreService.cs" />
     <Compile Include="Services\IBookService.cs" />

@@ -16,9 +16,9 @@ namespace Library.GUI
 {
     public partial class AddBook : Form
     {
-        private Library.Logics.DBBook _dbBook = new DBBook();
-        private Library.Logics.DBGenre _dbGenre = new DBGenre();
-        private Library.Logics.DBAuthor _dbAuthor = new DBAuthor();
+        private DBBook _dbBook = new DBBook();
+        private DBGenre _dbGenre = new DBGenre();
+        private DBAuthor _dbAuthor = new DBAuthor();
         private List<Models.AuthorInfo> _authorList;
         public AddBook()
         {

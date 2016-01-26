@@ -100,7 +100,7 @@
             this.Controls.Add(this.textBoxAuthorSurname);
             this.Controls.Add(this.textBoxAuthorName);
             this.Name = "AddAuthor";
-            this.Text = "Form1";
+            this.Text = "Add new author";
             this.ResumeLayout(false);
             this.PerformLayout();
 

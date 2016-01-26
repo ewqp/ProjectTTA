@@ -18,7 +18,7 @@ namespace Library.GUI
         private DBGenre _dbGenre = new DBGenre();
         private DBAuthor _dbAuthor = new DBAuthor();
         private List<BookInfo> _booksList;
-        private List<Models.AuthorInfo> _authorList;
+        private List<AuthorInfo> _authorList;
         private List<EntityModel.BookGenre> _genreList;
 
         public EditBook()
@@ -77,7 +77,7 @@ namespace Library.GUI
 
         private void btnUpdateBook_Click(object sender, EventArgs e)
         {
-            int idBook = ((Models.BookInfo)dataGridSearchBook.CurrentRow.DataBoundItem).IdBook;
+            int idBook = ((BookInfo)dataGridSearchBook.CurrentRow.DataBoundItem).IdBook;
             string title = textBoxTitle.Text;
             int idAuthor = Convert.ToInt32(comboBoxAuthor.SelectedValue);
             int idGenre = Convert.ToInt32(comboBoxBookGenre.SelectedValue);
@@ -95,7 +95,7 @@ namespace Library.GUI
 
         private void buttonDeleteBook_Click(object sender, EventArgs e)
         {
-            int idBook = ((Models.BookInfo)dataGridSearchBook.CurrentRow.DataBoundItem).IdBook;
+            int idBook = ((BookInfo)dataGridSearchBook.CurrentRow.DataBoundItem).IdBook;
 
             string bookDeleted = _dbBook.DeleteBook(idBook);
 

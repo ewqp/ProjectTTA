@@ -1,0 +1,7 @@
+﻿1>------ Build started: Project: Library, Configuration: Debug Any CPU ------
+1>  Library -> C:\Users\Ewka\Documents\Visual Studio 2015\Projects\Library\code\Library\bin\Debug\Library.exe
+2>------ Build started: Project: Library.GUI, Configuration: Debug Any CPU ------
+3>------ Build started: Project: Library.Tests.Integration, Configuration: Debug Any CPU ------
+2>  Library.GUI -> C:\Users\Ewka\Documents\Visual Studio 2015\Projects\Library\code\Library.GUI\bin\Debug\Library.GUI.exe
+3>  Library.Tests.Integration -> C:\Users\Ewka\Documents\Visual Studio 2015\Projects\Library\code\Library.Tests.Integration\bin\Debug\Library.Tests.Integration.exe
+========== Build: 3 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========

@@ -50,8 +50,8 @@ namespace Library.Logics
                 {
                     booksInfo.Add(new Models.AuthorInfo
                     {
-                        Name = author.AuthorName,
-                        Surname = author.AuthorSurname,
+                        AuthorName = author.AuthorName,
+                        AuthorSurname = author.AuthorSurname,
                         IdAuthor = author.IdAuthor
                     });
                 }

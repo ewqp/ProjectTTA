@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Library.Model;
+using Library.Models;
 
 namespace Library.Services
 {
     public interface IAuthorService
     {
-        Author Add(Author author);
-        void Remove(Author author);
-        void Update(Author author);
-        Author Get(int id);
-        IEnumerable<Author> GetAllAuthors();
+        AuthorInfo Add(AuthorInfo author);
+        void Remove(AuthorInfo author);
+        void Update(AuthorInfo author);
+        AuthorInfo Get(int id);
+        IEnumerable<AuthorInfo> GetAllAuthors();
     }
 }

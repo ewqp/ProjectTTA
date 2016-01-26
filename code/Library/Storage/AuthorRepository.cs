@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Library.Model;
+using Library.Models;
 
 namespace Library.Storage
 {
-    public class AuthorRepository : Repository<Author>, IAuthorRepository
+    public class AuthorRepository : Repository<AuthorInfo>, IAuthorRepository
     {
         private readonly Func<DbContext> _contextFactory;
 
@@ -15,28 +15,28 @@ namespace Library.Storage
             _contextFactory = contextFactory;
         }
 
-        public Author GetAuthorById(int id)
+        public AuthorInfo GetAuthorById(int id)
         {
             using (var context = _contextFactory())
             {
-                return context.Set<Author>()
+                return context.Set<AuthorInfo>()
                     .FirstOrDefault(u => u.IdAuthor == id);
             }
         }
-        public Author TakeAuthorData(string name, string surname)
+        public AuthorInfo TakeAuthorData(string name, string surname)
         {
             using (var context = _contextFactory())
             {
-                return context.Set<Author>()
+                return context.Set<AuthorInfo>()
                     .FirstOrDefault(u => u.AuthorName == name && u.AuthorSurname == surname);
             }
         }
 
-        public IEnumerable<Author> GetAllAuthors()
+        public IEnumerable<AuthorInfo> GetAllAuthors()
         {
             using (var context = _contextFactory())
             {
-                return context.Set<Author>()
+                return context.Set<AuthorInfo>()
                     .ToList();
             }
         }

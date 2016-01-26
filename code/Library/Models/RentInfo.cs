@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Library.Models
 {
-    public class RentInfo : EntityModel.Rented
+    public class RentInfo : ModelBase
     {
         private string authorName;
         private string userName;
         private string accountName;
+        public int IdRented { get; set; }
+        public int IdBook { get; set; }
+        public int IdAuthor { get; set; }
+        public DateTime RentDate { get; set; }
+        public int IdAccount { get; set; }
         public string Title { get; set; }
         public string AuthorName { get; set; }
         public string AuthorSurname { get; set; }
@@ -22,5 +27,7 @@ namespace Library.Models
         public string AccountSurname { get; set; }
         public string FullAccountName { get { accountName = string.Format("{0} {1}", AccountName, AccountSurname); return accountName; } set { accountName = value; } }
         public string Error { get; set; }
+        public virtual AuthorInfo Author { get; set; }
+        public virtual AccountInfo Account { get; set; }
     }
 }

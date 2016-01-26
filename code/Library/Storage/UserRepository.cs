@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Library.Model;
+using Library.Models;
 
 namespace Library.Storage
 {
-    public class UserRepository : Repository<User>, IUserRepository
+    public class UserRepository : Repository<UserInfo>, IUserRepository
     {
         private readonly Func<DbContext> _contextFactory;
 
@@ -15,28 +15,28 @@ namespace Library.Storage
             _contextFactory = contextFactory;
         }
 
-        public User GetUserById(int id)
+        public UserInfo GetUserById(int id)
         {
             using (var context = _contextFactory())
             {
-                return context.Set<User>()
+                return context.Set<UserInfo>()
                     .FirstOrDefault(u => u.IdUser == id);
             }
         }
-        public User TakeUserData(string email, string password)
+        public UserInfo TakeUserData(string email, string password)
         {
             using (var context = _contextFactory())
             {
-                return context.Set<User>()
+                return context.Set<UserInfo>()
                     .FirstOrDefault(u => u.UserEmail == email && u.UserPassword == password);
             }
         }
 
-        public IEnumerable<User> GetAllUsers()
+        public IEnumerable<UserInfo> GetAllUsers()
         {
             using (var context = _contextFactory())
             {
-                return context.Set<User>()
+                return context.Set<UserInfo>()
                     .ToList();
             }
         }

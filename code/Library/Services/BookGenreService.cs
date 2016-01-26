@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Library.Model;
+using Library.Models;
 using Library.Storage;
 
 namespace Library.Services
@@ -17,7 +17,7 @@ namespace Library.Services
             _genresRepository = genresRepository;
         }
 
-        public BookGenre Add(BookGenre genre)
+        public BookGenreInfo Add(BookGenreInfo genre)
         {
             if (genre.Genre == null)
             {
@@ -33,22 +33,22 @@ namespace Library.Services
             return null;
         }
 
-        public void Remove(BookGenre genre)
+        public void Remove(BookGenreInfo genre)
         {
             _genresRepository.Remove(genre);
         }
 
-        public void Update(BookGenre genre)
+        public void Update(BookGenreInfo genre)
         {
             _genresRepository.Persist(genre);
         }
 
-        public BookGenre Get(int id)
+        public BookGenreInfo Get(int id)
         {
             return _genresRepository.GetBookGenreById(id);
         }
 
-        public IEnumerable<BookGenre> GetAllGenres()
+        public IEnumerable<BookGenreInfo> GetAllGenres()
         {
             return _genresRepository.GetAll();
         }

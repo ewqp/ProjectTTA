@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using FakeItEasy;
 using NUnit.Framework;
-using Library.Model;
+using Library.Models;
 using Library.Services;
 using Library.Storage;
 
@@ -24,7 +24,7 @@ namespace Library.Tests.Services
         [Test]
         public void Add_Should_Persist_Author_in_Repository()
         {
-            var author = new Author
+            var author = new AuthorInfo
             {
                 AuthorName = "name",
                 AuthorSurname = "surname",
@@ -32,14 +32,14 @@ namespace Library.Tests.Services
 
             _sut.Add(author);
 
-            A.CallTo(() => _authorsRepository.Persist(A<Author>._))
+            A.CallTo(() => _authorsRepository.Persist(A<AuthorInfo>._))
                 .MustHaveHappened();
         }
 
         [Test]
         public void Add_Should_Throw_Exception_When_No_Informations()
         {
-            var author = new Author();
+            var author = new AuthorInfo();
 
             Assert.Throws<ArgumentException>(() => _sut.Add(author));
         }
@@ -47,18 +47,18 @@ namespace Library.Tests.Services
         [Test]
         public void Add_Should_Return_Null_When_Persist_Returned_Null()
         {
-            var author = new Author
+            var author = new AuthorInfo
             {
                 AuthorName = "name",
                 AuthorSurname = "surname",
 
             };
-            A.CallTo(() => _authorsRepository.Persist(A<Author>._))
+            A.CallTo(() => _authorsRepository.Persist(A<AuthorInfo>._))
                 .Returns(null);
 
             var result = _sut.Add(author);
 
-            A.CallTo(() => _authorsRepository.Persist(A<Author>._))
+            A.CallTo(() => _authorsRepository.Persist(A<AuthorInfo>._))
                 .MustHaveHappened();
             Assert.That(result, Is.Null);
         }
@@ -66,11 +66,11 @@ namespace Library.Tests.Services
         [Test]
         public void Remove_Should_Call_Remove_From_Repository()
         {
-            var author = new Author();
+            var author = new AuthorInfo();
 
             _sut.Remove(author);
 
-            A.CallTo(() => _authorsRepository.Remove(A<Author>._))
+            A.CallTo(() => _authorsRepository.Remove(A<AuthorInfo>._))
                 .MustHaveHappened();
         }
 
@@ -94,17 +94,17 @@ namespace Library.Tests.Services
         [Test]
         public void Remove_ShouldRemoveUserFromRepository()
         {
-            var author = new Author();
+            var author = new AuthorInfo();
 
             _sut.Remove(author);
 
-            A.CallTo(() => _authorsRepository.Remove(A<Author>._))
+            A.CallTo(() => _authorsRepository.Remove(A<AuthorInfo>._))
                 .MustHaveHappened();
         }
         [Test]
         public void Update_AUthor_Should_Persist_Author_In_Repository()
         {
-            var author = new Author();
+            var author = new AuthorInfo();
 
             _sut.Update(author);
 

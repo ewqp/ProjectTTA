@@ -73,6 +73,7 @@ namespace Library.GUI
             new ReturnBook().ShowDialog();
         }
 
+<<<<<<< HEAD
         private void btnAddAuthor_Click(object sender, EventArgs e)
         {
             new AddAuthor().ShowDialog();
@@ -81,6 +82,16 @@ namespace Library.GUI
         private void btnEditAuthor_Click(object sender, EventArgs e)
         {
             new EditAuthor().ShowDialog();
+=======
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+            new AddAccount().ShowDialog();
+        }
+
+        private void btnEditAccount_Click(object sender, EventArgs e)
+        {
+            new EditAccount().ShowDialog();
+>>>>>>> 247047363bb99edbf97eb8e64a40332c87e64440
         }
 
         private void btnAddGenre_Click(object sender, EventArgs e)
@@ -93,6 +104,7 @@ namespace Library.GUI
             new EditGenre().ShowDialog();
         }
 
+<<<<<<< HEAD
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
             new AddAccount().ShowDialog();
@@ -101,6 +113,16 @@ namespace Library.GUI
         private void btnEditAccount_Click(object sender, EventArgs e)
         {
             new EditAccount().ShowDialog();
+=======
+        private void btnAddAuthor_Click(object sender, EventArgs e)
+        {
+            new AddAuthor().ShowDialog();
+        }
+
+        private void btnEditAuthor_Click(object sender, EventArgs e)
+        {
+            new EditAuthor().ShowDialog();
+>>>>>>> 247047363bb99edbf97eb8e64a40332c87e64440
         }
     }
 }

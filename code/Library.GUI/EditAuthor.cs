@@ -14,10 +14,19 @@ namespace Library.GUI
 {
     public partial class EditAuthor : Form
     {
+<<<<<<< HEAD
         private DBAuthor _dbAuthor = new DBAuthor();
         private DBBook _dbBook = new DBBook();
         private List<AuthorInfo> _authorList;
         private List<BookInfo> _bookList;
+=======
+        private Library.Logics.DBBook _dbBook = new DBBook();
+        private Library.Logics.DBGenre _dbGenre = new DBGenre();
+        DBAuthor _dbAuthor = new DBAuthor();
+        private List<BookInfo> _booksList;
+        private List<AuthorInfo> _authorList;
+        private List<EntityModel.BookGenre> _genreList;
+>>>>>>> 247047363bb99edbf97eb8e64a40332c87e64440
 
         public EditAuthor()
         {
@@ -33,10 +42,17 @@ namespace Library.GUI
         {
             dataGridSearchAuthor.AutoGenerateColumns = false; //wylaczenie auto generowania
             dataGridSearchAuthor.DataSource = _authorList; //ustawienie datasource
+<<<<<<< HEAD
             dataGridSearchAuthor.Columns["name"].DataPropertyName = "AuthorName";
             dataGridSearchAuthor.Columns["surname"].DataPropertyName = "AuthorSurname";
         }
 
+=======
+            dataGridSearchAuthor.Columns["surname"].DataPropertyName = "AuthorSurname";
+            dataGridSearchAuthor.Columns["name"].DataPropertyName = "AuthorName";           
+        }
+ 
+>>>>>>> 247047363bb99edbf97eb8e64a40332c87e64440
         private void textBoxSearchAuthor_TextChanged(object sender, EventArgs e)
         {
             List<AuthorInfo> list = _authorList.Where(b => b.FullAuthorName.Contains(textBoxSearchAuthor.Text)).ToList();
@@ -56,8 +72,13 @@ namespace Library.GUI
             if (cell != null)
             {
                 DataGridViewRow row = cell.OwningRow;
+<<<<<<< HEAD
                 textBoxName.Text = row.Cells["name"].Value.ToString();
                 textBoxSurname.Text = row.Cells["surname"].Value.ToString();
+=======
+                textBoxName.Text = row.Cells["surname"].Value.ToString();
+                textBoxSurname.Text = row.Cells["name"].Value.ToString();
+>>>>>>> 247047363bb99edbf97eb8e64a40332c87e64440
             }
         }
 
@@ -67,12 +88,22 @@ namespace Library.GUI
             string name = textBoxName.Text;
             string surname = textBoxSurname.Text;
 
+<<<<<<< HEAD
+=======
+            int bookmarkRowIndex = dataGridSearchAuthor.CurrentCell.RowIndex;
+            int bookmarkColumnIndex = dataGridSearchAuthor.CurrentCell.ColumnIndex;
+
+>>>>>>> 247047363bb99edbf97eb8e64a40332c87e64440
             string authorUpdated = _dbAuthor.UpdateAuthor(idAuthor, name, surname);
 
             _authorList = _dbAuthor.GetAllAuthors();
             dataGridSearchAuthor.DataSource = _authorList;
 
+<<<<<<< HEAD
             lblMsg.Text = authorUpdated;
+=======
+            dataGridSearchAuthor.CurrentCell = dataGridSearchAuthor.Rows[bookmarkRowIndex].Cells[bookmarkColumnIndex];
+>>>>>>> 247047363bb99edbf97eb8e64a40332c87e64440
         }
 
         private void buttonDeleteAuthor_Click(object sender, EventArgs e)

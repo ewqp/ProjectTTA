@@ -16,7 +16,7 @@ namespace Library.GUI
 {
     public partial class AddAuthor : Form
     {
-        private Library.Logics.DBAuthor _dbAuthor = new DBAuthor();
+        private DBAuthor _dbAuthor = new DBAuthor();
 
         public AddAuthor()
         {

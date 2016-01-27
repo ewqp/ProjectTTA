@@ -159,12 +159,16 @@
             this.Controls.Add(this.groupBoxTop);
             this.Controls.Add(this.groupBoxMgs);
             this.Name = "AddAuthor";
+<<<<<<< HEAD
             this.Text = "Add a new author";
             this.groupBoxTop.ResumeLayout(false);
             this.groupBoxTop.PerformLayout();
             this.groupBoxDown.ResumeLayout(false);
             this.groupBoxMgs.ResumeLayout(false);
             this.groupBoxMgs.PerformLayout();
+=======
+            this.Text = "Add new author";
+>>>>>>> 247047363bb99edbf97eb8e64a40332c87e64440
             this.ResumeLayout(false);
 
         }

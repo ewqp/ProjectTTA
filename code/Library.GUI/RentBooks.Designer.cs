@@ -33,7 +33,7 @@
             this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblBooks = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxBooks = new System.Windows.Forms.GroupBox();
             this.txtBoxBook = new System.Windows.Forms.TextBox();
             this.groupBoxUsers = new System.Windows.Forms.GroupBox();
             this.textBoxAccount = new System.Windows.Forms.TextBox();
@@ -43,10 +43,15 @@
             this.accountEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.groupBoxBtn = new System.Windows.Forms.GroupBox();
+            this.groupBoxMsg = new System.Windows.Forms.GroupBox();
+            this.lblMsg = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRent)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxBooks.SuspendLayout();
             this.groupBoxUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccounts)).BeginInit();
+            this.groupBoxBtn.SuspendLayout();
+            this.groupBoxMsg.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridRent
@@ -58,7 +63,7 @@
             this.author,
             this.genre});
             this.dataGridRent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridRent.Location = new System.Drawing.Point(0, 215);
+            this.dataGridRent.Location = new System.Drawing.Point(0, 183);
             this.dataGridRent.Name = "dataGridRent";
             this.dataGridRent.Size = new System.Drawing.Size(602, 94);
             this.dataGridRent.TabIndex = 0;
@@ -90,18 +95,18 @@
             this.lblBooks.TabIndex = 1;
             this.lblBooks.Text = "Find a book:";
             // 
-            // groupBox1
+            // groupBoxBooks
             // 
-            this.groupBox1.Controls.Add(this.txtBoxBook);
-            this.groupBox1.Controls.Add(this.lblBooks);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 155);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 60);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Choose books";
+            this.groupBoxBooks.Controls.Add(this.txtBoxBook);
+            this.groupBoxBooks.Controls.Add(this.lblBooks);
+            this.groupBoxBooks.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBoxBooks.Location = new System.Drawing.Point(0, 139);
+            this.groupBoxBooks.Name = "groupBoxBooks";
+            this.groupBoxBooks.Size = new System.Drawing.Size(602, 44);
+            this.groupBoxBooks.TabIndex = 2;
+            this.groupBoxBooks.TabStop = false;
+            this.groupBoxBooks.Text = "Choose books";
             // 
             // txtBoxBook
             // 
@@ -121,7 +126,7 @@
             this.groupBoxUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBoxUsers.Location = new System.Drawing.Point(0, 0);
             this.groupBoxUsers.Name = "groupBoxUsers";
-            this.groupBoxUsers.Size = new System.Drawing.Size(602, 65);
+            this.groupBoxUsers.Size = new System.Drawing.Size(602, 49);
             this.groupBoxUsers.TabIndex = 3;
             this.groupBoxUsers.TabStop = false;
             this.groupBoxUsers.Text = "Choose a client";
@@ -155,7 +160,7 @@
             this.accountName,
             this.accountEmail});
             this.dataGridAccounts.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridAccounts.Location = new System.Drawing.Point(0, 65);
+            this.dataGridAccounts.Location = new System.Drawing.Point(0, 49);
             this.dataGridAccounts.Name = "dataGridAccounts";
             this.dataGridAccounts.Size = new System.Drawing.Size(602, 90);
             this.dataGridAccounts.TabIndex = 4;
@@ -173,9 +178,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(154, 347);
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAdd.Location = new System.Drawing.Point(3, 17);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(75, 28);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Rent";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -183,33 +189,71 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(385, 347);
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.Location = new System.Drawing.Point(524, 17);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.Size = new System.Drawing.Size(75, 28);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // groupBoxBtn
+            // 
+            this.groupBoxBtn.Controls.Add(this.btnClose);
+            this.groupBoxBtn.Controls.Add(this.btnAdd);
+            this.groupBoxBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBoxBtn.Location = new System.Drawing.Point(0, 299);
+            this.groupBoxBtn.Name = "groupBoxBtn";
+            this.groupBoxBtn.Size = new System.Drawing.Size(602, 48);
+            this.groupBoxBtn.TabIndex = 7;
+            this.groupBoxBtn.TabStop = false;
+            // 
+            // groupBoxMsg
+            // 
+            this.groupBoxMsg.Controls.Add(this.lblMsg);
+            this.groupBoxMsg.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBoxMsg.Location = new System.Drawing.Point(0, 347);
+            this.groupBoxMsg.Name = "groupBoxMsg";
+            this.groupBoxMsg.Size = new System.Drawing.Size(602, 35);
+            this.groupBoxMsg.TabIndex = 8;
+            this.groupBoxMsg.TabStop = false;
+            // 
+            // lblMsg
+            // 
+            this.lblMsg.AutoSize = true;
+            this.lblMsg.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblMsg.Location = new System.Drawing.Point(3, 16);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(0, 15);
+            this.lblMsg.TabIndex = 0;
             // 
             // RentBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(602, 382);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.groupBoxBtn);
+            this.Controls.Add(this.groupBoxMsg);
             this.Controls.Add(this.dataGridRent);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxBooks);
             this.Controls.Add(this.dataGridAccounts);
             this.Controls.Add(this.groupBoxUsers);
             this.Name = "RentBooks";
             this.Text = "Rent books";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRent)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxBooks.ResumeLayout(false);
+            this.groupBoxBooks.PerformLayout();
             this.groupBoxUsers.ResumeLayout(false);
             this.groupBoxUsers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccounts)).EndInit();
+            this.groupBoxBtn.ResumeLayout(false);
+            this.groupBoxMsg.ResumeLayout(false);
+            this.groupBoxMsg.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -221,7 +265,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn author;
         private System.Windows.Forms.DataGridViewTextBoxColumn genre;
         private System.Windows.Forms.Label lblBooks;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxBooks;
         private System.Windows.Forms.TextBox txtBoxBook;
         private System.Windows.Forms.GroupBox groupBoxUsers;
         private System.Windows.Forms.TextBox textBoxAccount;
@@ -231,5 +275,8 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountName;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountEmail;
+        private System.Windows.Forms.GroupBox groupBoxBtn;
+        private System.Windows.Forms.GroupBox groupBoxMsg;
+        private System.Windows.Forms.Label lblMsg;
     }
 }

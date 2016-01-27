@@ -7,12 +7,12 @@ using System.Collections.ObjectModel;
 
 namespace Library.Models
 {
-    public class AuthorInfo : EntityModel.Author
+    public class AuthorInfo : ModelBase
     {
         private string name;
-        public string Name { get; set; }
-        public string Surname { get; set; }
-
+        public int IdAuthor { get; set; }
+        public string AuthorName { get; set; }
+        public string AuthorSurname { get; set; }
         public string FullAuthorName { get { name = string.Format("{0} {1}", AuthorName, AuthorSurname); return name; } set { name = value; } }
     }
 }

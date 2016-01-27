@@ -31,7 +31,7 @@ namespace Library.Logics
 
                     con.History.Add(newHistoryEntry);
                     con.SaveChanges();
-                    return "Entry was added.";
+                    return "Log entry was added.";
                 }
             }
             catch (Exception exc)

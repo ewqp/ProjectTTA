@@ -19,6 +19,7 @@ namespace Library.Logics
                     var newBookGenre = new BookGenre();
                     newBookGenre.Genre = name;
 
+                    //if(name != )
                     con.BookGenre.Add(newBookGenre);
                     con.SaveChanges();
                     return "Genre added succesfully.";
@@ -32,7 +33,7 @@ namespace Library.Logics
         /// <summary>
         /// List of all book genres in DB.
         /// </summary>
-        public List<EntityModel.BookGenre> GetAllBookGenres()
+        public List<BookGenre> GetAllBookGenres()
         {
             var bookTypes = new List<EntityModel.BookGenre>();
 

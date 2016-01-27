@@ -16,12 +16,15 @@ namespace Library.GUI
     {
 
         private Library.Logics.DBGenre _dbGenre = new DBGenre();
+        private DBBook _dbBook = new DBBook();
         private List<EntityModel.BookGenre> _genreList;
+        private List<BookInfo> _bookList;
 
         public EditGenre()
         {
             InitializeComponent();
             _genreList = _dbGenre.GetAllBookGenres();
+            _bookList = _dbBook.GetReallyAllBooksInfo();
             SetDataGrid();
         }
 
@@ -32,7 +35,7 @@ namespace Library.GUI
         {
             dataGridSearchGenre.AutoGenerateColumns = false; //wylaczenie auto generowania
             dataGridSearchGenre.DataSource = _genreList; //ustawienie datasource
-            dataGridSearchGenre.Columns["Genre"].DataPropertyName = "Genre";
+            dataGridSearchGenre.Columns["genre"].DataPropertyName = "Genre";
         }
 
         private void textBoxSearchGenre_TextChanged(object sender, EventArgs e)
@@ -54,7 +57,7 @@ namespace Library.GUI
             if (cell != null)
             {
                 DataGridViewRow row = cell.OwningRow;
-                textBoxGenreName.Text = row.Cells["Genre"].Value.ToString();
+                textBoxGenreName.Text = row.Cells["genre"].Value.ToString();
 
             }
         }
@@ -68,11 +71,33 @@ namespace Library.GUI
 
             _genreList = _dbGenre.GetAllBookGenres();
             dataGridSearchGenre.DataSource = _genreList;
+            lblMsg.Text = genreUpdated;
         }
 
         private void buttonCancelGenre_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonDeleteGenre_Click(object sender, EventArgs e)
+        {
+            int idGenre = ((EntityModel.BookGenre)dataGridSearchGenre.CurrentRow.DataBoundItem).IdGenre;
+
+            List<BookInfo> list = _bookList.Where(g => g.IdGenre == idGenre).ToList();
+            if (list.Count == 0)
+            {
+                string genreDeleted = _dbGenre.DeleteBookGenre(idGenre);
+
+                _genreList = _dbGenre.GetAllBookGenres();
+                dataGridSearchGenre.DataSource = _genreList;
+                lblMsg.Text = genreDeleted;
+            }
+            else
+            {
+                MessageBox.Show("You cannot delete genre, that is connecet to any book.", "Warning");
+                //jakis break 
+                this.Close();
+            }
         }
     }
 }

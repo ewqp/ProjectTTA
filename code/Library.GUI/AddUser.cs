@@ -28,6 +28,7 @@ namespace Library.GUI
         private void btnSaveUser_Click(object sender, EventArgs e)
         {
             string result = _dbUser.AddUser(txtBoxName.Text, textBoxSurname.Text, textBoxEmail.Text, Convert.ToInt32(comboBoxUserRole.SelectedValue), textBoxPass.Text);
+            lblMsg.Text = result;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

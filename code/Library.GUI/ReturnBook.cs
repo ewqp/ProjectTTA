@@ -35,7 +35,7 @@ namespace Library.GUI
 
         private void textBoxSearchRent_TextChanged(object sender, EventArgs e)
         {
-            List<RentInfo> list = _rentList.Where(l => l.UserSurname.Contains(textBoxSearchRent.Text) || l.AuthorSurname.Contains(textBoxSearchRent.Text) || l.Title.Contains(textBoxSearchRent.Text)).ToList();
+            List<RentInfo> list = _rentList.Where(l => l.AccountSurname.Contains(textBoxSearchRent.Text) || l.AuthorSurname.Contains(textBoxSearchRent.Text) || l.Title.Contains(textBoxSearchRent.Text)).ToList();
 
             dataGridRentedBooks.DataSource = list;
         }
@@ -73,6 +73,7 @@ namespace Library.GUI
             dataGridRentedBooks.DataSource = _rentList;
 
             dataGridRentedBooks.CurrentCell = dataGridRentedBooks.Rows[bookmarkRowIndex].Cells[bookmarkColumnIndex];
+            lblMsg.Text = entryRemoved;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

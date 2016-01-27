@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAccount.Designer.cs">
+      <DependentUpon>AddAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddAuthor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     </Compile>
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAccount.Designer.cs">
+      <DependentUpon>EditAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="EditAuthor.cs">
       <SubType>Form</SubType>
@@ -135,6 +147,12 @@
     <Compile Include="ShowHistory.Designer.cs">
       <DependentUpon>ShowHistory.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddAccount.resx">
+      <DependentUpon>AddAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAuthor.resx">
+      <DependentUpon>AddAuthor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddBook.resx">
       <DependentUpon>AddBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAccount.resx">
+      <DependentUpon>EditAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditAuthor.resx">
       <DependentUpon>EditAuthor.cs</DependentUpon>

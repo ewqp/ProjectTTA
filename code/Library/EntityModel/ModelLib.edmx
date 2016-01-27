@@ -77,7 +77,7 @@
           <Property Name="IdUserRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserRole" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Book__IdAuthor__1ED998B2">
+        <Association Name="FK__Book__IdAuthor__4CA06362">
           <End Role="Author" Type="Self.Author" Multiplicity="1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
@@ -89,7 +89,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Book__IdGenre__1FCDBCEB">
+        <Association Name="FK__Book__IdGenre__5070F446">
           <End Role="BookGenre" Type="Self.BookGenre" Multiplicity="1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
@@ -101,7 +101,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__History__IdAccou__20C1E124">
+        <Association Name="FK__History__IdAccou__6754599E">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="History" Type="Self.History" Multiplicity="*" />
           <ReferentialConstraint>
@@ -113,7 +113,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__History__IdAutho__21B6055D">
+        <Association Name="FK__History__IdAutho__5BE2A6F2">
           <End Role="Author" Type="Self.Author" Multiplicity="1" />
           <End Role="History" Type="Self.History" Multiplicity="*" />
           <ReferentialConstraint>
@@ -125,7 +125,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__History__IdBook__22AA2996">
+        <Association Name="FK__History__IdBook__44FF419A">
           <End Role="Book" Type="Self.Book" Multiplicity="1" />
           <End Role="History" Type="Self.History" Multiplicity="*" />
           <ReferentialConstraint>
@@ -137,7 +137,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rented__IdAccoun__239E4DCF">
+        <Association Name="FK__Rented__IdAccoun__66603565">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Rented" Type="Self.Rented" Multiplicity="*" />
           <ReferentialConstraint>
@@ -149,7 +149,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rented__IdAuthor__24927208">
+        <Association Name="FK__Rented__IdAuthor__6383C8BA">
           <End Role="Author" Type="Self.Author" Multiplicity="1" />
           <End Role="Rented" Type="Self.Rented" Multiplicity="*" />
           <ReferentialConstraint>
@@ -161,7 +161,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rented__IdBook__25869641">
+        <Association Name="FK__Rented__IdBook__619B8048">
           <End Role="Book" Type="Self.Book" Multiplicity="1" />
           <End Role="Rented" Type="Self.Rented" Multiplicity="*" />
           <ReferentialConstraint>
@@ -173,7 +173,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__User__IdUserRole__267ABA7A">
+        <Association Name="FK__User__IdUserRole__48CFD27E">
           <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
@@ -194,39 +194,39 @@
           <EntitySet Name="Rented" EntityType="Self.Rented" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Book__IdAuthor__1ED998B2" Association="Self.FK__Book__IdAuthor__1ED998B2">
+          <AssociationSet Name="FK__Book__IdAuthor__4CA06362" Association="Self.FK__Book__IdAuthor__4CA06362">
             <End Role="Author" EntitySet="Author" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
-          <AssociationSet Name="FK__Book__IdGenre__1FCDBCEB" Association="Self.FK__Book__IdGenre__1FCDBCEB">
+          <AssociationSet Name="FK__Book__IdGenre__5070F446" Association="Self.FK__Book__IdGenre__5070F446">
             <End Role="BookGenre" EntitySet="BookGenre" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
-          <AssociationSet Name="FK__History__IdAccou__20C1E124" Association="Self.FK__History__IdAccou__20C1E124">
+          <AssociationSet Name="FK__History__IdAccou__6754599E" Association="Self.FK__History__IdAccou__6754599E">
             <End Role="Account" EntitySet="Account" />
             <End Role="History" EntitySet="History" />
           </AssociationSet>
-          <AssociationSet Name="FK__History__IdAutho__21B6055D" Association="Self.FK__History__IdAutho__21B6055D">
+          <AssociationSet Name="FK__History__IdAutho__5BE2A6F2" Association="Self.FK__History__IdAutho__5BE2A6F2">
             <End Role="Author" EntitySet="Author" />
             <End Role="History" EntitySet="History" />
           </AssociationSet>
-          <AssociationSet Name="FK__History__IdBook__22AA2996" Association="Self.FK__History__IdBook__22AA2996">
+          <AssociationSet Name="FK__History__IdBook__44FF419A" Association="Self.FK__History__IdBook__44FF419A">
             <End Role="Book" EntitySet="Book" />
             <End Role="History" EntitySet="History" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rented__IdAccoun__239E4DCF" Association="Self.FK__Rented__IdAccoun__239E4DCF">
+          <AssociationSet Name="FK__Rented__IdAccoun__66603565" Association="Self.FK__Rented__IdAccoun__66603565">
             <End Role="Account" EntitySet="Account" />
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rented__IdAuthor__24927208" Association="Self.FK__Rented__IdAuthor__24927208">
+          <AssociationSet Name="FK__Rented__IdAuthor__6383C8BA" Association="Self.FK__Rented__IdAuthor__6383C8BA">
             <End Role="Author" EntitySet="Author" />
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rented__IdBook__25869641" Association="Self.FK__Rented__IdBook__25869641">
+          <AssociationSet Name="FK__Rented__IdBook__619B8048" Association="Self.FK__Rented__IdBook__619B8048">
             <End Role="Book" EntitySet="Book" />
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
-          <AssociationSet Name="FK__User__IdUserRole__267ABA7A" Association="Self.FK__User__IdUserRole__267ABA7A">
+          <AssociationSet Name="FK__User__IdUserRole__48CFD27E" Association="Self.FK__User__IdUserRole__48CFD27E">
             <End Role="UserRoles" EntitySet="UserRoles" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
@@ -244,39 +244,39 @@
           <EntitySet Name="Rented" EntityType="Model.Rented" />
           <EntitySet Name="User" EntityType="Model.User" />
           <EntitySet Name="UserRoles" EntityType="Model.UserRoles" />
-          <AssociationSet Name="FK__History__IdAccou__20C1E124" Association="Model.FK__History__IdAccou__20C1E124">
+          <AssociationSet Name="FK__History__IdAccou__6754599E" Association="Model.FK__History__IdAccou__6754599E">
             <End Role="Account" EntitySet="Account" />
             <End Role="History" EntitySet="History" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rented__IdAccoun__239E4DCF" Association="Model.FK__Rented__IdAccoun__239E4DCF">
+          <AssociationSet Name="FK__Rented__IdAccoun__66603565" Association="Model.FK__Rented__IdAccoun__66603565">
             <End Role="Account" EntitySet="Account" />
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
-          <AssociationSet Name="FK__Book__IdAuthor__1ED998B2" Association="Model.FK__Book__IdAuthor__1ED998B2">
+          <AssociationSet Name="FK__Book__IdAuthor__4CA06362" Association="Model.FK__Book__IdAuthor__4CA06362">
             <End Role="Author" EntitySet="Author" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
-          <AssociationSet Name="FK__History__IdAutho__21B6055D" Association="Model.FK__History__IdAutho__21B6055D">
+          <AssociationSet Name="FK__History__IdAutho__5BE2A6F2" Association="Model.FK__History__IdAutho__5BE2A6F2">
             <End Role="Author" EntitySet="Author" />
             <End Role="History" EntitySet="History" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rented__IdAuthor__24927208" Association="Model.FK__Rented__IdAuthor__24927208">
+          <AssociationSet Name="FK__Rented__IdAuthor__6383C8BA" Association="Model.FK__Rented__IdAuthor__6383C8BA">
             <End Role="Author" EntitySet="Author" />
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
-          <AssociationSet Name="FK__Book__IdGenre__1FCDBCEB" Association="Model.FK__Book__IdGenre__1FCDBCEB">
+          <AssociationSet Name="FK__Book__IdGenre__5070F446" Association="Model.FK__Book__IdGenre__5070F446">
             <End Role="BookGenre" EntitySet="BookGenre" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
-          <AssociationSet Name="FK__History__IdBook__22AA2996" Association="Model.FK__History__IdBook__22AA2996">
+          <AssociationSet Name="FK__History__IdBook__44FF419A" Association="Model.FK__History__IdBook__44FF419A">
             <End Role="Book" EntitySet="Book" />
             <End Role="History" EntitySet="History" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rented__IdBook__25869641" Association="Model.FK__Rented__IdBook__25869641">
+          <AssociationSet Name="FK__Rented__IdBook__619B8048" Association="Model.FK__Rented__IdBook__619B8048">
             <End Role="Book" EntitySet="Book" />
             <End Role="Rented" EntitySet="Rented" />
           </AssociationSet>
-          <AssociationSet Name="FK__User__IdUserRole__267ABA7A" Association="Model.FK__User__IdUserRole__267ABA7A">
+          <AssociationSet Name="FK__User__IdUserRole__48CFD27E" Association="Model.FK__User__IdUserRole__48CFD27E">
             <End Role="UserRoles" EntitySet="UserRoles" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
@@ -289,8 +289,8 @@
           <Property Name="AccountName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AccountSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AccountEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="History" Relationship="Model.FK__History__IdAccou__20C1E124" FromRole="Account" ToRole="History" />
-          <NavigationProperty Name="Rented" Relationship="Model.FK__Rented__IdAccoun__239E4DCF" FromRole="Account" ToRole="Rented" />
+          <NavigationProperty Name="History" Relationship="Model.FK__History__IdAccou__6754599E" FromRole="Account" ToRole="History" />
+          <NavigationProperty Name="Rented" Relationship="Model.FK__Rented__IdAccoun__66603565" FromRole="Account" ToRole="Rented" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
@@ -299,9 +299,9 @@
           <Property Name="IdAuthor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AuthorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AuthorSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Book" Relationship="Model.FK__Book__IdAuthor__1ED998B2" FromRole="Author" ToRole="Book" />
-          <NavigationProperty Name="History" Relationship="Model.FK__History__IdAutho__21B6055D" FromRole="Author" ToRole="History" />
-          <NavigationProperty Name="Rented" Relationship="Model.FK__Rented__IdAuthor__24927208" FromRole="Author" ToRole="Rented" />
+          <NavigationProperty Name="Book" Relationship="Model.FK__Book__IdAuthor__4CA06362" FromRole="Author" ToRole="Book" />
+          <NavigationProperty Name="History" Relationship="Model.FK__History__IdAutho__5BE2A6F2" FromRole="Author" ToRole="History" />
+          <NavigationProperty Name="Rented" Relationship="Model.FK__Rented__IdAuthor__6383C8BA" FromRole="Author" ToRole="Rented" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
@@ -311,10 +311,10 @@
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdAuthor" Type="Int32" Nullable="false" />
           <Property Name="IdGenre" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Author" Relationship="Model.FK__Book__IdAuthor__1ED998B2" FromRole="Book" ToRole="Author" />
-          <NavigationProperty Name="BookGenre" Relationship="Model.FK__Book__IdGenre__1FCDBCEB" FromRole="Book" ToRole="BookGenre" />
-          <NavigationProperty Name="History" Relationship="Model.FK__History__IdBook__22AA2996" FromRole="Book" ToRole="History" />
-          <NavigationProperty Name="Rented" Relationship="Model.FK__Rented__IdBook__25869641" FromRole="Book" ToRole="Rented" />
+          <NavigationProperty Name="Author" Relationship="Model.FK__Book__IdAuthor__4CA06362" FromRole="Book" ToRole="Author" />
+          <NavigationProperty Name="BookGenre" Relationship="Model.FK__Book__IdGenre__5070F446" FromRole="Book" ToRole="BookGenre" />
+          <NavigationProperty Name="History" Relationship="Model.FK__History__IdBook__44FF419A" FromRole="Book" ToRole="History" />
+          <NavigationProperty Name="Rented" Relationship="Model.FK__Rented__IdBook__619B8048" FromRole="Book" ToRole="Rented" />
         </EntityType>
         <EntityType Name="BookGenre">
           <Key>
@@ -322,7 +322,7 @@
           </Key>
           <Property Name="IdGenre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Book" Relationship="Model.FK__Book__IdGenre__1FCDBCEB" FromRole="BookGenre" ToRole="Book" />
+          <NavigationProperty Name="Book" Relationship="Model.FK__Book__IdGenre__5070F446" FromRole="BookGenre" ToRole="Book" />
         </EntityType>
         <EntityType Name="History">
           <Key>
@@ -334,9 +334,9 @@
           <Property Name="ActionDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IdAuthor" Type="Int32" Nullable="false" />
           <Property Name="IdAccount" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Account" Relationship="Model.FK__History__IdAccou__20C1E124" FromRole="History" ToRole="Account" />
-          <NavigationProperty Name="Author" Relationship="Model.FK__History__IdAutho__21B6055D" FromRole="History" ToRole="Author" />
-          <NavigationProperty Name="Book" Relationship="Model.FK__History__IdBook__22AA2996" FromRole="History" ToRole="Book" />
+          <NavigationProperty Name="Account" Relationship="Model.FK__History__IdAccou__6754599E" FromRole="History" ToRole="Account" />
+          <NavigationProperty Name="Author" Relationship="Model.FK__History__IdAutho__5BE2A6F2" FromRole="History" ToRole="Author" />
+          <NavigationProperty Name="Book" Relationship="Model.FK__History__IdBook__44FF419A" FromRole="History" ToRole="Book" />
         </EntityType>
         <EntityType Name="Rented">
           <Key>
@@ -347,9 +347,9 @@
           <Property Name="IdAuthor" Type="Int32" Nullable="false" />
           <Property Name="RentDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IdAccount" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Account" Relationship="Model.FK__Rented__IdAccoun__239E4DCF" FromRole="Rented" ToRole="Account" />
-          <NavigationProperty Name="Author" Relationship="Model.FK__Rented__IdAuthor__24927208" FromRole="Rented" ToRole="Author" />
-          <NavigationProperty Name="Book" Relationship="Model.FK__Rented__IdBook__25869641" FromRole="Rented" ToRole="Book" />
+          <NavigationProperty Name="Account" Relationship="Model.FK__Rented__IdAccoun__66603565" FromRole="Rented" ToRole="Account" />
+          <NavigationProperty Name="Author" Relationship="Model.FK__Rented__IdAuthor__6383C8BA" FromRole="Rented" ToRole="Author" />
+          <NavigationProperty Name="Book" Relationship="Model.FK__Rented__IdBook__619B8048" FromRole="Rented" ToRole="Book" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -361,7 +361,7 @@
           <Property Name="UserEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdUserRole" Type="Int32" Nullable="false" />
           <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="UserRoles" Relationship="Model.FK__User__IdUserRole__267ABA7A" FromRole="User" ToRole="UserRoles" />
+          <NavigationProperty Name="UserRoles" Relationship="Model.FK__User__IdUserRole__48CFD27E" FromRole="User" ToRole="UserRoles" />
         </EntityType>
         <EntityType Name="UserRoles">
           <Key>
@@ -369,9 +369,9 @@
           </Key>
           <Property Name="IdUserRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserRole" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="User" Relationship="Model.FK__User__IdUserRole__267ABA7A" FromRole="UserRoles" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Model.FK__User__IdUserRole__48CFD27E" FromRole="UserRoles" ToRole="User" />
         </EntityType>
-        <Association Name="FK__History__IdAccou__20C1E124">
+        <Association Name="FK__History__IdAccou__6754599E">
           <End Type="Model.Account" Role="Account" Multiplicity="1" />
           <End Type="Model.History" Role="History" Multiplicity="*" />
           <ReferentialConstraint>
@@ -383,7 +383,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rented__IdAccoun__239E4DCF">
+        <Association Name="FK__Rented__IdAccoun__66603565">
           <End Type="Model.Account" Role="Account" Multiplicity="1" />
           <End Type="Model.Rented" Role="Rented" Multiplicity="*" />
           <ReferentialConstraint>
@@ -395,7 +395,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Book__IdAuthor__1ED998B2">
+        <Association Name="FK__Book__IdAuthor__4CA06362">
           <End Type="Model.Author" Role="Author" Multiplicity="1" />
           <End Type="Model.Book" Role="Book" Multiplicity="*" />
           <ReferentialConstraint>
@@ -407,7 +407,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__History__IdAutho__21B6055D">
+        <Association Name="FK__History__IdAutho__5BE2A6F2">
           <End Type="Model.Author" Role="Author" Multiplicity="1" />
           <End Type="Model.History" Role="History" Multiplicity="*" />
           <ReferentialConstraint>
@@ -419,7 +419,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rented__IdAuthor__24927208">
+        <Association Name="FK__Rented__IdAuthor__6383C8BA">
           <End Type="Model.Author" Role="Author" Multiplicity="1" />
           <End Type="Model.Rented" Role="Rented" Multiplicity="*" />
           <ReferentialConstraint>
@@ -431,7 +431,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Book__IdGenre__1FCDBCEB">
+        <Association Name="FK__Book__IdGenre__5070F446">
           <End Type="Model.BookGenre" Role="BookGenre" Multiplicity="1" />
           <End Type="Model.Book" Role="Book" Multiplicity="*" />
           <ReferentialConstraint>
@@ -443,7 +443,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__History__IdBook__22AA2996">
+        <Association Name="FK__History__IdBook__44FF419A">
           <End Type="Model.Book" Role="Book" Multiplicity="1" />
           <End Type="Model.History" Role="History" Multiplicity="*" />
           <ReferentialConstraint>
@@ -455,7 +455,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rented__IdBook__25869641">
+        <Association Name="FK__Rented__IdBook__619B8048">
           <End Type="Model.Book" Role="Book" Multiplicity="1" />
           <End Type="Model.Rented" Role="Rented" Multiplicity="*" />
           <ReferentialConstraint>
@@ -467,7 +467,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__User__IdUserRole__267ABA7A">
+        <Association Name="FK__User__IdUserRole__48CFD27E">
           <End Type="Model.UserRoles" Role="UserRoles" Multiplicity="1" />
           <End Type="Model.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
@@ -479,7 +479,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

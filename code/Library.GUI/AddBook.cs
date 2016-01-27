@@ -37,7 +37,8 @@ namespace Library.GUI
 
         private void buttonSaveBook_Click(object sender, EventArgs e)
         {
-            string result = _dbBook.AddBook(textBoxTitle.Text, Convert.ToInt32(comboBoxAuthor.SelectedValue), Convert.ToInt32(comboBoxAuthor.SelectedValue));
+            string result = _dbBook.AddBook(textBoxTitle.Text, Convert.ToInt32(comboBoxAuthor.SelectedValue), Convert.ToInt32(comboBoxBookGenre.SelectedValue));
+            lblMsg.Text = result;
             
         }
 

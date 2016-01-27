@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using FakeItEasy;
 using NUnit.Framework;
-using Library.Model;
+using Library.Models;
 using Library.Services;
 using Library.Storage;
 
@@ -24,7 +24,7 @@ namespace Library.Tests.Services
         [Test]
         public void Add_Should_Persist_Book_In_Repository()
         {
-            var book = new Book
+            var book = new BookInfo
             {
                 Title = "name",
                 IdAuthor = 1,
@@ -33,14 +33,14 @@ namespace Library.Tests.Services
 
             _sut.Add(book);
 
-            A.CallTo(() => _booksRepository.Persist(A<Book>._))
+            A.CallTo(() => _booksRepository.Persist(A<BookInfo>._))
                 .MustHaveHappened();
         }
 
         [Test]
         public void Add_Should_Throw_Exception_When_No_Informations()
         {
-            var book = new Book();
+            var book = new BookInfo();
 
             Assert.Throws<ArgumentException>(() => _sut.Add(book));
         }
@@ -48,19 +48,19 @@ namespace Library.Tests.Services
         [Test]
         public void Add_Should_Return_Null_When_Persist_Returned_Null()
         {
-            var book = new Book
+            var book = new BookInfo
             {
                 Title = "name",
                 IdAuthor = 1,
                 IdGenre = 1,
 
             };
-            A.CallTo(() => _booksRepository.Persist(A<Book>._))
+            A.CallTo(() => _booksRepository.Persist(A<BookInfo>._))
                 .Returns(null);
 
             var result = _sut.Add(book);
 
-            A.CallTo(() => _booksRepository.Persist(A<Book>._))
+            A.CallTo(() => _booksRepository.Persist(A<BookInfo>._))
                 .MustHaveHappened();
             Assert.That(result, Is.Null);
         }
@@ -68,11 +68,11 @@ namespace Library.Tests.Services
         [Test]
         public void Remove_Should_Call_Remove_From_Repository()
         {
-            var book = new Book();
+            var book = new BookInfo();
 
             _sut.Remove(book);
 
-            A.CallTo(() => _booksRepository.Remove(A<Book>._))
+            A.CallTo(() => _booksRepository.Remove(A<BookInfo>._))
                 .MustHaveHappened();
         }
 
@@ -97,18 +97,18 @@ namespace Library.Tests.Services
         [Test]
         public void Remove_Should_Remove_User_From_Repository()
         {
-            var book = new Book();
+            var book = new BookInfo();
 
             _sut.Remove(book);
 
-            A.CallTo(() => _booksRepository.Remove(A<Book>._))
+            A.CallTo(() => _booksRepository.Remove(A<BookInfo>._))
                 .MustHaveHappened();
         }
 
         [Test]
         public void Update_Book_Should_Persist_Book_In_Repository()
         {
-            var book = new Book();
+            var book = new BookInfo();
 
             _sut.Update(book);
 

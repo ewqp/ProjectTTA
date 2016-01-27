@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Library.Model;
+using Library.Models;
 
 namespace Library.Storage
 {
-    public interface IBookGenreRepository : IRepository<BookGenre>
+    public interface IBookGenreRepository : IRepository<BookGenreInfo>
     {
-        BookGenre GetBookGenreById(int id);
-        BookGenre TakeBookGenreData(string genre);
-        IEnumerable<BookGenre> GetAllBookGenres();
+        BookGenreInfo GetBookGenreById(int id);
+        BookGenreInfo TakeBookGenreData(string genre);
+        IEnumerable<BookGenreInfo> GetAllBookGenres();
 
     }
 }

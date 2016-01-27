@@ -26,6 +26,7 @@ namespace Library.GUI
         private void buttonSaveAuthor_Click(object sender, EventArgs e)
         {
             string result = _dbAuthor.AddAuthor(textBoxAuthorName.Text, textBoxAuthorSurname.Text);
+            lblMsg.Text = result;
         }
 
         private void buttonCancelAuthor_Click(object sender, EventArgs e)

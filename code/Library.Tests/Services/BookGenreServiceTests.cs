@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using FakeItEasy;
 using NUnit.Framework;
-using Library.Model;
+using Library.Models;
 using Library.Services;
 using Library.Storage;
 
@@ -24,7 +24,7 @@ namespace Library.Tests.Services
         [Test]
         public void Add_Should_Persist_Genre_in_Repository()
         {
-            var genre = new BookGenre
+            var genre = new BookGenreInfo
             {
                 Genre = "genre",
 
@@ -32,14 +32,14 @@ namespace Library.Tests.Services
 
             _sut.Add(genre);
 
-            A.CallTo(() => _genresRepository.Persist(A<BookGenre>._))
+            A.CallTo(() => _genresRepository.Persist(A<BookGenreInfo>._))
                 .MustHaveHappened();
         }
 
         [Test]
         public void Add_Should_Throw_Exception_When_No_Information()
         {
-            var genre = new BookGenre();
+            var genre = new BookGenreInfo();
 
             Assert.Throws<ArgumentException>(() => _sut.Add(genre));
         }
@@ -47,17 +47,17 @@ namespace Library.Tests.Services
         [Test]
         public void Add_Should_Return_Null_When_Persist_Returned_Null()
         {
-            var genre = new BookGenre
+            var genre = new BookGenreInfo
             {
                 Genre = "genre",
 
             };
-            A.CallTo(() => _genresRepository.Persist(A<BookGenre>._))
+            A.CallTo(() => _genresRepository.Persist(A<BookGenreInfo>._))
                 .Returns(null);
 
             var result = _sut.Add(genre);
 
-            A.CallTo(() => _genresRepository.Persist(A<BookGenre>._))
+            A.CallTo(() => _genresRepository.Persist(A<BookGenreInfo>._))
                 .MustHaveHappened();
             Assert.That(result, Is.Null);
         }
@@ -65,11 +65,11 @@ namespace Library.Tests.Services
         [Test]
         public void Remove_Should_Call_Remove_From_Repository()
         {
-            var genre = new BookGenre();
+            var genre = new BookGenreInfo();
 
             _sut.Remove(genre);
 
-            A.CallTo(() => _genresRepository.Remove(A<BookGenre>._))
+            A.CallTo(() => _genresRepository.Remove(A<BookGenreInfo>._))
                 .MustHaveHappened();
         }
 
@@ -93,17 +93,17 @@ namespace Library.Tests.Services
         [Test]
         public void Remove_ShouldRemoveUserFromRepository()
         {
-            var genre = new BookGenre();
+            var genre = new BookGenreInfo();
 
             _sut.Remove(genre);
 
-            A.CallTo(() => _genresRepository.Remove(A<BookGenre>._))
+            A.CallTo(() => _genresRepository.Remove(A<BookGenreInfo>._))
                 .MustHaveHappened();
         }
         [Test]
         public void Update_Genre_Should_Persist_Genre_In_Repository()
         {
-            var genre = new BookGenre();
+            var genre = new BookGenreInfo();
 
             _sut.Update(genre);
 

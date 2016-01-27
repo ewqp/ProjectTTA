@@ -118,6 +118,7 @@ namespace Library.GUI
             
             dataGridAccounts.CurrentCell = dataGridAccounts.Rows[bookmarkRowIndexA].Cells[bookmarkColumnIndexA];
             dataGridRent.CurrentCell = dataGridRent.Rows[bookmarkRowIndexB].Cells[bookmarkColumnIndexB];
+            lblMsg.Text = entryAdded;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

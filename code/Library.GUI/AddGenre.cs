@@ -16,16 +16,17 @@ namespace Library.GUI
 {
     public partial class AddGenre : Form
     {
-        private Library.Logics.DBGenre _dbGenre = new DBGenre();
+        private DBGenre _dbGenre = new DBGenre();
 
         public AddGenre()
-        {
+        {            
             InitializeComponent();
         }
 
         private void buttonSaveGenre_Click(object sender, EventArgs e)
         {
             string result = _dbGenre.AddBookGenre(textBoxGenre.Text);
+            lblMsg.Text = result;
         }
 
         private void buttonCancelGenre_Click(object sender, EventArgs e)

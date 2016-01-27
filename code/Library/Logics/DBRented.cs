@@ -29,7 +29,7 @@ namespace Library.Logics
 
                     con.Rented.Add(newRentEntry);
                     con.SaveChanges();
-                    return "Entry was added.";
+                    return "Book rented, an new entry was added.";
                 }
             }
             catch (Exception exc)

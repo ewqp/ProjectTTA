@@ -16,7 +16,7 @@ namespace Library.GUI
     {
         private DBBook _dbBook = new DBBook();
         private DBAuthor _dbAuthor = new DBAuthor();
-        private DBGenre _dbGenre = new DBGenre();
+        private DBBookGenre _dbGenre = new DBBookGenre();
         private DBRented _dbRented = new DBRented();
         private DBHistory _dbHistory = new DBHistory();
         private DBAccount _dbAccount = new DBAccount();
@@ -118,6 +118,7 @@ namespace Library.GUI
             
             dataGridAccounts.CurrentCell = dataGridAccounts.Rows[bookmarkRowIndexA].Cells[bookmarkColumnIndexA];
             dataGridRent.CurrentCell = dataGridRent.Rows[bookmarkRowIndexB].Cells[bookmarkColumnIndexB];
+            lblMsg.Text = entryAdded;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

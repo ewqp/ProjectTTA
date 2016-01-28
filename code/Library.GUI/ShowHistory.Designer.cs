@@ -30,8 +30,6 @@
         {
             this.groupBoxLog = new System.Windows.Forms.GroupBox();
             this.dataGridHistory = new System.Windows.Forms.DataGridView();
-            this.lblSearchLog = new System.Windows.Forms.Label();
-            this.textBoxSearchLog = new System.Windows.Forms.TextBox();
             this.accountSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,32 +67,10 @@
             this.dataGridHistory.Name = "dataGridHistory";
             this.dataGridHistory.Size = new System.Drawing.Size(746, 251);
             this.dataGridHistory.TabIndex = 0;
-            //
+            // 
             // accountSurname
             // 
             this.accountSurname.Frozen = true;
-            // lblSearchLog
-            // 
-            this.lblSearchLog.AutoSize = true;
-            this.lblSearchLog.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSearchLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblSearchLog.Location = new System.Drawing.Point(0, 271);
-            this.lblSearchLog.Name = "lblSearchLog";
-            this.lblSearchLog.Size = new System.Drawing.Size(96, 15);
-            this.lblSearchLog.TabIndex = 1;
-            this.lblSearchLog.Text = "Search for a log:";
-            // 
-            // textBoxSearchLog
-            // 
-            this.textBoxSearchLog.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxSearchLog.Location = new System.Drawing.Point(0, 286);
-            this.textBoxSearchLog.Name = "textBoxSearchLog";
-            this.textBoxSearchLog.Size = new System.Drawing.Size(752, 20);
-            this.textBoxSearchLog.TabIndex = 2;
-            this.textBoxSearchLog.TextChanged += new System.EventHandler(this.textBoxSearchLog_TextChanged);
-            // 
-            // accountSurname
-            //
             this.accountSurname.HeaderText = "Account";
             this.accountSurname.Name = "accountSurname";
             // 
@@ -126,10 +102,10 @@
             // 
             this.lblSearchLog.AutoSize = true;
             this.lblSearchLog.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSearchLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblSearchLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblSearchLog.Location = new System.Drawing.Point(0, 271);
             this.lblSearchLog.Name = "lblSearchLog";
-            this.lblSearchLog.Size = new System.Drawing.Size(96, 15);
+            this.lblSearchLog.Size = new System.Drawing.Size(113, 15);
             this.lblSearchLog.TabIndex = 1;
             this.lblSearchLog.Text = "Search for a log:";
             // 

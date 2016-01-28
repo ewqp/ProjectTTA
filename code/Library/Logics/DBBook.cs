@@ -51,8 +51,7 @@ namespace Library.Logics
             {
                 using (var con = new EntitiesLib())
                 {
-                    allBooks = con.Book.ToList();
-
+                    allBooks = con.Book.ToList();                    
                 }
             }
             catch (Exception ex)
@@ -89,6 +88,42 @@ namespace Library.Logics
                         Models.BookInfo bookInfo = new Models.BookInfo();
 
                         bookInfo.IdBook = allBooks[i].IdBook;                        
+                        bookInfo.Title = allBooks[i].Title;
+                        bookInfo.IdAuthor = allBooks[i].IdAuthor;
+                        bookInfo.IdGenre = allBooks[i].IdGenre;
+                        bookInfo.AuthorSurname = con.Author.FirstOrDefault(n => n.IdAuthor == bookInfo.IdAuthor).AuthorSurname;
+                        bookInfo.AuthorName = con.Author.FirstOrDefault(s => s.IdAuthor == bookInfo.IdAuthor).AuthorName;
+                        bookInfo.Genre = con.BookGenre.FirstOrDefault(g => g.IdGenre == bookInfo.IdGenre).Genre;
+
+                        allBooksInfo.Add(bookInfo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return allBooksInfo;
+        }
+
+        public List<Models.BookInfo> GetReallyAllBooksInfo()
+        {
+            var allBooksInfo = new List<Models.BookInfo>();
+
+            try
+            {
+                using (var con = new EntitiesLib())
+                {
+                    List<Book> allBooks = con.Book.ToList();
+
+                    if (allBooks.Count == 0)
+                        return allBooksInfo;                   
+
+                    for (int i = 0; i < allBooks.Count; i++)
+                    {
+                        Models.BookInfo bookInfo = new Models.BookInfo();
+
+                        bookInfo.IdBook = allBooks[i].IdBook;
                         bookInfo.Title = allBooks[i].Title;
                         bookInfo.IdAuthor = allBooks[i].IdAuthor;
                         bookInfo.IdGenre = allBooks[i].IdGenre;

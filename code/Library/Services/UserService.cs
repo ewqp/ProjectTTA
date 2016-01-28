@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Library.Model;
+using Library.Models;
 using Library.Storage;
 
 namespace Library.Services
@@ -17,7 +17,7 @@ namespace Library.Services
             _usersRepository = usersRepository;
         }
 
-        public User Add(User user)
+        public UserInfo Add(UserInfo user)
         {
             if (user.UserName == null || user.UserSurname == null || user.UserEmail == null || user.UserPassword == null)
             {
@@ -33,28 +33,24 @@ namespace Library.Services
             return null;
         }
 
-        public void Remove(User user)
+        public void Remove(UserInfo user)
         {
             _usersRepository.Remove(user);
         }
 
-        public void Update(User user)
+        public void Update(UserInfo user)
         {
             _usersRepository.Persist(user);
         }
 
-        public User Get(int id)
+        public UserInfo Get(int id)
         {
             return _usersRepository.GetUserById(id);
         }
 
-        public IEnumerable<User> GetAllUsers()
+        public IEnumerable<UserInfo> GetAllUsers()
         {
             return _usersRepository.GetAll();
         }
-
-
-
-
     }
 }

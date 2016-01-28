@@ -29,7 +29,7 @@ namespace Library.Logics
 
                     con.Rented.Add(newRentEntry);
                     con.SaveChanges();
-                    return "Entry was added.";
+                    return "Book rented, an new entry was added.";
                 }
             }
             catch (Exception exc)
@@ -93,6 +93,49 @@ namespace Library.Logics
                 using (var con = new EntitiesLib())
                 {
                     List<Rented> allEntries = con.Rented.ToList();
+                    List<History> allReantedBooks = con.History.ToList();
+
+                    if (allEntries.Count == 0)
+                        return allRentsInfo;
+
+                    foreach (var rentedBook in allReantedBooks)
+                    {
+                        allEntries.Remove(allEntries.FirstOrDefault(e => e.IdBook == rentedBook.IdBook));
+                    }
+
+                    for (int i = 0; i < allEntries.Count; i++)
+                    {
+                        Models.RentInfo rentInfo = new Models.RentInfo();
+                        rentInfo.IdRented = allEntries[i].IdRented;
+                        rentInfo.IdAccount = allEntries[i].IdAccount;
+                        rentInfo.IdBook = allEntries[i].IdBook;
+                        rentInfo.IdAuthor = allEntries[i].IdAuthor;
+                        rentInfo.RentDate = allEntries[i].RentDate;
+                        rentInfo.AccountName = con.Account.FirstOrDefault(a => a.IdAccount == rentInfo.IdAccount).AccountName;
+                        rentInfo.AccountSurname = con.Account.FirstOrDefault(s => s.IdAccount == rentInfo.IdAccount).AccountSurname;
+                        rentInfo.Title = con.Book.FirstOrDefault(t => t.IdBook == rentInfo.IdBook).Title;
+                        rentInfo.AuthorSurname = con.Author.FirstOrDefault(n => n.IdAuthor == rentInfo.IdAuthor).AuthorSurname;                        
+
+                        allRentsInfo.Add(rentInfo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                allRentsInfo.Add(new Models.RentInfo { Error = ex.Message });
+            }
+            return allRentsInfo;
+        }
+
+        public List<Models.RentInfo> GetReallyAllEntriesInfo()
+        {
+            var allRentsInfo = new List<Models.RentInfo>();
+
+            try
+            {
+                using (var con = new EntitiesLib())
+                {
+                    List<Rented> allEntries = con.Rented.ToList();
 
                     if (allEntries.Count == 0)
                         return allRentsInfo;
@@ -106,10 +149,11 @@ namespace Library.Logics
                         rentInfo.IdAuthor = allEntries[i].IdAuthor;
                         rentInfo.RentDate = allEntries[i].RentDate;
                         rentInfo.IdAccount = allEntries[i].IdAccount;
-                        rentInfo.Title = con.Book.FirstOrDefault(b => b.IdBook == rentInfo.IdBook).Title;
-                        rentInfo.AuthorSurname = con.Author.FirstOrDefault(s => s.IdAuthor == rentInfo.IdAuthor).AuthorSurname;
                         rentInfo.AccountName = con.Account.FirstOrDefault(w => w.IdAccount == rentInfo.IdAccount).AccountName;
                         rentInfo.AccountSurname = con.Account.FirstOrDefault(z => z.IdAccount == rentInfo.IdAccount).AccountSurname;
+                        rentInfo.Title = con.Book.FirstOrDefault(b => b.IdBook == rentInfo.IdBook).Title;
+                        rentInfo.AuthorSurname = con.Author.FirstOrDefault(s => s.IdAuthor == rentInfo.IdAuthor).AuthorSurname;
+                        
 
                         allRentsInfo.Add(rentInfo);
                     }

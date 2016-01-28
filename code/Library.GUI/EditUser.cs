@@ -71,7 +71,7 @@ namespace Library.GUI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            int idUser = ((Models.UserInfo)dataGridViewUser.CurrentRow.DataBoundItem).IdUser;
+            int idUser = ((UserInfo)dataGridViewUser.CurrentRow.DataBoundItem).IdUser;
             string name = textBoxName.Text;
             string surname = textBoxSurname.Text;
             string email = textBoxEmail.Text;
@@ -87,6 +87,7 @@ namespace Library.GUI
             dataGridViewUser.DataSource = _usersList;
 
             dataGridViewUser.CurrentCell = dataGridViewUser.Rows[bookmarkRowIndex].Cells[bookmarkColumnIndex];
+            lblMsg.Text = userUpdated;
 
         }
         private void btnCancel_Click(object sender, EventArgs e)
@@ -102,6 +103,7 @@ namespace Library.GUI
 
             _usersList = _dbUser.GetAllUsersInfo();
             dataGridViewUser.DataSource = _usersList;
+            lblMsg.Text = userDeleted;
         }        
     }
 }

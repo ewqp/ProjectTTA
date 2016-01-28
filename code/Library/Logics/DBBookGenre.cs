@@ -7,7 +7,7 @@ using Library.EntityModel;
 
 namespace Library.Logics
 {
-    public class DBGenre
+    public class DBBookGenre
     {
 
         public string AddBookGenre(string name)
@@ -19,6 +19,7 @@ namespace Library.Logics
                     var newBookGenre = new BookGenre();
                     newBookGenre.Genre = name;
 
+                    //if(name != )
                     con.BookGenre.Add(newBookGenre);
                     con.SaveChanges();
                     return "Genre added succesfully.";
@@ -32,23 +33,34 @@ namespace Library.Logics
         /// <summary>
         /// List of all book genres in DB.
         /// </summary>
-        public List<EntityModel.BookGenre> GetAllBookGenres()
+        public List<Models.BookGenreInfo> GetAllBookGenres()
         {
-            var bookTypes = new List<EntityModel.BookGenre>();
+            var bookGenres = new List<BookGenre>();
+            var genreInfo = new List<Models.BookGenreInfo>();
 
             try
             {
                 using (var con = new EntitiesLib())
                 {
-                    bookTypes = con.BookGenre.ToList();
+                    bookGenres = con.BookGenre.ToList();
+                }
+
+                foreach (var genre in bookGenres)
+                {
+                    genreInfo.Add(new Models.BookGenreInfo
+                    {
+                        IdGenre = genre.IdGenre,
+                        Genre = genre.Genre
+                    });
                 }
             }
+
             catch (Exception ex)
             {
 
             }
 
-            return bookTypes;
+            return genreInfo;
         }
 
         public string UpdateBookGenre(int idGenre, string name)

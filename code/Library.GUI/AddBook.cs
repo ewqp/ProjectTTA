@@ -17,14 +17,16 @@ namespace Library.GUI
     public partial class AddBook : Form
     {
         private Library.Logics.DBBook _dbBook = new DBBook();
-        private Library.Logics.DBGenre _dbGenre = new DBGenre();
+        private Library.Logics.DBBookGenre _dbGenre = new DBBookGenre();
         private Library.Logics.DBAuthor _dbAuthor = new DBAuthor();
         private List<Models.AuthorInfo> _authorList;
+        private List<Models.BookGenreInfo> _genreList;
         public AddBook()
         {
             InitializeComponent();
 
             _authorList = _dbAuthor.GetAllAuthors();
+            _genreList = _dbGenre.GetAllBookGenres();
 
             comboBoxAuthor.DataSource = _dbAuthor.GetAllAuthors();
             comboBoxAuthor.ValueMember = "IdAuthor";
@@ -37,7 +39,8 @@ namespace Library.GUI
 
         private void buttonSaveBook_Click(object sender, EventArgs e)
         {
-            string result = _dbBook.AddBook(textBoxTitle.Text, Convert.ToInt32(comboBoxAuthor.SelectedValue), Convert.ToInt32(comboBoxAuthor.SelectedValue));
+            string result = _dbBook.AddBook(textBoxTitle.Text, Convert.ToInt32(comboBoxAuthor.SelectedValue), Convert.ToInt32(comboBoxBookGenre.SelectedValue));
+            lblMsg.Text = result;
             
         }
 

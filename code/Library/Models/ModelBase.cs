@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Model
+namespace Library.Models
 {
     public abstract class ModelBase : IEntity
     {
         public int? Id { get; set; }
-
         public object Clone()
         {
             return MemberwiseClone();

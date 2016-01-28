@@ -67,5 +67,66 @@ namespace Library.Logics
             }
             return allAccountsInfo;
         }
+        /// <summary>
+        /// Add a new account for a client
+        /// </summary>
+        public string AddAccount(string name, string surname, string email)
+        {
+            try
+            {
+                using (var con = new EntitiesLib())
+                {
+                    var newAccount = new Account();
+                    newAccount.AccountName = name;
+                    newAccount.AccountSurname = surname;
+                    newAccount.AccountEmail = email;
+                    
+                    con.Account.Add(newAccount);
+                    con.SaveChanges();
+                    return "Account added succesfully.";
+                }
+            }
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
+        }
+        public string UpdateAccount(int idAccount, string name, string surname, string email)
+        {
+            try
+            {
+                using (var con = new EntitiesLib())
+                {
+                    var account = con.Account.FirstOrDefault(a => a.IdAccount == idAccount);
+                    account.AccountName = name;
+                    account.AccountSurname = surname;
+                    account.AccountEmail = email;
+                    con.SaveChanges();
+                    return "Account updated succesfully.";
+                }
+            }
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
+        }
+
+        public string DeleteAccount(int idAccount)
+        {
+            try
+            {
+                using (var con = new EntitiesLib())
+                {
+                    var account = con.Account.FirstOrDefault(a => a.IdAccount == idAccount);
+                    con.Account.Remove(account);
+                    con.SaveChanges();
+                    return "Account deleted succesfully.";
+                }
+            }
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
+        }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Model
+namespace Library.Models
 {
-    public class UserRoles : ModelBase
+    public class UserRolesInfo : ModelBase
     {
         public string UserRole { get; set; }
     }

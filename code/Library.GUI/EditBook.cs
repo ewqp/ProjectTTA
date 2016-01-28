@@ -15,16 +15,16 @@ namespace Library.GUI
     public partial class EditBook : Form
     {
         private DBBook _dbBook = new DBBook();
-        private DBGenre _dbGenre = new DBGenre();
+        private DBBookGenre _dbGenre = new DBBookGenre();
         private DBAuthor _dbAuthor = new DBAuthor();
         private List<BookInfo> _booksList;
-        private List<Models.AuthorInfo> _authorList;
-        private List<EntityModel.BookGenre> _genreList;
+        private List<AuthorInfo> _authorList;
+        private List<BookGenreInfo> _genreList;
 
         public EditBook()
         {
             InitializeComponent();
-            _booksList = _dbBook.GetAllBooksInfo();
+            _booksList = _dbBook.GetReallyAllBooksInfo();
             _authorList = _dbAuthor.GetAllAuthors();
             _genreList = _dbGenre.GetAllBookGenres();
             SetDataGrid();            
@@ -77,7 +77,7 @@ namespace Library.GUI
 
         private void btnUpdateBook_Click(object sender, EventArgs e)
         {
-            int idBook = ((Models.BookInfo)dataGridSearchBook.CurrentRow.DataBoundItem).IdBook;
+            int idBook = ((BookInfo)dataGridSearchBook.CurrentRow.DataBoundItem).IdBook;
             string title = textBoxTitle.Text;
             int idAuthor = Convert.ToInt32(comboBoxAuthor.SelectedValue);
             int idGenre = Convert.ToInt32(comboBoxBookGenre.SelectedValue);
@@ -87,20 +87,22 @@ namespace Library.GUI
 
             string bookUpdated = _dbBook.UpdateBook(idBook, title, idAuthor, idGenre);
 
-            _booksList = _dbBook.GetAllBooksInfo();
+            _booksList = _dbBook.GetReallyAllBooksInfo();
             dataGridSearchBook.DataSource = _booksList;
 
-            dataGridSearchBook.CurrentCell = dataGridSearchBook.Rows[bookmarkRowIndex].Cells[bookmarkColumnIndex];    
+            dataGridSearchBook.CurrentCell = dataGridSearchBook.Rows[bookmarkRowIndex].Cells[bookmarkColumnIndex];
+            lblMsg.Text = bookUpdated;
         }
 
         private void buttonDeleteBook_Click(object sender, EventArgs e)
         {
-            int idBook = ((Models.BookInfo)dataGridSearchBook.CurrentRow.DataBoundItem).IdBook;
+            int idBook = ((BookInfo)dataGridSearchBook.CurrentRow.DataBoundItem).IdBook;
 
             string bookDeleted = _dbBook.DeleteBook(idBook);
 
-            _booksList = _dbBook.GetAllBooksInfo();
+            _booksList = _dbBook.GetReallyAllBooksInfo();
             dataGridSearchBook.DataSource = _booksList;
+            lblMsg.Text = bookDeleted;
         }
 
         private void buttonCancelSaveBook_Click(object sender, EventArgs e)

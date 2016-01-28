@@ -17,10 +17,11 @@ namespace Library.GUI
         private DBRented _dbRented = new DBRented();
         private DBHistory _dbHistory = new DBHistory();
         private List<RentInfo> _rentList;
+        //private List<HistoryInfo> _logsList;
         public ReturnBook()
         {
             InitializeComponent();
-            _rentList = _dbRented.GetAllEntriesInfo();
+            _rentList = _dbRented.GetReallyAllEntriesInfo();
             SetDataGrid();
         }
         private void SetDataGrid()
@@ -29,13 +30,13 @@ namespace Library.GUI
             dataGridRentedBooks.DataSource = _rentList; //ustawienie datasource 
             dataGridRentedBooks.Columns["account"].DataPropertyName = "FullAccountName";
             dataGridRentedBooks.Columns["title"].DataPropertyName = "Title";
-            dataGridRentedBooks.Columns["author"].DataPropertyName = "FullAuthorName";
+            dataGridRentedBooks.Columns["author"].DataPropertyName = "AuthorSurname";
             dataGridRentedBooks.Columns["rentDate"].DataPropertyName = "RentDate";
         }
 
         private void textBoxSearchRent_TextChanged(object sender, EventArgs e)
         {
-            List<RentInfo> list = _rentList.Where(l => l.UserSurname.Contains(textBoxSearchRent.Text) || l.AuthorSurname.Contains(textBoxSearchRent.Text) || l.Title.Contains(textBoxSearchRent.Text)).ToList();
+            List<RentInfo> list = _rentList.Where(l => l.AccountSurname.Contains(textBoxSearchRent.Text) || l.AuthorSurname.Contains(textBoxSearchRent.Text) || l.Title.Contains(textBoxSearchRent.Text)).ToList();
 
             dataGridRentedBooks.DataSource = list;
         }
@@ -69,10 +70,9 @@ namespace Library.GUI
             string entryRemoved = _dbRented.DeleteRentEntry(idRented);
             string logAdded = _dbHistory.AddHistoryEntry(idAccount, idBook, idAuthor, rentDate, 1);
 
-            _rentList = _dbRented.GetAllEntriesInfo();
+            _rentList = _dbRented.GetReallyAllEntriesInfo();
             dataGridRentedBooks.DataSource = _rentList;
-
-            dataGridRentedBooks.CurrentCell = dataGridRentedBooks.Rows[bookmarkRowIndex].Cells[bookmarkColumnIndex];
+            lblMsg.Text = entryRemoved;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

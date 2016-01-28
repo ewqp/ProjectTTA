@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Library.Model;
+using Library.Models;
 
 namespace Library.Storage
 {
-    public interface IBookRepository : IRepository<Book>
+    public interface IBookRepository : IRepository<BookInfo>
     {
-        Book GetBookById(int id);
-        Book TakeBookData(string title);
-        IEnumerable<Book> GetAllBooks();
+        BookInfo GetBookById(int id);
+        BookInfo TakeBookData(string title);
+        IEnumerable<BookInfo> GetAllBooks();
     }
 }

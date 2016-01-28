@@ -41,7 +41,7 @@ namespace Library.GUI
         /// </summary>
         private void textBoxSearchLog_TextChanged(object sender, EventArgs e)
         {
-            List<HistoryInfo> list = _logsList.Where(l => l.UserSurname.Contains(textBoxSearchLog.Text) || l.AuthorSurname.Contains(textBoxSearchLog.Text) || l.Title.Contains(textBoxSearchLog.Text)).ToList();
+            List<HistoryInfo> list = _logsList.Where(l => l.AccountSurname.Contains(textBoxSearchLog.Text) || l.AuthorSurname.Contains(textBoxSearchLog.Text) || l.Title.Contains(textBoxSearchLog.Text)).ToList();
 
             dataGridHistory.DataSource = list;
         }

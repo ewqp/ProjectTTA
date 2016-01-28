@@ -51,10 +51,15 @@
             this.lblSurname = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
+            this.groupBoxBtn = new System.Windows.Forms.GroupBox();
+            this.groupBoxMsg = new System.Windows.Forms.GroupBox();
+            this.lblMsg = new System.Windows.Forms.Label();
             this.groupBoxRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).BeginInit();
             this.groupBoxLeft.SuspendLayout();
             this.groupBoxEdit.SuspendLayout();
+            this.groupBoxBtn.SuspendLayout();
+            this.groupBoxMsg.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxRight
@@ -133,9 +138,8 @@
             // 
             // groupBoxEdit
             // 
-            this.groupBoxEdit.Controls.Add(this.btnCancel);
-            this.groupBoxEdit.Controls.Add(this.btnDelete);
-            this.groupBoxEdit.Controls.Add(this.btnUpdate);
+            this.groupBoxEdit.Controls.Add(this.groupBoxBtn);
+            this.groupBoxEdit.Controls.Add(this.groupBoxMsg);
             this.groupBoxEdit.Controls.Add(this.textBoxPass);
             this.groupBoxEdit.Controls.Add(this.lblPass);
             this.groupBoxEdit.Controls.Add(this.comboBoxRole);
@@ -148,18 +152,19 @@
             this.groupBoxEdit.Controls.Add(this.lblName);
             this.groupBoxEdit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBoxEdit.Location = new System.Drawing.Point(3, 71);
+            this.groupBoxEdit.Location = new System.Drawing.Point(3, 43);
             this.groupBoxEdit.Name = "groupBoxEdit";
-            this.groupBoxEdit.Size = new System.Drawing.Size(336, 269);
+            this.groupBoxEdit.Size = new System.Drawing.Size(336, 297);
             this.groupBoxEdit.TabIndex = 0;
             this.groupBoxEdit.TabStop = false;
             this.groupBoxEdit.Text = "Edit:";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(238, 227);
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCancel.Location = new System.Drawing.Point(252, 17);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(75, 28);
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -167,9 +172,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(130, 227);
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDelete.Location = new System.Drawing.Point(78, 17);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(75, 28);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -177,9 +183,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(20, 227);
+            this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnUpdate.Location = new System.Drawing.Point(3, 17);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(75, 28);
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -281,6 +288,39 @@
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name:";
             // 
+            // groupBoxBtn
+            // 
+            this.groupBoxBtn.Controls.Add(this.btnCancel);
+            this.groupBoxBtn.Controls.Add(this.btnDelete);
+            this.groupBoxBtn.Controls.Add(this.btnUpdate);
+            this.groupBoxBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxBtn.Location = new System.Drawing.Point(3, 209);
+            this.groupBoxBtn.Name = "groupBoxBtn";
+            this.groupBoxBtn.Size = new System.Drawing.Size(330, 48);
+            this.groupBoxBtn.TabIndex = 13;
+            this.groupBoxBtn.TabStop = false;
+            // 
+            // groupBoxMsg
+            // 
+            this.groupBoxMsg.Controls.Add(this.lblMsg);
+            this.groupBoxMsg.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBoxMsg.Location = new System.Drawing.Point(3, 257);
+            this.groupBoxMsg.Name = "groupBoxMsg";
+            this.groupBoxMsg.Size = new System.Drawing.Size(330, 37);
+            this.groupBoxMsg.TabIndex = 14;
+            this.groupBoxMsg.TabStop = false;
+            // 
+            // lblMsg
+            // 
+            this.lblMsg.AutoSize = true;
+            this.lblMsg.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblMsg.Location = new System.Drawing.Point(3, 17);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(0, 15);
+            this.lblMsg.TabIndex = 0;
+            // 
             // EditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,6 +336,9 @@
             this.groupBoxLeft.PerformLayout();
             this.groupBoxEdit.ResumeLayout(false);
             this.groupBoxEdit.PerformLayout();
+            this.groupBoxBtn.ResumeLayout(false);
+            this.groupBoxMsg.ResumeLayout(false);
+            this.groupBoxMsg.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -325,5 +368,8 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.GroupBox groupBoxBtn;
+        private System.Windows.Forms.GroupBox groupBoxMsg;
+        private System.Windows.Forms.Label lblMsg;
     }
 }

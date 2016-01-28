@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Library.Model;
+using Library.Models;
 using Library.Storage;
 
 namespace Library.Services
@@ -17,7 +17,7 @@ namespace Library.Services
             _authorsRepository = authorsRepository;
         }
 
-        public Author Add(Author author)
+        public AuthorInfo Add(AuthorInfo author)
         {
             if (author.AuthorName == null || author.AuthorSurname == null)
             {
@@ -33,22 +33,22 @@ namespace Library.Services
             return null;
         }
 
-        public void Remove(Author author)
+        public void Remove(AuthorInfo author)
         {
             _authorsRepository.Remove(author);
         }
 
-        public void Update(Author author)
+        public void Update(AuthorInfo author)
         {
             _authorsRepository.Persist(author);
         }
 
-        public Author Get(int id)
+        public AuthorInfo Get(int id)
         {
             return _authorsRepository.GetAuthorById(id);
         }
 
-        public IEnumerable<Author> GetAllAuthors()
+        public IEnumerable<AuthorInfo> GetAllAuthors()
         {
             return _authorsRepository.GetAll();
         }

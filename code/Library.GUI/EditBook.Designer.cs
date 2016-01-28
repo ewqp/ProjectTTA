@@ -44,18 +44,24 @@
             this.comboBoxAuthor = new System.Windows.Forms.ComboBox();
             this.groupBoxLeft = new System.Windows.Forms.GroupBox();
             this.groupBoxEdit = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBoxRight = new System.Windows.Forms.GroupBox();
+            this.groupBoxMsg = new System.Windows.Forms.GroupBox();
+            this.lblMsg = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSearchBook)).BeginInit();
             this.groupBoxLeft.SuspendLayout();
             this.groupBoxEdit.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBoxRight.SuspendLayout();
+            this.groupBoxMsg.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonCancelSaveBook
             // 
-            this.buttonCancelSaveBook.Location = new System.Drawing.Point(266, 188);
+            this.buttonCancelSaveBook.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonCancelSaveBook.Location = new System.Drawing.Point(282, 17);
             this.buttonCancelSaveBook.Name = "buttonCancelSaveBook";
-            this.buttonCancelSaveBook.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelSaveBook.Size = new System.Drawing.Size(75, 40);
             this.buttonCancelSaveBook.TabIndex = 15;
             this.buttonCancelSaveBook.Text = "Cancel";
             this.buttonCancelSaveBook.UseVisualStyleBackColor = true;
@@ -63,9 +69,10 @@
             // 
             // btnUpdateBook
             // 
-            this.btnUpdateBook.Location = new System.Drawing.Point(49, 188);
+            this.btnUpdateBook.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnUpdateBook.Location = new System.Drawing.Point(3, 17);
             this.btnUpdateBook.Name = "btnUpdateBook";
-            this.btnUpdateBook.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateBook.Size = new System.Drawing.Size(75, 40);
             this.btnUpdateBook.TabIndex = 14;
             this.btnUpdateBook.Text = "Update";
             this.btnUpdateBook.UseVisualStyleBackColor = true;
@@ -144,7 +151,7 @@
             this.dataGridSearchBook.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridSearchBook.Location = new System.Drawing.Point(3, 16);
             this.dataGridSearchBook.Name = "dataGridSearchBook";
-            this.dataGridSearchBook.Size = new System.Drawing.Size(474, 326);
+            this.dataGridSearchBook.Size = new System.Drawing.Size(347, 326);
             this.dataGridSearchBook.TabIndex = 20;
             this.dataGridSearchBook.Click += new System.EventHandler(this.dataGridSearchBook_Click);
             // 
@@ -165,9 +172,10 @@
             // 
             // buttonDeleteBook
             // 
-            this.buttonDeleteBook.Location = new System.Drawing.Point(162, 188);
+            this.buttonDeleteBook.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonDeleteBook.Location = new System.Drawing.Point(78, 17);
             this.buttonDeleteBook.Name = "buttonDeleteBook";
-            this.buttonDeleteBook.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeleteBook.Size = new System.Drawing.Size(75, 40);
             this.buttonDeleteBook.TabIndex = 21;
             this.buttonDeleteBook.Text = "Delete";
             this.buttonDeleteBook.UseVisualStyleBackColor = true;
@@ -187,6 +195,7 @@
             // 
             this.groupBoxLeft.Controls.Add(this.groupBoxEdit);
             this.groupBoxLeft.Controls.Add(this.textBoxSearch);
+            this.groupBoxLeft.Controls.Add(this.groupBoxMsg);
             this.groupBoxLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBoxLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBoxLeft.Location = new System.Drawing.Point(0, 0);
@@ -198,23 +207,33 @@
             // 
             // groupBoxEdit
             // 
+            this.groupBoxEdit.Controls.Add(this.groupBox1);
             this.groupBoxEdit.Controls.Add(this.comboBoxBookGenre);
             this.groupBoxEdit.Controls.Add(this.labelBookGenre);
             this.groupBoxEdit.Controls.Add(this.comboBoxAuthor);
             this.groupBoxEdit.Controls.Add(this.labelAuthor);
             this.groupBoxEdit.Controls.Add(this.textBoxTitle);
             this.groupBoxEdit.Controls.Add(this.labelTitle);
-            this.groupBoxEdit.Controls.Add(this.buttonCancelSaveBook);
-            this.groupBoxEdit.Controls.Add(this.btnUpdateBook);
-            this.groupBoxEdit.Controls.Add(this.buttonDeleteBook);
             this.groupBoxEdit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBoxEdit.Location = new System.Drawing.Point(3, 93);
+            this.groupBoxEdit.Location = new System.Drawing.Point(3, 77);
             this.groupBoxEdit.Name = "groupBoxEdit";
-            this.groupBoxEdit.Size = new System.Drawing.Size(366, 249);
+            this.groupBoxEdit.Size = new System.Drawing.Size(366, 226);
             this.groupBoxEdit.TabIndex = 23;
             this.groupBoxEdit.TabStop = false;
             this.groupBoxEdit.Text = "Edit:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonCancelSaveBook);
+            this.groupBox1.Controls.Add(this.buttonDeleteBook);
+            this.groupBox1.Controls.Add(this.btnUpdateBook);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox1.Location = new System.Drawing.Point(3, 163);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(360, 60);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
             // 
             // groupBoxRight
             // 
@@ -222,15 +241,36 @@
             this.groupBoxRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBoxRight.Location = new System.Drawing.Point(378, 0);
             this.groupBoxRight.Name = "groupBoxRight";
-            this.groupBoxRight.Size = new System.Drawing.Size(480, 345);
+            this.groupBoxRight.Size = new System.Drawing.Size(353, 345);
             this.groupBoxRight.TabIndex = 24;
             this.groupBoxRight.TabStop = false;
+            // 
+            // groupBoxMsg
+            // 
+            this.groupBoxMsg.Controls.Add(this.lblMsg);
+            this.groupBoxMsg.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBoxMsg.Location = new System.Drawing.Point(3, 303);
+            this.groupBoxMsg.Name = "groupBoxMsg";
+            this.groupBoxMsg.Size = new System.Drawing.Size(366, 39);
+            this.groupBoxMsg.TabIndex = 24;
+            this.groupBoxMsg.TabStop = false;
+            // 
+            // lblMsg
+            // 
+            this.lblMsg.AutoSize = true;
+            this.lblMsg.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblMsg.Location = new System.Drawing.Point(3, 17);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(0, 15);
+            this.lblMsg.TabIndex = 0;
             // 
             // EditBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 345);
+            this.ClientSize = new System.Drawing.Size(731, 345);
             this.Controls.Add(this.groupBoxRight);
             this.Controls.Add(this.groupBoxLeft);
             this.Name = "EditBook";
@@ -240,7 +280,10 @@
             this.groupBoxLeft.PerformLayout();
             this.groupBoxEdit.ResumeLayout(false);
             this.groupBoxEdit.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.groupBoxRight.ResumeLayout(false);
+            this.groupBoxMsg.ResumeLayout(false);
+            this.groupBoxMsg.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -264,5 +307,8 @@
         private System.Windows.Forms.GroupBox groupBoxLeft;
         private System.Windows.Forms.GroupBox groupBoxRight;
         private System.Windows.Forms.GroupBox groupBoxEdit;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxMsg;
+        private System.Windows.Forms.Label lblMsg;
     }
 }

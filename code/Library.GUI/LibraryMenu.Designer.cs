@@ -124,6 +124,7 @@
             this.btnEditAccount.TabIndex = 1;
             this.btnEditAccount.Text = "Edit or delete accounts";
             this.btnEditAccount.UseVisualStyleBackColor = true;
+            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
             // 
             // btnAddAccount
             // 
@@ -135,6 +136,7 @@
             this.btnAddAccount.TabIndex = 0;
             this.btnAddAccount.Text = "Add accounts";
             this.btnAddAccount.UseVisualStyleBackColor = true;
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
             // groupBoxUser
             // 
@@ -194,6 +196,7 @@
             this.btnEditGenre.TabIndex = 1;
             this.btnEditGenre.Text = "Edit or delete genres";
             this.btnEditGenre.UseVisualStyleBackColor = true;
+            this.btnEditGenre.Click += new System.EventHandler(this.btnEditGenre_Click);
             // 
             // btnAddGenre
             // 
@@ -205,6 +208,7 @@
             this.btnAddGenre.TabIndex = 0;
             this.btnAddGenre.Text = "Add genres";
             this.btnAddGenre.UseVisualStyleBackColor = true;
+            this.btnAddGenre.Click += new System.EventHandler(this.btnAddGenre_Click);
             // 
             // groupBoxAuthor
             // 
@@ -228,6 +232,7 @@
             this.btnEditAuthor.TabIndex = 1;
             this.btnEditAuthor.Text = "Edit or delete authors";
             this.btnEditAuthor.UseVisualStyleBackColor = true;
+            this.btnEditAuthor.Click += new System.EventHandler(this.btnEditAuthor_Click);
             // 
             // btnAddAuthor
             // 
@@ -239,6 +244,7 @@
             this.btnAddAuthor.TabIndex = 0;
             this.btnAddAuthor.Text = "Add authors";
             this.btnAddAuthor.UseVisualStyleBackColor = true;
+            this.btnAddAuthor.Click += new System.EventHandler(this.btnAddAuthor_Click);
             // 
             // groupBoxBooks
             // 
@@ -325,11 +331,10 @@
             this.lblHello.AutoSize = true;
             this.lblHello.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblHello.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblHello.Location = new System.Drawing.Point(536, 0);
+            this.lblHello.Location = new System.Drawing.Point(583, 0);
             this.lblHello.Name = "lblHello";
-            this.lblHello.Size = new System.Drawing.Size(47, 15);
+            this.lblHello.Size = new System.Drawing.Size(0, 15);
             this.lblHello.TabIndex = 3;
-            this.lblHello.Text = "label1";
             // 
             // LibraryMenu
             // 

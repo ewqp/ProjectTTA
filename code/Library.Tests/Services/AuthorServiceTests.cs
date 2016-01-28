@@ -112,6 +112,5 @@ namespace Library.Tests.Services
                 .MustHaveHappened();
         }
 
-
     }
 }

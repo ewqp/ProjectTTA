@@ -95,6 +95,7 @@
             this.comboBoxBookGenre.Size = new System.Drawing.Size(585, 23);
             this.comboBoxBookGenre.TabIndex = 5;
             this.comboBoxBookGenre.ValueMember = "IdType";
+            this.comboBoxBookGenre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxBookGenre_KeyPress);
             // 
             // buttonSaveBook
             // 

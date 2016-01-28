@@ -53,8 +53,5 @@ namespace Library.Services
             return _authorsRepository.GetAll();
         }
 
-
-
-
     }
 }

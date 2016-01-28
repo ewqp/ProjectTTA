@@ -70,6 +70,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\AccountServicesTests.cs" />
     <Compile Include="Services\AuthorServiceTests.cs" />
     <Compile Include="Services\BookGenreServiceTests.cs" />
     <Compile Include="Services\BookServiceTests.cs" />

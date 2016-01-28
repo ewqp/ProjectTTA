@@ -53,10 +53,21 @@ namespace Library.GUI
                                         ? list : _authorList;
             }
         }
+        
+        private void comboBoxBookGenre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                var list = _genreList.Where(g => g.Genre.Contains(comboBoxAuthor.Text)).ToList();
+                comboBoxBookGenre.DataSource = list.Count > 0 && !string.IsNullOrEmpty(comboBoxBookGenre.Text)
+                                        ? list : _genreList;
+            }
+        }
 
         private void buttonCancelSaveBook_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

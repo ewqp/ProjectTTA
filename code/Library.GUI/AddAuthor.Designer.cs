@@ -36,6 +36,11 @@
             this.groupBoxTop = new System.Windows.Forms.GroupBox();
             this.groupBoxDown = new System.Windows.Forms.GroupBox();
             this.buttonCancelAuthor = new System.Windows.Forms.Button();
+<<<<<<< HEAD
+=======
+            this.groupBoxTop = new System.Windows.Forms.GroupBox();
+            this.groupBoxDown = new System.Windows.Forms.GroupBox();
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.groupBoxMgs = new System.Windows.Forms.GroupBox();
             this.lblMsg = new System.Windows.Forms.Label();
             this.groupBoxTop.SuspendLayout();
@@ -86,7 +91,11 @@
             this.buttonSaveAuthor.Dock = System.Windows.Forms.DockStyle.Left;
             this.buttonSaveAuthor.Location = new System.Drawing.Point(3, 17);
             this.buttonSaveAuthor.Name = "buttonSaveAuthor";
+<<<<<<< HEAD
             this.buttonSaveAuthor.Size = new System.Drawing.Size(75, 28);
+=======
+            this.buttonSaveAuthor.Size = new System.Drawing.Size(75, 45);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.buttonSaveAuthor.TabIndex = 4;
             this.buttonSaveAuthor.Text = "Save";
             this.buttonSaveAuthor.UseVisualStyleBackColor = true;
@@ -123,12 +132,45 @@
             this.buttonCancelAuthor.Dock = System.Windows.Forms.DockStyle.Right;
             this.buttonCancelAuthor.Location = new System.Drawing.Point(434, 17);
             this.buttonCancelAuthor.Name = "buttonCancelAuthor";
+<<<<<<< HEAD
             this.buttonCancelAuthor.Size = new System.Drawing.Size(75, 28);
+=======
+            this.buttonCancelAuthor.Size = new System.Drawing.Size(75, 45);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.buttonCancelAuthor.TabIndex = 5;
             this.buttonCancelAuthor.Text = "Cancel";
             this.buttonCancelAuthor.UseVisualStyleBackColor = true;
             this.buttonCancelAuthor.Click += new System.EventHandler(this.buttonCancelAuthor_Click);
             // 
+<<<<<<< HEAD
+=======
+            // groupBoxTop
+            // 
+            this.groupBoxTop.Controls.Add(this.textBoxAuthorSurname);
+            this.groupBoxTop.Controls.Add(this.labelSurname);
+            this.groupBoxTop.Controls.Add(this.textBoxAuthorName);
+            this.groupBoxTop.Controls.Add(this.labelName);
+            this.groupBoxTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBoxTop.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxTop.Name = "groupBoxTop";
+            this.groupBoxTop.Size = new System.Drawing.Size(512, 116);
+            this.groupBoxTop.TabIndex = 6;
+            this.groupBoxTop.TabStop = false;
+            // 
+            // groupBoxDown
+            // 
+            this.groupBoxDown.Controls.Add(this.buttonCancelAuthor);
+            this.groupBoxDown.Controls.Add(this.buttonSaveAuthor);
+            this.groupBoxDown.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBoxDown.Location = new System.Drawing.Point(0, 122);
+            this.groupBoxDown.Name = "groupBoxDown";
+            this.groupBoxDown.Size = new System.Drawing.Size(512, 65);
+            this.groupBoxDown.TabIndex = 7;
+            this.groupBoxDown.TabStop = false;
+            // 
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             // groupBoxMgs
             // 
             this.groupBoxMgs.Controls.Add(this.lblMsg);
@@ -159,12 +201,22 @@
             this.Controls.Add(this.groupBoxTop);
             this.Controls.Add(this.groupBoxMgs);
             this.Name = "AddAuthor";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.Text = "Add a new author";
             this.groupBoxTop.ResumeLayout(false);
             this.groupBoxTop.PerformLayout();
             this.groupBoxDown.ResumeLayout(false);
             this.groupBoxMgs.ResumeLayout(false);
             this.groupBoxMgs.PerformLayout();
+<<<<<<< HEAD
+=======
+=======
+            this.Text = "Add new author";
+>>>>>>> 247047363bb99edbf97eb8e64a40332c87e64440
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.ResumeLayout(false);
 
         }
@@ -181,5 +233,9 @@
         private System.Windows.Forms.GroupBox groupBoxMgs;
         private System.Windows.Forms.Label lblMsg;
         private System.Windows.Forms.Button buttonCancelAuthor;
+        private System.Windows.Forms.GroupBox groupBoxTop;
+        private System.Windows.Forms.GroupBox groupBoxDown;
+        private System.Windows.Forms.GroupBox groupBoxMgs;
+        private System.Windows.Forms.Label lblMsg;
     }
 }

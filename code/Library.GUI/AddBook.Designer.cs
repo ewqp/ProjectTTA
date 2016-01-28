@@ -61,7 +61,11 @@
             this.textBoxTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxTitle.Location = new System.Drawing.Point(3, 32);
             this.textBoxTitle.Name = "textBoxTitle";
+<<<<<<< HEAD
             this.textBoxTitle.Size = new System.Drawing.Size(585, 21);
+=======
+            this.textBoxTitle.Size = new System.Drawing.Size(597, 21);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.textBoxTitle.TabIndex = 1;
             // 
             // labelAuthor
@@ -92,7 +96,11 @@
             this.comboBoxBookGenre.FormattingEnabled = true;
             this.comboBoxBookGenre.Location = new System.Drawing.Point(3, 106);
             this.comboBoxBookGenre.Name = "comboBoxBookGenre";
+<<<<<<< HEAD
             this.comboBoxBookGenre.Size = new System.Drawing.Size(585, 23);
+=======
+            this.comboBoxBookGenre.Size = new System.Drawing.Size(597, 23);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.comboBoxBookGenre.TabIndex = 5;
             this.comboBoxBookGenre.ValueMember = "IdType";
             this.comboBoxBookGenre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxBookGenre_KeyPress);
@@ -111,7 +119,11 @@
             // buttonCancelSaveBook
             // 
             this.buttonCancelSaveBook.Dock = System.Windows.Forms.DockStyle.Right;
+<<<<<<< HEAD
             this.buttonCancelSaveBook.Location = new System.Drawing.Point(513, 17);
+=======
+            this.buttonCancelSaveBook.Location = new System.Drawing.Point(525, 17);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.buttonCancelSaveBook.Name = "buttonCancelSaveBook";
             this.buttonCancelSaveBook.Size = new System.Drawing.Size(75, 29);
             this.buttonCancelSaveBook.TabIndex = 7;
@@ -126,7 +138,11 @@
             this.comboBoxAuthor.FormattingEnabled = true;
             this.comboBoxAuthor.Location = new System.Drawing.Point(3, 68);
             this.comboBoxAuthor.Name = "comboBoxAuthor";
+<<<<<<< HEAD
             this.comboBoxAuthor.Size = new System.Drawing.Size(585, 23);
+=======
+            this.comboBoxAuthor.Size = new System.Drawing.Size(597, 23);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.comboBoxAuthor.TabIndex = 8;
             this.comboBoxAuthor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxAuthor_KeyPress);
             // 
@@ -142,7 +158,11 @@
             this.groupBoxTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBoxTop.Location = new System.Drawing.Point(0, 0);
             this.groupBoxTop.Name = "groupBoxTop";
+<<<<<<< HEAD
             this.groupBoxTop.Size = new System.Drawing.Size(591, 178);
+=======
+            this.groupBoxTop.Size = new System.Drawing.Size(603, 178);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.groupBoxTop.TabIndex = 9;
             this.groupBoxTop.TabStop = false;
             // 
@@ -152,9 +172,15 @@
             this.groupBoxDown.Controls.Add(this.buttonSaveBook);
             this.groupBoxDown.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+<<<<<<< HEAD
             this.groupBoxDown.Location = new System.Drawing.Point(0, 181);
             this.groupBoxDown.Name = "groupBoxDown";
             this.groupBoxDown.Size = new System.Drawing.Size(591, 49);
+=======
+            this.groupBoxDown.Location = new System.Drawing.Point(0, 236);
+            this.groupBoxDown.Name = "groupBoxDown";
+            this.groupBoxDown.Size = new System.Drawing.Size(603, 49);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.groupBoxDown.TabIndex = 10;
             this.groupBoxDown.TabStop = false;
             // 
@@ -163,9 +189,15 @@
             this.groupBoxMsg.Controls.Add(this.lblMsg);
             this.groupBoxMsg.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+<<<<<<< HEAD
             this.groupBoxMsg.Location = new System.Drawing.Point(0, 230);
             this.groupBoxMsg.Name = "groupBoxMsg";
             this.groupBoxMsg.Size = new System.Drawing.Size(591, 39);
+=======
+            this.groupBoxMsg.Location = new System.Drawing.Point(0, 285);
+            this.groupBoxMsg.Name = "groupBoxMsg";
+            this.groupBoxMsg.Size = new System.Drawing.Size(603, 39);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.groupBoxMsg.TabIndex = 9;
             this.groupBoxMsg.TabStop = false;
             // 
@@ -183,7 +215,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(591, 269);
+=======
+            this.ClientSize = new System.Drawing.Size(603, 324);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.Controls.Add(this.groupBoxDown);
             this.Controls.Add(this.groupBoxTop);
             this.Controls.Add(this.groupBoxMsg);

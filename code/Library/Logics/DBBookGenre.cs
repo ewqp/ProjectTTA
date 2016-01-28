@@ -33,7 +33,11 @@ namespace Library.Logics
         /// <summary>
         /// List of all book genres in DB.
         /// </summary>
+<<<<<<< HEAD:code/Library/Logics/DBBookGenre.cs
         public List<Models.BookGenreInfo> GetAllBookGenres()
+=======
+        public List<BookGenre> GetAllBookGenres()
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c:code/Library/Logics/DBGenre.cs
         {
             var bookGenres = new List<BookGenre>();
             var genreInfo = new List<Models.BookGenreInfo>();

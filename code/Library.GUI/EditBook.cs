@@ -19,7 +19,11 @@ namespace Library.GUI
         private DBAuthor _dbAuthor = new DBAuthor();
         private List<BookInfo> _booksList;
         private List<AuthorInfo> _authorList;
+<<<<<<< HEAD
         private List<BookGenreInfo> _genreList;
+=======
+        private List<EntityModel.BookGenre> _genreList;
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
 
         public EditBook()
         {

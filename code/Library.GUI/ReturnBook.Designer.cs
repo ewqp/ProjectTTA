@@ -41,6 +41,16 @@
             this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+<<<<<<< HEAD
+=======
+            this.groupBoxActions = new System.Windows.Forms.GroupBox();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.textBoxSearchRent = new System.Windows.Forms.TextBox();
+            this.groupBoxBtn = new System.Windows.Forms.GroupBox();
+            this.groupBoxMsg = new System.Windows.Forms.GroupBox();
+            this.lblMsg = new System.Windows.Forms.Label();
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.groupBoxRentedBooks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRentedBooks)).BeginInit();
             this.groupBoxActions.SuspendLayout();
@@ -89,6 +99,7 @@
             this.groupBoxActions.TabStop = false;
             this.groupBoxActions.Text = "Find an entry:";
             // 
+<<<<<<< HEAD
             // groupBoxBtn
             // 
             this.groupBoxBtn.Controls.Add(this.btnClose);
@@ -101,6 +112,8 @@
             this.groupBoxBtn.TabIndex = 4;
             this.groupBoxBtn.TabStop = false;
             // 
+=======
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             // btnClose
             // 
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
@@ -123,6 +136,7 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
+<<<<<<< HEAD
             // groupBoxMsg
             // 
             this.groupBoxMsg.Controls.Add(this.lblMsg);
@@ -148,6 +162,10 @@
             // 
             // textBoxSearchRent
             // 
+=======
+            // textBoxSearchRent
+            // 
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.textBoxSearchRent.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBoxSearchRent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxSearchRent.Location = new System.Drawing.Point(3, 17);
@@ -156,6 +174,7 @@
             this.textBoxSearchRent.TabIndex = 1;
             this.textBoxSearchRent.TextChanged += new System.EventHandler(this.textBoxSearchRent_TextChanged);
             // 
+<<<<<<< HEAD
             // account
             // 
             this.account.HeaderText = "Account";
@@ -175,6 +194,42 @@
             // 
             this.rentDate.HeaderText = "Rent date";
             this.rentDate.Name = "rentDate";
+=======
+            // groupBoxBtn
+            // 
+            this.groupBoxBtn.Controls.Add(this.btnClose);
+            this.groupBoxBtn.Controls.Add(this.btnReturn);
+            this.groupBoxBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBoxBtn.Location = new System.Drawing.Point(3, 59);
+            this.groupBoxBtn.Name = "groupBoxBtn";
+            this.groupBoxBtn.Size = new System.Drawing.Size(634, 49);
+            this.groupBoxBtn.TabIndex = 4;
+            this.groupBoxBtn.TabStop = false;
+            // 
+            // groupBoxMsg
+            // 
+            this.groupBoxMsg.Controls.Add(this.lblMsg);
+            this.groupBoxMsg.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBoxMsg.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxMsg.Location = new System.Drawing.Point(3, 108);
+            this.groupBoxMsg.Name = "groupBoxMsg";
+            this.groupBoxMsg.Size = new System.Drawing.Size(634, 35);
+            this.groupBoxMsg.TabIndex = 5;
+            this.groupBoxMsg.TabStop = false;
+            // 
+            // lblMsg
+            // 
+            this.lblMsg.AutoSize = true;
+            this.lblMsg.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblMsg.Location = new System.Drawing.Point(3, 16);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(0, 15);
+            this.lblMsg.TabIndex = 0;
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             // 
             // ReturnBook
             // 
@@ -207,9 +262,12 @@
         private System.Windows.Forms.GroupBox groupBoxBtn;
         private System.Windows.Forms.GroupBox groupBoxMsg;
         private System.Windows.Forms.Label lblMsg;
+<<<<<<< HEAD
         private System.Windows.Forms.DataGridViewTextBoxColumn account;
         private System.Windows.Forms.DataGridViewTextBoxColumn title;
         private System.Windows.Forms.DataGridViewTextBoxColumn author;
         private System.Windows.Forms.DataGridViewTextBoxColumn rentDate;
+=======
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
     }
 }

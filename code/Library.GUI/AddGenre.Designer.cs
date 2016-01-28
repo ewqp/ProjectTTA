@@ -65,7 +65,11 @@
             this.buttonSaveGenre.Dock = System.Windows.Forms.DockStyle.Left;
             this.buttonSaveGenre.Location = new System.Drawing.Point(3, 17);
             this.buttonSaveGenre.Name = "buttonSaveGenre";
+<<<<<<< HEAD
             this.buttonSaveGenre.Size = new System.Drawing.Size(75, 31);
+=======
+            this.buttonSaveGenre.Size = new System.Drawing.Size(75, 38);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.buttonSaveGenre.TabIndex = 4;
             this.buttonSaveGenre.Text = "Save";
             this.buttonSaveGenre.UseVisualStyleBackColor = true;
@@ -76,7 +80,11 @@
             this.buttonCancelGenre.Dock = System.Windows.Forms.DockStyle.Right;
             this.buttonCancelGenre.Location = new System.Drawing.Point(479, 17);
             this.buttonCancelGenre.Name = "buttonCancelGenre";
+<<<<<<< HEAD
             this.buttonCancelGenre.Size = new System.Drawing.Size(75, 31);
+=======
+            this.buttonCancelGenre.Size = new System.Drawing.Size(75, 38);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.buttonCancelGenre.TabIndex = 5;
             this.buttonCancelGenre.Text = "Cancel";
             this.buttonCancelGenre.UseVisualStyleBackColor = true;
@@ -100,9 +108,15 @@
             this.groupBoxDown.Controls.Add(this.buttonSaveGenre);
             this.groupBoxDown.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+<<<<<<< HEAD
             this.groupBoxDown.Location = new System.Drawing.Point(0, 185);
             this.groupBoxDown.Name = "groupBoxDown";
             this.groupBoxDown.Size = new System.Drawing.Size(557, 51);
+=======
+            this.groupBoxDown.Location = new System.Drawing.Point(0, 178);
+            this.groupBoxDown.Name = "groupBoxDown";
+            this.groupBoxDown.Size = new System.Drawing.Size(557, 58);
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             this.groupBoxDown.TabIndex = 7;
             this.groupBoxDown.TabStop = false;
             // 

@@ -72,6 +72,11 @@ namespace Library.GUI
 
             _rentList = _dbRented.GetReallyAllEntriesInfo();
             dataGridRentedBooks.DataSource = _rentList;
+<<<<<<< HEAD
+=======
+
+            dataGridRentedBooks.CurrentCell = dataGridRentedBooks.Rows[bookmarkRowIndex].Cells[bookmarkColumnIndex];
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
             lblMsg.Text = entryRemoved;
         }
 

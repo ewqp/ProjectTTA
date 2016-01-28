@@ -16,7 +16,11 @@ namespace Library.GUI
 {
     public partial class AddGenre : Form
     {
+<<<<<<< HEAD
         private DBBookGenre _dbGenre = new DBBookGenre();
+=======
+        private DBGenre _dbGenre = new DBGenre();
+>>>>>>> f9715373b5f16790bf1b0ea97406fb760cf51e0c
 
         public AddGenre()
         {            
